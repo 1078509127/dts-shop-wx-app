@@ -1,0 +1,89 @@
+/* pages/singleReserve/single.wxss */
+.container {
+  width: 95%;
+  background-color: white;
+  margin: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.form-group {
+  margin-bottom: 5px;
+  margin-left: 20rpx;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,picker,
+.form-group textarea,
+.form-group checkbox-group {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5rpx;
+}
+
+.form-group input[type="radio"] {
+  width: auto;
+  margin-right: 20rpx;
+}
+
+.form-group checkbox {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.form-group button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.picker{
+  position: relative;
+  align-items: center;
+  display: flex;
+  font-family: UICTFontTextStyleBody;
+  min-height: 1.4rem;
+  white-space: nowrap;
+}
+.arrow{
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 10rpx;
+}
+
+.sign-setting-border{
+  margin-left: 2%;
+  width:22%;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #999999;
+  font-size: 14px;
+  text-align: center;
+  font-family: -apple-system;
+  margin-bottom:15px;
+  border:1px solid #DBDBDB;
+}
+
+.selected{
+  background-color: #FFA404;
+  color: rgba(255, 255, 255, 1);
+  border:1px solid #FFA404;
+}
