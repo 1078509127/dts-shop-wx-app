@@ -26,7 +26,7 @@ Page({
   },
   //跳转个人
   selectSingle: function (e) {
-    console.log(e)
+    console.log(e.detail.value)
     let userInfo = wx.getStorageSync('userInfo');
     if(!userInfo){
       wx.navigateTo({
@@ -40,7 +40,7 @@ Page({
       });
     }else{
       wx.navigateTo({
-        url: '/pages/eventType/eventType?eventType=个人预约&scene=' + this.data.singleList[e.detail.value],
+        url: '/pages/eventType/eventType?eventType=个人预约&scene=' + this.data.singleList[e.detail.value].name,
       })
     }
   },
@@ -59,7 +59,7 @@ Page({
       });
     }else{
       wx.navigateTo({
-        url: '/pages/eventType/eventType?eventType=团队预约&scene=' + this.data.multiList[e.detail.value],
+        url: '/pages/eventType/eventType?eventType=团队预约&scene=' + this.data.multiList[e.detail.value].name,
       })
     }
   },

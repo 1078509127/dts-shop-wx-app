@@ -87,3 +87,9 @@
   color: rgba(255, 255, 255, 1);
   border:1px solid #FFA404;
 }
+.used{
+  pointer-events: none;
+  background-color: #efefef;
+  color: #999999;
+  border:1px solid #efefef;
+}

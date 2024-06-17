@@ -12,12 +12,12 @@ Page({
   data: {
     load_statue: true,
     shopInfo: {
-      name: '聚惠星',
+      name: '大连管委会',
       address: 'https://www.shequlianshang.com/dts/index.html',
-      latitude: 27.4871724214,
-      longitude: 110.8950504844,
-      linkPhone: '19908488612',
-      qqNumber: '686432822'
+      latitude: 38.84474236416702,
+      longitude: 121.51265680789948,
+      linkPhone: '暂无联系方式',
+      qqNumber: '暂无联系方式'
     },
   },
 

@@ -26,17 +26,17 @@ Page({
     activeNumber:"",
     remark:"",
     sexList: ['男', '女'],
-    tableList: [1, 2, 3, 4, 5, 6],
+    usedList: [],
     idx:"",
     tableList:[
-      {id: "1", number: "1号桌"},
-      {id: "2", number: "2号桌"},
-      {id: "3", number: "3号桌"},
-      {id: "4", number: "4号桌"},
-      {id: "5", number: "5号桌"},
-      {id: "6", number: "6号桌"},
-      {id: "7", number: "7号桌"},
-      {id: "8", number: "8号桌"},
+      {id: "0", number: "1号桌"},
+      {id: "1", number: "2号桌"},
+      {id: "2", number: "3号桌"},
+      {id: "3", number: "4号桌"},
+      {id: "4", number: "5号桌"},
+      {id: "5", number: "6号桌"},
+      {id: "6", number: "7号桌"},
+      {id: "7", number: "8号桌"},
     ],
   },
 
@@ -81,7 +81,6 @@ Page({
     }
     // 创造飙到验证实例
     this.WxValidate = new WxValidate.WxValidate(rules,messages);
-    console.log("wxV",this.WxValidate)
   },
   submitForm(e){
     let formData = e.detail.value;
@@ -124,14 +123,14 @@ Page({
   },
   bindDate: function(e) {
     wx.request({
-      url: api.isFull,
+      url: api.IsFull,
       method: 'GET',
       data: {
         scene: this.data.scene,
         date: e.detail.value
       },
       success: function (res) {
-        console.log(res)
+        console.log(res.data)
         if(res.data.code == 200){
           wx.showModal({
             title: res.message,
@@ -158,7 +157,7 @@ Page({
   },
   bindEnd: function(e) {
     wx.request({
-      url: api.isFull,
+      url: api.IsFull,
       method: 'GET',
       data: {
         scene: this.data.scene,
@@ -185,10 +184,30 @@ Page({
     this.setData({
       endTime: e.detail.value
     })
+    if(this.data.scene === '乒乓球馆'){
+      this.getTableList();
+    }
+  },
+
+  //点击结束时间获取已使用桌号
+  getTableList:function(){
+    var that = this
+    util.request(
+      api.GetTableList,
+      {scene:this.data.scene,date:this.data.date,startTime:this.data.startTime,endTime:this.data.endTime},
+      'GET'
+    ).then(function (res) {
+      if(res.code == 200){
+        that.setData({
+          usedList: res.data
+        })
+      }
+    })
   },
   bindTNumber: function(e) {
   },
   selectApply:function(e){
+    console.log(e)
      this.setData({
       idx:e.currentTarget.dataset.id,
       tableNumber: this.data.tableList[e.currentTarget.dataset.id].number
@@ -205,20 +224,26 @@ Page({
     })
     this.data.userinfo = wx.getStorageSync('userInfo');
     this.initValidate();
+    console.log("跳转带过来的参数：==",this.data.eventType,this.data.scene)
+
+    // 明天
+    var start = new Date();
+    start.setTime(start.getTime()+24*60*60*1000);
+    this.setData({
+      checkStartTime: start.getFullYear()+"-" + (start.getMonth()+1) + "-" + start.getDate()
+    })
+    // 15天后
+    var end = new Date();
+    end.setTime(start.getTime()+15*24*60*60*1000);
+    this.setData({
+      checkEndTime: end.getFullYear()+"-" + (end.getMonth()+1) + "-" + end.getDate()
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    // 明天
-    var start = new Date();
-    start.setTime(start.getTime()+24*60*60*1000);
-    this.data.checkStartTime = start.getFullYear()+"-" + (start.getMonth()+1) + "-" + start.getDate();
-    // 30天后
-    var end = new Date();
-    end.setTime(start.getTime()+30*24*60*60*1000);
-    this.data.checkEndTime = end.getFullYear()+"-" + (end.getMonth()+1) + "-" + end.getDate();
   },
 
   /**
