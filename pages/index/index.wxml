@@ -203,10 +203,10 @@
   </view>  
   <!-- 个体、团队 -->
   <view class="desc">
-    <picker class="btn" mode="selector" value="{{index}}" range="{{singleList}}" bindchange='selectSingle' >
+    <picker class="btn" mode="selector" value="{{index}}"  range-key="name" range="{{singleList}}" bindchange='selectSingle' >
       <button  type="primary">个人预约</button>
     </picker>
-    <picker class="btn" mode="selector" value="{{index}}" range="{{multiList}}" bindchange='selectMulti' >
+    <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{multiList}}" bindchange='selectMulti' >
       <button  type="primary">团队预约</button>
     </picker>
   </view>

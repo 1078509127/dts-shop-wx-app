@@ -11,6 +11,7 @@ module.exports = {
   DelReserve: WxApiRoot + 'reserve/delReserve', //取消预约接口
   SelReserve: WxApiRoot + 'reserve/selReserve', //查询预约接口
   isFull: WxApiRoot + 'reserve/isFull', //当日是否约满
+  ActiveList: WxApiRoot + 'reserve/activeList', //预约活动列表
   IndexUrl: WxApiRoot + 'home/index', //首页数据接口
   CatalogList: WxApiRoot + 'catalog/index', //分类目录全部分类数据接口
   CatalogCurrent: WxApiRoot + 'catalog/current', //分类目录当前分类数据接口

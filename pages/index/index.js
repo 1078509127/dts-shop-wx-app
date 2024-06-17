@@ -7,8 +7,8 @@ const app = getApp();
 
 Page({
   data: {
-    singleList: ['乒乓球馆', '健身房', '图书馆'],
-    multiList: ['微机室', '瑜伽室', '录音室', '烘培室'],
+    singleList: [],
+    multiList: [],
     newGoods: [],
     hotGoods: [],
     topics: [],
@@ -26,11 +26,18 @@ Page({
   },
   //跳转个人
   selectSingle: function (e) {
+    console.log(e)
     let userInfo = wx.getStorageSync('userInfo');
     if(!userInfo){
       wx.navigateTo({
         url: '/pages/auth/login/login',
       })
+    }else if(!this.data.singleList[e.detail.value].isOpen){
+      wx.showModal({
+        title: '目前'+this.data.singleList[e.detail.value].name+'已关闭预约',
+        icon: 'error',
+        duration: 2000
+      });
     }else{
       wx.navigateTo({
         url: '/pages/eventType/eventType?eventType=个人预约&scene=' + this.data.singleList[e.detail.value],
@@ -44,11 +51,36 @@ Page({
       wx.navigateTo({
         url: '/pages/auth/login/login',
       })
+    }else if(!this.data.multiList[e.detail.value].isOpen){
+      wx.showModal({
+        title: '目前'+this.data.multiList[e.detail.value].name+'已关闭预约',
+        icon: 'error',
+        duration: 2000
+      });
     }else{
       wx.navigateTo({
         url: '/pages/eventType/eventType?eventType=团队预约&scene=' + this.data.multiList[e.detail.value],
       })
     }
+  },
+  //获取活动列表
+  activeList:function(){
+    this.data.singleList = []
+    this.data.multiList = []
+    util.request(api.ActiveList, null, 'GET').then(res => {
+      let that = this
+       for(var i=0;i<res.length;i++){
+         if(res[i].name ==='乒乓球馆' || res[i].name ==='健身房' || res[i].name ==='图书馆'){
+          that.setData({
+            singleList : this.data.singleList.concat(res[i])
+          })
+         }else{
+          that.setData({
+            multiList : this.data.multiList.concat(res[i])
+          })
+         }
+       }
+    })
   },
 
   onShareAppMessage: function () {
@@ -187,6 +219,7 @@ Page({
     // }
   },
   onShow: function () {
+    this.activeList();
     // 每次页面显示，需获取是否用户登录，如果用户登录，则查询用户是否有优惠券，有则弹出优惠券领取窗口
     let that = this;
     let userInfo = wx.getStorageSync('userInfo');

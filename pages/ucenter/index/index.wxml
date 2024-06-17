@@ -116,7 +116,7 @@
       <view class='myService'>
          <view class='title acea-row row-middle jhx_f4'>我的服务</view>
          <view class='serviceList acea-row row-middle'>
-            <view class='item' wx:for="{{MyMenus}}" wx:key bindtap='goPages' data-url='{{item.url}}' wx:if="{{item.url!='#'}}">
+            <view class='item' wx:for="{{MyMenus}}" wx:key="index" bindtap='goPages' data-url='{{item.url}}' wx:if="{{item.url!='#'}}">
               <view class='pictrue'><image src='/static/images/{{item.pic}}'></image></view>
               <view class='jhx_f2'>{{item.name}}</view>
             </view>
