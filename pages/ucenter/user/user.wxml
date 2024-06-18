@@ -9,7 +9,7 @@
           <view>名字</view>
           <view class='input'><input type='text' disabled='true' name='nickname' value='{{userInfo.nickName}}'></input></view>
         </view>
-        <view class='item acea-row row-between-wrapper'>
+        <!-- <view class='item acea-row row-between-wrapper'>
           <view>手机号码</view>
           <button name='phone' class='phone' value='{{userInfo.phone}}' wx:if="{{!userInfo.phone}}"  bindgetphonenumber="getPhoneNumber" hover-class='none' open-type='getPhoneNumber'>
              点击获取
@@ -33,7 +33,7 @@
           <button name='phone' class='phone'  wx:else  hover-class='none'  bindtap="applyAgency" >
              点击申请
           </button>
-        </view>
+        </view> -->
         
         <view class='item acea-row row-between-wrapper'>
           <view>ID号</view>

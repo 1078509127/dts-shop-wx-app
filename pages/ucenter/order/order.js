@@ -9,20 +9,22 @@ Page({
     showType: 0,
     page: 1,
     size: 10,
-    totalPages: 1
+    totalPages: 1,
   },
+ 
   //取消按钮点击事件
   cancel_click:function(e){
-    let cancelData = e.currentTarget.dataset.testid;
-    cancelData.userId = this.data.userinfo.userId;
-    console.log(cancelData);
-    util.request(api.DelReserve,cancelData,'POST').then(function (res) {
+    var that = this
+    let datas = e.currentTarget.dataset.item
+    datas.userId = this.data.userinfo.userId;
+    util.request(api.DelReserve,datas,'POST').then(function (res) {
       if(res.code == 200){
         wx.showModal({
-          title: '成功',
+          title: '取消成功',
           icon: 'success',
           duration: 2000
         });
+      that.ReserveSel();
       }else{
         wx.showModal({
           title: res.message,
@@ -31,14 +33,12 @@ Page({
         });
       }
     })
-    this.ReserveSel();
   },
  //点击所有订单查询
  ReserveSel:function(){
    var that = this;
   this.data.userinfo = wx.getStorageSync('userInfo');
   util.request(api.SelReserve,this.data.userinfo,'GET').then(function (res) {
-    console.log(res)
     that.setData({
       showData : res.data
     })

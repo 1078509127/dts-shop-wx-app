@@ -94,9 +94,10 @@
          <view class='pictrue'><image src='{{userInfo.avatarUrl}}'></image></view>
          <view class='text'>
             <view class='acea-row row-middle'>
-               <view class='name line1'>{{userInfo.nickName || '请授权'}}</view>
+               <!-- <view class='name line1'>{{userInfo.nickName || '请授权'}}</view> -->
+               <view class='name line1'>用户编号：{{userInfo.userId || 0}}</view>
             </view>
-            <view class='id'>用户编号：1000{{userInfo.userId || 0}}</view>
+            <!-- <view class='id'>用户编号：{{userInfo.userId || 0}}</view> -->
          </view>
       </view>
       <text class='iconfont icon-shezhi' bindtap='goPages' data-url='/pages/ucenter/user/user'></text>
@@ -104,7 +105,7 @@
    <view class='wrapper'>
       <view class='myOrder'>
         <view class='title acea-row row-between-wrapper'>
-           <view class='jhx_f4'>我的订单</view>
+           <view class='jhx_f4'>我的预约</view>
         </view>
         <view class='orderState acea-row row-middle'>
             <view class='item' hover-class='none' bindtap='goOrder'>

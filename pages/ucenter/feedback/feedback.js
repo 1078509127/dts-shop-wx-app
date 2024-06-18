@@ -121,7 +121,11 @@ Page({
       this.setData({
         mobile: ''
       });
-      util.showErrorToast('请输入手机号码');
+      wx.showToast({
+        title: '请输入正确的手机号码',
+        icon: 'none',
+      })
+      //util.showErrorToast('请输入正确的手机号码');
       return false;
     }
 

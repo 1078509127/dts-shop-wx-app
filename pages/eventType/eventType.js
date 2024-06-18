@@ -16,18 +16,22 @@ Page({
     userinfo:"",
     eventType:"",
     scene:"",
+    userName:"",
+    phone:"",
     sex:"",
+    unit:"",
+    memberCard:"",
     date:"",
-    startTime:"",
-    endTime:"",
+    startTime:"12:00",
+    endTime:"18:00",
     tableNumber:"",
-    checkStartTime:"",
-    checkEndTime:"",
+    idx:"",
     activeNumber:"",
     remark:"",
+    checkStartTime:"",
+    checkEndTime:"",
     sexList: ['男', '女'],
     usedList: [],
-    idx:"",
     tableList:[
       {id: "0", number: "1号桌"},
       {id: "1", number: "2号桌"},
@@ -83,6 +87,7 @@ Page({
     this.WxValidate = new WxValidate.WxValidate(rules,messages);
   },
   submitForm(e){
+    var that = this;
     let formData = e.detail.value;
     formData.tableNumber = this.data.tableNumber;
     formData.eventType = this.data.eventType;
@@ -100,11 +105,51 @@ Page({
     }else{
       util.request(api.SaveReserve,formData,'POST').then(function (res) {
         if(res.code == 200){
-          wx.showModal({
-            title: '成功',
-            icon: 'success',
-            duration: 2000
-          });
+          if(that.data.eventType === '团队预约'){
+            wx.showModal({
+              title: '团队预约成功',
+              icon: 'success',
+              duration: 2000,
+              complete: function() {
+                that.setData({
+                  userName:"",
+                  phone:"",
+                  sex:"",
+                  unit:"",
+                  memberCard:"",
+                  date:"",
+                  startTime:"12:00",
+                  endTime:"18:00",
+                  tableNumber:"",
+                  idx:"",
+                  activeNumber:"",
+                  remark:"",
+                });
+              },
+            });
+          }else{
+            wx.showModal({
+              title: '个人预约成功',
+              icon: 'success',
+              duration: 2000,
+              complete: function() {
+                that.setData({
+                  userName:"",
+                  phone:"",
+                  sex:"",
+                  unit:"",
+                  memberCard:"",
+                  date:"",
+                  startTime:"12:00",
+                  endTime:"18:00",
+                  tableNumber:"",
+                  idx:"",
+                  activeNumber:"",
+                  remark:"",
+                });
+              },
+            });
+          }
         }else{
           wx.showModal({
             title: res.message,
@@ -115,6 +160,7 @@ Page({
       })
     }
   },
+ 
   bindSex: function(e) {
     let that = this;
     this.setData({

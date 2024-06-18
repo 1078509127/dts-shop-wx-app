@@ -1,11 +1,12 @@
 page {
   background: #f4f4f4;
   min-height: 100%;
+  width: 100%;
 }
 
 .container {
   background: #f4f4f4;
-  min-height: 100%;
+  min-height: 99%;
   padding-top: 30rpx;
 }
 
@@ -42,7 +43,7 @@ page {
 
 .fb-body .content {
   width: 100%;
-  height: 400rpx;
+  height: 540rpx;
   color: #333;
   line-height: 40rpx;
   font-size: 28rpx;
@@ -148,14 +149,15 @@ page {
 }
 
 .fb-mobile .mobile {
-  position: absolute;
+  /* position: absolute; */
   top: 27rpx;
   left: 30rpx;
-  height: 50rpx;
+  height: 104rpx;
   width: 100%;
   color: #333;
-  line-height: 50rpx;
+  line-height: 104rpx;
   font-size: 24rpx;
+  display: block;
 }
 
 .fb-mobile .clear-icon {

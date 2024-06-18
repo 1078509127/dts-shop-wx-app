@@ -8,7 +8,7 @@
 }
 
 .wx-login-btn {
-  margin: 60rpx 0 40rpx 0;
+  margin: 500rpx 0 40rpx 0;
   height: 96rpx;
   line-height: 96rpx;
   font-size: 30rpx;

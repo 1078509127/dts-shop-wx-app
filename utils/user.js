@@ -146,9 +146,32 @@ function authsubscribe(){
     },
   })
 }
+// 授权隐私协议
+function privaceAuth(){
+  wx.getPrivacySetting({
+    success: res => {
+      console.log("++++++++++++++++",res) // 返回结果为: res = { needAuthorization: true/false, privacyContractName: '《xxx隐私保护指引》' }
+      if (res.needAuthorization) {
+        // 需要弹出隐私协议
+        this.setData({
+          showPrivacy: true
+        })
+      } else {
+        // 用户已经同意过隐私协议，所以不需要再弹出隐私协议，也能调用已声明过的隐私接口
+        // wx.getUserProfile()
+        // wx.chooseMedia()
+        // wx.getClipboardData()
+        // wx.startRecord()
+      }
+    },
+    fail: () => {},
+    complete: () => {}
+  })
+}
 
 module.exports = {
   loginByWeixin,
   checkLogin,
   authsubscribe,
+  privaceAuth,
 };
