@@ -1,3 +1,12 @@
+.textSty{
+  display: -webkit-box; 
+  word-break: break-all; 
+  /* text-overflow: auto; */
+  font-size: 28rpx;
+   overflow: auto; 
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:10;
+ }
 .banner {
   width: 750rpx;
   height: 312rpx;
