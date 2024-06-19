@@ -93,7 +93,7 @@ Page({
     formData.eventType = this.data.eventType;
     formData.scene = this.data.scene;
     formData.userId = this.data.userinfo.userId;
-    console.log(formData)
+    console.log("formData>>>>>",formData)
     //验证规则 失败报错 成功请求后端
     if(!this.WxValidate.checkForm(formData)){
       const error = this.WxValidate.errorList[0];
@@ -105,6 +105,7 @@ Page({
     }else{
       util.request(api.SaveReserve,formData,'POST').then(function (res) {
         if(res.code == 200){
+          user.authsubscribe();//接收订阅
           if(that.data.eventType === '团队预约'){
             wx.showModal({
               title: '团队预约成功',
@@ -160,7 +161,7 @@ Page({
       })
     }
   },
- 
+
   bindSex: function(e) {
     let that = this;
     this.setData({

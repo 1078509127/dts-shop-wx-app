@@ -1,6 +1,7 @@
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 
+
 Page({
   data: {
     userinfo:"",
@@ -10,8 +11,9 @@ Page({
     page: 1,
     size: 10,
     totalPages: 1,
+    eventType:"",
   },
- 
+
   //取消按钮点击事件
   cancel_click:function(e){
     var that = this
@@ -38,7 +40,8 @@ Page({
  ReserveSel:function(){
    var that = this;
   this.data.userinfo = wx.getStorageSync('userInfo');
-  util.request(api.SelReserve,this.data.userinfo,'GET').then(function (res) {
+  console.log(this.data.eventType)
+  util.request(api.SelReserve,{userId:this.data.userinfo.userId,eventType:this.data.eventType},'GET').then(function (res) {
     that.setData({
       showData : res.data
     })
@@ -47,12 +50,15 @@ Page({
   onLoad: function(options) {
     // 页面初始化 options为页面跳转所带来的参数
     let that = this
-    try {
-      var tab = wx.getStorageSync('tab');
-      this.setData({
-        showType: tab
-      });
-    } catch (e) {}
+    // try {
+    //   var tab = wx.getStorageSync('tab');
+    //   this.setData({
+    //     showType: tab
+    //   });
+    // } catch (e) {}
+    that.setData({
+      eventType : options.eventType
+    })
     this.ReserveSel();
   },
   getOrderList() {

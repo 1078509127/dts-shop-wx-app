@@ -112,21 +112,22 @@ Page({
       });
     };
   },
-  goOrder() {
-    if (this.data.hasLogin) {
-      try {
-        wx.setStorageSync('tab', '0');
-      } catch (e) {
+  goOrder(e) {
+      let eventType = e.currentTarget.dataset.eventtype;
+      if (this.data.hasLogin) {
+        try {
+          wx.setStorageSync('tab', '0');
+        } catch (e) {
+        }
+        wx.navigateTo({
+          url: "/pages/ucenter/order/order?eventType="+eventType
+        });
+      } else {
+        wx.navigateTo({
+          url: "/pages/auth/login/login"
+        });
       }
-      wx.navigateTo({
-        url: "/pages/ucenter/order/order"
-      });
-    } else {
-      wx.navigateTo({
-        url: "/pages/auth/login/login"
-      });
-    }
-  },
+    },
   goOrderIndex(e) {
     if (this.data.hasLogin) {
       let tab = e.currentTarget.dataset.index

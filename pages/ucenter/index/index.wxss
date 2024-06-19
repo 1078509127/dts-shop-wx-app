@@ -22,7 +22,7 @@
 .user .wrapper .myOrder .title .allOrder{font-size:26rpx;color:#666;}
 .user .wrapper .myOrder .title .allOrder .iconfont{font-size:30rpx;margin-left:7rpx;}
 .user .wrapper .myOrder .orderState{height:160rpx;}
-.user .wrapper .myOrder .orderState .item{font-size:26rpx;color:#454545;text-align:center;margin-left: 35rpx;}
+.user .wrapper .myOrder .orderState .item{font-size:26rpx;color:#454545;text-align:center;width: 25%;}
 .user .wrapper .myOrder .orderState .item .pictrue{width:64rpx;height:64rpx;margin:0 auto 18rpx;}
 .user .wrapper .myOrder .orderState .item .pictrue image{width:100%;height:100%;}
 .user .wrapper .myService{background-color:#fff;margin-top:15rpx;border-radius:10rpx;}
