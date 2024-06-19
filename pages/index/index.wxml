@@ -195,12 +195,19 @@
     </swiper-item>
   </swiper>
   <!-- 信息公告 -->
-  <view class='news acea-row row-between-wrapper'>
+  <!-- <view class='news acea-row row-between-wrapper'>
        <view class='pictrue'>
         <image src='/static/images/news.png'></image>
         <view>{{"Nacos作为注册中心是强一致性的。在Nacos中，注册中心的数据是强一致的，即当服务实例发生变化时，所有的注册中心节点都会同步更新，保证数据的一致性。这样可以确保服务注册、发现和配置管理的准确性和可靠性"}}</view>
        </view>
-  </view>  
+  </view>   -->
+  <view class='news acea-row row-between-wrapper'>
+       <view class='pictrue'>
+        <image src='/static/images/news.png'></image>
+        <rich-text class="textSty" nodes="{{ArticleDetail}}"></rich-text>
+        <!-- <view>{{"Nacos作为注册中心是强一致性的。在Nacos中，注册中心的数据是强一致的，即当服务实例发生变化时，所有的注册中心节点都会同步更新，保证数据的一致性。这样可以确保服务注册、发现和配置管理的准确性和可靠性"}}</view> -->
+       </view> 
+  </view>
   <!-- 个体、团队 -->
   <view class="desc">
     <picker class="btn" mode="selector" value="{{index}}"  range-key="name" range="{{singleList}}" bindchange='selectSingle' >

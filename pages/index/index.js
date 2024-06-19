@@ -129,6 +129,26 @@ Page({
     });
   },
   onLoad: function (options) {
+//查询公告
+util.request(api.ArticleDetail,{
+  id:1
+},"GET").then(res => {
+  console.log(res+"----------------")
+
+   if(res.data.content !=undefined){
+     console.log(res.data.content)
+     this.setData({
+       ArticleDetail: res.data.content
+    
+     });
+   }else{
+     console.log(res.data.content)
+     this.setData({
+       ArticleDetail: res.data.content
+     });
+   }
+})
+///end
     this.setData({
       colseCoupon: false
     });
