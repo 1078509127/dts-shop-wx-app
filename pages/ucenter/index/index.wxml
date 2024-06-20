@@ -115,6 +115,7 @@
             <view class='item' hover-class='none' bindtap='goOrder' data-eventType="团队预约">
               <view class='pictrue'><image src='/static/images/a-zujian351.png'></image></view>
               <view class='jhx_f2'>团队预约</view>
+            </view>
         </view>
       </view>
       <view class='myService'>

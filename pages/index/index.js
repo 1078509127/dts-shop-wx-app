@@ -26,7 +26,6 @@ Page({
   },
   //跳转个人
   selectSingle: function (e) {
-    console.log(e.detail.value)
     let userInfo = wx.getStorageSync('userInfo');
     if(!userInfo){
       wx.navigateTo({
@@ -89,7 +88,6 @@ Page({
     if (userInfo) {
       shareUserId = userInfo.userId;
     }
-    console.log('/pages/index/index?shareUserId=' + shareUserId);
     return {
       title: '聚惠星',
       desc: '长沙市聚惠星科技与您共约',
@@ -133,16 +131,12 @@ Page({
 util.request(api.ArticleDetail,{
   id:1
 },"GET").then(res => {
-  console.log(res+"----------------")
-
    if(res.data.content !=undefined){
-     console.log(res.data.content)
      this.setData({
        ArticleDetail: res.data.content
     
      });
    }else{
-     console.log(res.data.content)
      this.setData({
        ArticleDetail: res.data.content
      });
@@ -161,7 +155,6 @@ util.request(api.ArticleDetail,{
     if (options.scene) {
       //这个scene的值存在则证明首页的开启来源于朋友圈分享的图,同时可以通过获取到的goodId的值跳转导航到对应的详情页
       var scene = decodeURIComponent(options.scene);
-      console.log("scene:" + scene);
 
       let info_arr = [];
       info_arr = scene.split(',');
