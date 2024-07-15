@@ -75,7 +75,9 @@
         <!-- <view class= "goods_head"><image class="logo" src = "{{item.store_img_url}}"></image></view>
         <view class="divLine"></view> -->
         <image class="goods_logo" src = "/static/images/home@selected.png"></image>
+        <text class="name">姓名：{{item.userName}}</text>
         <text class="goods_name">场所：{{item.scene}}</text>
+        <text class="table_row" wx:if="item.tableNumber !== ''">桌号：{{item.tableNumber}}</text>
         <text class="introduce">开始时间：{{item.startTime}}</text>
         <text class="amount">结束时间：{{item.endTime}}</text>
         <!-- <progress class = "goods_progress"  percent="{{item.saled_num}}" color = "#0cc22a" active = "true" ></progress> -->

@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/singleReserve/single",
     "pages/eventType/eventType",
@@ -12,6 +13,7 @@
     "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/footprint/footprint",
+    "pages/ucenter/gymnasiumDetail/gymnasiumDetail",
     "pages/ucenter/order/order",
     "pages/ucenter/orderDetail/orderDetail",
     "pages/ucenter/couponList/couponList",
@@ -62,19 +64,19 @@
   "tabBar": {
     "backgroundColor": "#fafafa",
     "borderStyle": "white",
-    "selectedColor": "#85c43f",
+    "selectedColor": "#1296db",
     "color": "#666",
     "list": [
       {
         "pagePath": "pages/index/index",
         "iconPath": "static/images/home.png",
-        "selectedIconPath": "static/images/home@selected.png",
+        "selectedIconPath": "static/images/homeblue.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/ucenter/index/index",
         "iconPath": "static/images/my.png",
-        "selectedIconPath": "static/images/my@selected.png",
+        "selectedIconPath": "static/images/myblue.png",
         "text": "我的"
       }
     ]
@@ -85,6 +87,9 @@
     "uploadFile": 10000,
     "downloadFile": 10000
   },
+ 
   "debug": true,
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading" : "requiredComponents",
+  "__usePrivacyCheck__": true
 }

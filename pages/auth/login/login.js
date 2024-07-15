@@ -5,39 +5,15 @@ var user = require('../../../utils/user.js');
 var app = getApp();
 Page({
   data: {
-    canIUseGetUserProfile: false, // 用于向前兼容
-  },
-  onLoad: function(options) {
-    // 页面初始化 options为页面跳转所带来的参数
-    // 页面渲染完成
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
-    }
-  },
-  onReady: function() {
-
-  },
-  onShow: function() {
-    // 页面显示
-  },
-  onHide: function() {
-    // 页面隐藏
-
-  },
-  onUnload: function() {
-    // 页面关闭
-
+    canIUseGetUserProfile: false, // 2.27之前用于向前兼容
+    showPop: false,
   },
   getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
-    // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
       desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         wx.showLoading({ 
-          title: "登陆中...",
+          title: "登录中...",
           mask: true 
         });
         user.checkLogin().catch(() => {
@@ -65,10 +41,8 @@ Page({
       return;
     }
     user.checkLogin().catch(() => {
-
       user.loginByWeixin(e.detail.userInfo).then(res => {
         app.globalData.hasLogin = true;
-
         wx.navigateBack({
           delta: 1
         })
@@ -76,9 +50,75 @@ Page({
         app.globalData.hasLogin = false;
         util.showErrorToast('微信登录失败');
       });
-
     });
   },
+  onLoad: function(options) {
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true
+      })
+    }
+    const privacySettingRes = this.getPrivacySetting();
+    console.log("privacySettingRes :>> ", privacySettingRes);
+    this.setData({
+      showPop: privacySettingRes.needAuthorization,
+    });
+  },
+  /**
+   * 按钮点击回调
+   */
+  popBtnTap(res) {
+    console.log("授权结果返回数据 :>> ", res);
+    console.log("授权结果 :>> ", res.detail);
+    if (res.detail.result) {
+      wx.showToast({
+        title: "同意授权",
+        icon: "success",
+      });
+    } else {
+      wx.showToast({
+        title: "拒绝授权",
+        icon: "error",
+      });
+    }
+  },
+  /**
+   * 获取隐私协议授权信息
+   * @returns {object} {needAuthorization: true/false, privacyContractName: '《xxx隐私保护指引》'}
+   */
+  getPrivacySetting() {
+    const res = {
+      needAuthorization: false,
+      privacyContractName: "基础库过低，不需要授权",
+    };
+    if (!wx.getPrivacySetting) return res;
+    return new Promise((resolve, reject) => {
+      wx.getPrivacySetting({
+        success(res) {
+          console.log(res)
+          resolve(res);
+        },
+        fail(err) {
+          reject(err);
+        },
+      });
+    });
+  },
+  onReady: function() {
+
+  },
+  onShow: function() {
+    // 页面显示
+  },
+  onHide: function() {
+    // 页面隐藏
+
+  },
+  onUnload: function() {
+    // 页面关闭
+
+  },
+  
   accountLogin: function() {
     wx.navigateTo({
       url: "/pages/auth/accountLogin/accountLogin"

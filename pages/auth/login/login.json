@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "登录",
-  "enablePullDownRefresh": false
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "privacyPopup": "/lib/privacyPopup/privacyPopup"
+  }
 }

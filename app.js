@@ -21,7 +21,6 @@ App({
   onShow: function(options) {
     user.checkLogin().then(res => {
       this.globalData.hasLogin = true;
-      user.privaceAuth()
     }).catch(() => {
       this.globalData.hasLogin = false;
     });

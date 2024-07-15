@@ -1,222 +1,69 @@
 <!--index.wxml-->
+
 <view class="container">
- <!-- <view class="search">
-    <navigator url="/pages/search/search" class="input jhx_bg1">
-      <image class="icon"></image>
-      <text class="txt jhx_f1">商品搜索, 共{{goodsCount}}款供您选择...</text>
-    </navigator>
-  </view> -->
-  <!-- <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-    <swiper-item wx:for="{{banner}}" wx:key="id">
-      <image src="{{item.url}}" background-size="cover"></image>
-    </swiper-item>
-  </swiper> -->
-  <!-- <view class='news acea-row row-between-wrapper'>
-       <view class='pictrue'><image src='/static/images/news.png'></image></view>
-       <view class='swiperTxt'>
-            <swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval="2500" duration="500" vertical="true" circular="true">
-                <block wx:for="{{articles}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-                    <swiper-item catchtouchmove='catchTouchMove'>
-                        <navigator  hover-class="none"  url='/pages/article/article?id={{item.id}}' class='acea-row row-between-wrapper'>
-                            <view class='text acea-row row-between-wrapper'>
-                                <view class='label border2' wx:if="{{index == 0}}">最新</view>
-                                <view class='newsTitle line1 jhx_f3'>{{item.title}}</view>
-                            </view>
-                            <view class='iconfont icon-xiangyou'></view>
-                        </navigator>
-                    </swiper-item>
-                  </block>
-            </swiper> 
-       </view>
-    </view> -->
-  <!-- <view class="m-menu jhx_bg0">
-    <navigator hover-class="none" class="item" url="/pages/category/category?id={{item.id}}" wx:for="{{channel}}" wx:key="id">
-      <image src="{{item.iconUrl}}" background-size="cover"></image>
-      <text class="jhx_f2">{{item.name}}</text>
-    </navigator>
-    <navigator hover-class="none" class="item" url="/pages/catalog/catalog" open-type="switchTab">
-      <image src="/static/images/channel_category.png" background-size="cover"></image>
-      <text class="jhx_f2">更多分类</text>
-    </navigator>
-  </view> -->
-  <!-- <view class="a-section a-groupon" wx:if="{{groupons.length > 0}}">
-    <view class='title acea-row row-between-wrapper'>
-      <view class='text'>
-        <view class='name jhx_f4'>团购专区</view>
-        <view class='jhx_f5'>邀请好友一起团购,享受折扣减免</view>
-      </view>
-      <navigator class='more jhx_f6' hover-class="none" url='/pages/groupon/grouponList/grouponList'>更多<text class='iconfont icon-jiantou'></text>
-      </navigator>
-    </view>
-
-    <view class="b">
-      <view class="item" wx:for="{{groupons}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-        <navigator url="/pages/goods/goods?id={{item.goods.id}}">
-          <image class="img" src="{{item.goods.picUrl}}" background-size="cover"></image>
-          <view class="right">
-            <view class="text">
-              <view class="header">
-                <text class="name jhx_f7">{{item.goods.name}}</text>
-                <view class="capsule-tag">
-                  <zan-capsule color="#e67249" leftText="团购" rightText="{{item.groupon_member}}" />
-                </view>
-              </view>
-              <text class="desc jhx_f5">{{item.goods.brief}}</text>
-              <view class="price">
-                <view class="jhx_f8">
-                <text class="jhx_f9">团购价：</text>￥{{item.groupon_price}}
-                </view>
-                <view class="counterPrice jhx_f9">￥{{item.goods.counterPrice}}</view>
-              </view>
-            </view>
-          </view>
-        </navigator>
-      </view>
-    </view>
+<!-- <view style="width: 100%;height: 300rpx; background: -webkit-linear-gradient(top,#85c43f,white); position: absolute;"></view> -->
+ <view style="height: 80%;"> 
+    <text class="logoText" style="position: absolute;top: 220rpx;left: 22%;font-size:30px;color: white;">职   工   文   体   中   心
+    </text>
+    <text style="position: absolute;top: 290rpx;left: 37%;font-size:30px;color: white;">小   程   序</text>
+   <image class="logoBgimg"style="width: 100%;height: 550rpx;" src="/static/images/bgimg.jpg"></image><text></text>
   </view>
-  <view class="a-section a-topic" wx:if="topics.length > 0">
-    <view class="h">
-      <view>
-        <navigator url="/pages/topic/topic">
-          <text class="txt jhx_f4">活动专场</text>
-        </navigator>
-      </view>
-    </view>
-    <view class="b">
-      <scroll-view scroll-x class="list">
-        <view class="item" wx:for="{{topics}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-          <navigator url="../topicDetail/topicDetail?id={{item.id}}">
-            <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
-            <view class="np">
-              <text class="name jhx_f7">{{item.title}}</text>
-              <text class="price jhx_f8">￥{{item.price}}元起</text>
-            </view>
-            <text class="desc jhx_f5">{{item.subtitle}}</text>
-          </navigator>
-        </view>
-      </scroll-view>
-    </view>
-  </view>
-  
-  <view class="a-section a-brand">
-    <view class='title acea-row row-between-wrapper'>
-      <view class='text'>
-        <view class='name jhx_f4'>品牌厂商直供</view>
-        <view class='desc jhx_f5'>知名品牌厂商直供，好品质，更优惠</view>
-      </view>
-      <navigator class='more jhx_f6' hover-class="none" url='../brand/brand'>更多<text class='iconfont icon-jiantou'></text>
-      </navigator>
-    </view>
-    <view class="b">
-      <view class="item item-1" wx:for="{{brands}}" wx:key="id">
-        <navigator url="/pages/brandDetail/brandDetail?id={{item.id}}">
-          <view class="wrap">
-            <image class="img" src="{{item.picUrl}}" mode="aspectFill"></image>
-            <view class="mt">
-             <text class="brand">{{item.name}}</text>
-              <text class="price">{{item.floorPrice}}</text>
-              <text class="unit">元起</text>
-            </view>
-          </view>
-        </navigator>
-      </view>
-    </view>
-  </view>
-  <view class="a-section a-new" wx:if="{{newGoods.length > 0}}">
-    <view class='title acea-row row-between-wrapper'>
-      <view class='text'>
-        <view class='name jhx_f4'>全网 · 新品首发<text class='new font-color'>NEW~</text></view>
-        <view class='desc jhx_f5'>全网最新上架上架</view>
-      </view>
-      <navigator class='more jhx_f6' hover-class="none" url='../newGoods/newGoods'>更多<text class='iconfont icon-jiantou'></text>
-      </navigator>
-    </view>
-    <view class="b">
-      <view class="item" wx:for="{{newGoods}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-        <navigator url="../goods/goods?id={{item.id}}">
-          <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
-          <text class="name jhx_f7">{{item.name}}</text>
-          <text class="price jhx_f8">￥{{item.retailPrice}}</text>
-        </navigator>
-      </view>
-    </view>
-  </view>
-
-  <view class="a-section a-popular" wx:if="{{hotGoods.length > 0}}">
-   <view class='hot-bg'>
-          <view class='title acea-row row-between-wrapper'>
-            <view class='text'>
-            <text class='label'>人气推荐</text>根据销量、搜索、好评等综合得出
-            </view>
-            <navigator class='more jhx_f6' hover-class="none" url='../hotGoods/hotGoods'>更多<text class="iconfont icon-jiantou"></text></navigator>
-          </view>
-    </view>
-       
-    <view class="b">
-      <view class="item" wx:for="{{hotGoods}}" wx:for-index="index" wx:for-item="item" wx:key="id">
-        <navigator url="/pages/goods/goods?id={{item.id}}">
-          <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
-          <view class="right">
-            <view class="text">
-              <text class="name jhx_f7">{{item.name}}</text>
-              <text class="desc jhx_f5">{{item.brief}}</text>
-              <text class="price jhx_f8">￥{{item.retailPrice}}</text>
-            </view>
-          </view>
-        </navigator>
-      </view>
-    </view>
-  </view>
-
-  <view class="good-grid" wx:for="{{floorGoods}}" wx:key="id">
-    <view class="h">
-      <text class="jhx_f4">{{item.name}}</text>
-    </view>
-    <view class="b">
-      <block wx:for="{{item.goodsList}}" wx:for-index="iindex" wx:for-item="iitem" wx:key="id">
-        <view class="item {{iindex % 2 == 0 ? '' : 'item-b'}}">
-          <navigator url="../goods/goods?id={{iitem.id}}" class="a">
-            <image class="img" src="{{iitem.picUrl}}" background-size="cover"></image>
-            <text class="name jhx_f7">{{iitem.name}}</text>
-            <text class="price jhx_f8">￥{{iitem.retailPrice}}</text>
-          </navigator>
-        </view>
-      </block>
-    </view>
-    <navigator url="/pages/category/category?id={{item.id}}" class="t">
-      <view class="txt jhx_f6">{{'更多'+item.name+'好物 >'}}</view>
-    </navigator>
-  </view> -->
-
 <!-- 轮播图 -->
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="id">
       <image src="{{item.url}}" background-size="cover"></image>
     </swiper-item>
   </swiper>
-  <!-- 信息公告 -->
-  <!-- <view class='news acea-row row-between-wrapper'>
-       <view class='pictrue'>
-        <image src='/static/images/news.png'></image>
-        <view>{{"Nacos作为注册中心是强一致性的。在Nacos中，注册中心的数据是强一致的，即当服务实例发生变化时，所有的注册中心节点都会同步更新，保证数据的一致性。这样可以确保服务注册、发现和配置管理的准确性和可靠性"}}</view>
-       </view>
-  </view>   -->
-  <view class='news acea-row row-between-wrapper'>
-       <view class='pictrue'>
-        <image src='/static/images/news.png'></image>
-        <rich-text class="textSty" nodes="{{ArticleDetail}}"></rich-text>
-        <!-- <view>{{"Nacos作为注册中心是强一致性的。在Nacos中，注册中心的数据是强一致的，即当服务实例发生变化时，所有的注册中心节点都会同步更新，保证数据的一致性。这样可以确保服务注册、发现和配置管理的准确性和可靠性"}}</view> -->
+  
+  <view style="height: 20rpx;width: 100%;background-color: rgb(226, 226, 223);margin-top: 300rpx;"></view>
+  <view class='news acea-row row-between-wrapper' style="background-color: #f7f8f6;margin: 20rpx 10rpx 20rpx 10rpx;height: 260rpx;">
+       <view class='pictrue' style=" border-radius: 10px; border: 1px solid rgb(223, 213, 213);box-shadow: 10px 10px 10px rgba(151, 140, 140, 0.5);">
+        <image src='/static/images/notice.png'style="height:40rpx;width:40rpx;float:left;margin-top:7px;margin-left:10px">
+         </image>
+         <view style="width: 100%;height: 10px;"> 
+           <text style="float: left;margin-top:7px ;height: 15px;">公告内容</text>
+          </view>
+        
+         <view style="height: 4rpx;width: 100%;background-color: rgb(226, 226, 223);margin-top: 50rpx;"></view>
+         <view style="margin:30rpx 20rpx 10rpx 20rpx;height: 130rpx">
+         <rich-text class="textSty" nodes="{{ArticleDetail}}"style="background:white; text-align: left;margin:10rpx 10rpx 50rpx 10rpx;height: 120rpx;"></rich-text>
+        </view>
        </view> 
+       
   </view>
   <!-- 个体、团队 -->
-  <view class="desc">
-    <picker class="btn" mode="selector" value="{{index}}"  range-key="name" range="{{singleList}}" bindchange='selectSingle' >
-      <button  type="primary">个人预约</button>
+  
+  
+    <!-- <view style="height: 100px;"class="cps2">
+      <view class="cp-item2 "style="margin-right:10px;background-image:url(https://www.25xt.com/uploadfiles/auto/image/2020-12-1/25xt-155563-SportsIllustrationKitGraphicIllustration/25xt-155563-SportsIllustrationKitGraphicIllustrationz10.jpg);background-size:100%">
+        <picker class="btn" mode="selector" value="{{index}}"  range-key="name" range="{{singleList}}" bindchange='selectSingle' style="color: rgb(223, 243, 233);font-size: large;">
+          个人预约
+       </picker>
+      </view>
+      <view class="cp-item2"
+      style="background-image:url(https://www.25xt.com/uploadfiles/auto/image/2020-7-9/25xt-7500075-Coob-CreativeSigninSignUptemplate/25xt-7500075-Coob-CreativeSigninSignUptemplatez2.jpg);background-size: 100%;"> 
+        <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{multiList}}" bindchange='selectMulti' style="color: rgb(244, 252, 244);font-size: large;">
+          团队预约
+        </picker>
+      </view>
+    </view> -->
+
+   <view class="desc" style="height: 200rpx;">
+    <picker class="btn" mode="selector" value="{{index}}"  range-key="name"  bindchange='selectSingle' >
+       <button type="primary" style="background-color: rgb(38, 132, 240);">个人预约</button>
     </picker>
-    <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{multiList}}" bindchange='selectMulti' >
-      <button  type="primary">团队预约</button>
+    <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{multiList}}" bindchange='selectMulti'>
+       <button  type="primary" style="background-color: rgb(38, 132, 240);">团队预约</button> 
     </picker>
-  </view>
+  </view> 
+
+ 
+<modal wx:if="{{canIUseGetUserProfile}}" hidden="{{hideModal}}" title="进行微信登录" confirm-text="一键微信登录" cancel-text="取消登录"  bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}" >
+  <!-- <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile">微信直接登录</button>
+  <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin">微信直接登录</button> -->
+</modal>
+<modal wx:else open-type="getUserInfo" hidden="{{hideModal}}" title="进行微信登录" confirm-text="一键微信登录" cancel-text="取消登录"  bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}" >
+</modal>
      
 </view>
 <coupon-window window='{{window}}' couponList="{{coupon}}" bind:onColse="onColse"></coupon-window>

@@ -1,6 +1,7 @@
 // 以下是业务服务器API地址
  // 本机开发API地址
 var WxApiRoot = 'http://localhost:8080/wx/';
+//var WxApiRoot = ' https://9aj327pr1567.vicp.fun/wx/';
 // 测试环境部署api地址
 // var WxApiRoot = 'http://192.168.0.101:8070/demo/wx/';
 // 线上云平台api地址
@@ -8,10 +9,14 @@ var WxApiRoot = 'http://localhost:8080/wx/';
 
 module.exports = {
   SaveReserve: WxApiRoot + 'reserve/reserve', //预约接口
+  TeamReserve: WxApiRoot + 'reserve/teamReserve',//团队预约接口
   DelReserve: WxApiRoot + 'reserve/delReserve', //取消预约接口
   SelReserve: WxApiRoot + 'reserve/selReserve', //查询预约接口
+  SelCategury: WxApiRoot + 'catalog/categurInfo', //查询场馆信息
   IsFull: WxApiRoot + 'reserve/isFull', //当日是否约满
+  teamisFull:WxApiRoot + 'reserve/teamisFull',//团队是否约满
   ActiveList: WxApiRoot + 'reserve/activeList', //预约活动列表
+  Scan: WxApiRoot + 'reserve/scan', //扫一扫接口
   IndexUrl: WxApiRoot + 'home/index', //首页数据接口
   CatalogList: WxApiRoot + 'catalog/index', //分类目录全部分类数据接口
   CatalogCurrent: WxApiRoot + 'catalog/current', //分类目录当前分类数据接口

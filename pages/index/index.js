@@ -1,12 +1,17 @@
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../utils/user.js');
-
+// const login = require('../auth/login/login.js');
+// var userinfo=null;
 //获取应用实例
 const app = getApp();
 
 Page({
   data: {
+    hideModal:true, //模态框的状态  true-隐藏  false-显示
+    canIUseGetUserProfile: false, // 2.27之前用于向前兼容
+    showPop: false,
+    animationData:{},//
     singleList: [],
     multiList: [],
     newGoods: [],
@@ -24,10 +29,77 @@ Page({
     window: false,
     colseCoupon: false
   },
+
+  getUserProfile(e) {
+    wx.getUserProfile({
+      desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        wx.showLoading({ 
+          title: "登录中...",
+          mask: true 
+        });
+        user.checkLogin().catch(() => {
+          user.loginByWeixin(res.userInfo).then(res => {
+            app.globalData.hasLogin = true;
+            wx.navigateBack({
+              delta: 1
+            })
+          }).catch((err) => {
+            app.globalData.hasLogin = false;
+            util.showErrorToast('微信登录失败');
+          });
+        });
+      },
+      fail: (res) => {
+        app.globalData.hasLogin = false;
+        util.showErrorToast('微信登录失败');
+      }
+    });
+  },
+
+  wxLogin: function(e) {
+    if (e.detail.userInfo == undefined) {
+      app.globalData.hasLogin = false;
+      util.showErrorToast('微信登录失败');
+      return;
+    }
+    user.checkLogin().catch(() => {
+      user.loginByWeixin(e.detail.userInfo).then(res => {
+        app.globalData.hasLogin = true;
+        wx.navigateBack({
+          delta: 1
+        })
+      }).catch((err) => {
+        app.globalData.hasLogin = false;
+        util.showErrorToast('微信登录失败');
+      });
+    });
+  },
+  //模态框确定绑定
+  confirm:function(e){
+    this.getUserProfile(e);
+    //this.wxLogin(e)
+
+  },
+  cancel:function(e){
+  let thst=this;
+  thst.setData({
+    hideModal:true
+  })
+  },
+
+ 
   //跳转个人
   selectSingle: function (e) {
     let userInfo = wx.getStorageSync('userInfo');
+    debugger
     if(!userInfo){
+      let that = this
+      // that.setData({
+      //   hideModal:false
+      
+      // })
+     
       wx.navigateTo({
         url: '/pages/auth/login/login',
       })
@@ -47,9 +119,14 @@ Page({
   selectMulti: function (e) {
     let userInfo = wx.getStorageSync('userInfo');
     if(!userInfo){
-      wx.navigateTo({
-        url: '/pages/auth/login/login',
+      //显示登录modal框
+      let that = this
+      that.setData({
+        hideModal:false
       })
+      // wx.navigateTo({
+      //   url: '/pages/auth/login/login',
+      // })
     }else if(!this.data.multiList[e.detail.value].isOpen){
       wx.showModal({
         title: '目前'+this.data.multiList[e.detail.value].name+'已关闭预约',
@@ -69,15 +146,19 @@ Page({
     util.request(api.ActiveList, null, 'GET').then(res => {
       let that = this
        for(var i=0;i<res.length;i++){
-         if(res[i].name ==='乒乓球馆' || res[i].name ==='健身房' || res[i].name ==='图书馆'){
+         if(res[i].name ==='乒乓球馆' ){//|| res[i].name ==='健身房' || res[i].name ==='图书馆'
           that.setData({
             singleList : this.data.singleList.concat(res[i])
           })
-         }else{
-          that.setData({
-            multiList : this.data.multiList.concat(res[i])
-          })
-         }
+         }else {
+           if(res[i].name ==="健身房" || res[i].name ==="图书馆"){
+             //"健身房" "图书馆 不放入数据
+          }else{
+            that.setData({
+              multiList : this.data.multiList.concat(res[i])
+            })
+          }
+        }
        }
     })
   },
@@ -127,6 +208,17 @@ Page({
     });
   },
   onLoad: function (options) {
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true
+      })
+    }
+    // const privacySettingRes = this.getPrivacySetting();
+    // console.log("privacySettingRes :>> ", privacySettingRes);
+    // this.setData({
+    //   showPop: privacySettingRes.needAuthorization,
+    // });
+
 //查询公告
 util.request(api.ArticleDetail,{
   id:1
@@ -284,4 +376,54 @@ util.request(api.ArticleDetail,{
       }
     })
   },
+
+// 显示遮罩层
+// showModal: function () {
+//   var that=this;
+//   that.setData({
+//     hideModal:false
+//   })
+//   var animation = wx.createAnimation({
+//     duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+//     timingFunction: 'ease',//动画的效果 默认值是linear
+//   })
+//   this.animation = animation 
+//   setTimeout(function(){
+//     that.fadeIn();//调用显示动画
+//   },200)   
+// },
+
+// // 隐藏遮罩层
+// hideModal: function () {
+//   var that=this; 
+//   var animation = wx.createAnimation({
+//     duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+//     timingFunction: 'ease',//动画的效果 默认值是linear
+//   })
+//   this.animation = animation
+//   that.fadeDown();//调用隐藏动画   
+//   setTimeout(function(){
+//     that.setData({
+//       hideModal:true
+//     })      
+//   },720)//先执行下滑动画，再隐藏模块
+  
+// },
+
+// //动画集
+// fadeIn:function(){
+//   this.animation.translateY(0).step()
+//   this.setData({
+//     animationData: this.animation.export()//动画实例的export方法导出动画数据传递给组件的animation属性
+//   })    
+// },
+// fadeDown:function(){
+//   this.animation.translateY(300).step()
+//   this.setData({
+//     animationData: this.animation.export(),  
+//   })
+// }, 
+
+
+
 })

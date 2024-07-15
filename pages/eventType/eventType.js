@@ -1,9 +1,9 @@
-// pages/eventType/eventType.js
+// pages/eventType/eventType.js 
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../utils/user.js');
 const WxValidate = require('../../utils/WxValidate.js');
-
+var startTime=''
 
 //获取应用实例
 const app = getApp();
@@ -22,8 +22,8 @@ Page({
     unit:"",
     memberCard:"",
     date:"",
-    startTime:"12:00",
-    endTime:"18:00",
+    startTime:"15:00",
+    endTime:"20:00",
     tableNumber:"",
     idx:"",
     activeNumber:"",
@@ -38,9 +38,9 @@ Page({
       {id: "2", number: "3号桌"},
       {id: "3", number: "4号桌"},
       {id: "4", number: "5号桌"},
-      {id: "5", number: "6号桌"},
-      {id: "6", number: "7号桌"},
-      {id: "7", number: "8号桌"},
+      // {id: "5", number: "6号桌"},
+      // {id: "6", number: "7号桌"},
+      // {id: "7", number: "8号桌"},
     ],
   },
 
@@ -71,15 +71,21 @@ Page({
       activeNumber: {required: "请输入活动人数",fax: "请输入正确传真号码"},
       remark: {required: "请简单描述",fax: "请输入正确传真号码"},
     }
+
     if(this.data.eventType === "个人预约" ){
       if(this.data.scene === "乒乓球馆"){
         delete rules.activeNumber;delete rules.remark;
         delete messages.activeNumber;delete messages.remark;
       }else{
+        
         delete rules.tableNumber;delete rules.activeNumber;delete rules.remark;
         delete messages.tableNumber;delete messages.activeNumber;delete messages.remark;
       }
     }else{
+      // 开始时间不显示提示
+      delete messages.startTime; delete messages.endTime;
+      delete rules.startTime; delete rules.endTime;
+      //end 时间不显示提示
       delete rules.tableNumber;delete rules.memberCard;
       delete messages.tableNumber;delete rules.memberCard;
     }
@@ -87,6 +93,7 @@ Page({
     this.WxValidate = new WxValidate.WxValidate(rules,messages);
   },
   submitForm(e){
+    gger
     var that = this;
     let formData = e.detail.value;
     formData.tableNumber = this.data.tableNumber;
@@ -103,6 +110,66 @@ Page({
         duration: 2000
       });
     }else{
+      //预约按钮 ==团队type
+      if(that.data.eventType === '团队预约'){
+        util.request(api.TeamReserve,formData,'POST').then(function (res) {
+          if(res.code == 200){
+            user.authsubscribe();//接收订阅
+            if(that.data.eventType === '团队预约'){
+              wx.showModal({
+                title: '团队预约成功',
+                icon: 'success',
+                duration: 2000,
+                complete: function() {
+                  that.setData({
+                    userName:"",
+                    phone:"",
+                    sex:"",
+                    unit:"",
+                    memberCard:"",
+                    date:"",
+                    // startTime:"12:00",
+                    // endTime:"18:00",
+                    tableNumber:"",
+                    idx:"",
+                    activeNumber:"",
+                    remark:"",
+                  });
+                },
+              });
+            }else{
+              wx.showModal({
+                title: '个人预约成功',
+                icon: 'success',
+                duration: 2000,
+                complete: function() {
+                  that.setData({
+                    userName:"",
+                    phone:"",
+                    sex:"",
+                    unit:"",
+                    memberCard:"",
+                    date:"",
+                    startTime:"12:00",
+                    endTime:"18:00",
+                    tableNumber:"",
+                    idx:"",
+                    activeNumber:"",
+                    remark:"",
+                  });
+                },
+              });
+            }
+          }else{
+            wx.showModal({
+              title: res.message,
+              icon: 'error',
+              duration: 2000
+            });
+          }
+        })
+      }else{
+        //个人预约
       util.request(api.SaveReserve,formData,'POST').then(function (res) {
         if(res.code == 200){
           user.authsubscribe();//接收订阅
@@ -160,6 +227,7 @@ Page({
         }
       })
     }
+    }
   },
 
   bindSex: function(e) {
@@ -168,74 +236,203 @@ Page({
       sex: that.data.sexList[e.detail.value]
     })
   },
+  //输入活动预约人数check
+  NumCheck:function(type,rsNum,MaxNum){
+    if(!rsNum){
+      setTimeout(()=>{
+         wx.showToast({
+             title: '只能输入数字'+type+'最多预约'+MaxNum+'人',
+             icon: 'none'
+         })
+         return
+     },1000);
+     
+   }else{
+     if(Number(rsNum.input)>MaxNum){
+       setTimeout(()=>{
+         wx.showToast({
+             title: '只能输入数字'+type+'最多预约'+MaxNum+'人',
+             icon: 'none'
+         })
+         return
+     },1000);
+     }
+   }
+
+  },
+  //活动人数
+  activeNum:function(e){
+    var type = this.data.scene//活动室类型
+    var regNum=new RegExp('[0-9]','g');
+    var rsNum=regNum.exec(e.detail.value);
+  switch(type) {
+      case '微机室':
+        this.NumCheck(type,rsNum,30)
+         break;
+      case '瑜伽室':
+        this.NumCheck(type,rsNum,15)
+         break;
+      case '书法室':
+        this.NumCheck(type,rsNum,20)
+        break;
+      case '录音教室':
+        this.NumCheck(type,rsNum,15)
+        break;
+      case '烘培室':
+        this.NumCheck(type,rsNum,30)
+        break;
+      default:
+         
+    }
+
+  },
   bindDate: function(e) {
-    wx.request({
-      url: api.IsFull,
-      method: 'GET',
-      data: {
-        scene: this.data.scene,
-        date: e.detail.value
-      },
-      success: function (res) {
-        console.log(res.data)
-        if(res.data.code == 200){
-          wx.showModal({
-            title: res.message,
-            icon: 'success',
-            duration: 2000
-          });
-        }else{
-          wx.showModal({
-            title: res.data.message,
-            icon: 'error',
-            duration: 2000
-          });
-        }
-      },
-    });
-    this.setData({
-      date: e.detail.value
-    })
-  },
-  bindStart: function(e) {
-    this.setData({
-      startTime: e.detail.value
-    })
-  },
-  bindEnd: function(e) {
-    wx.request({
-      url: api.IsFull,
-      method: 'GET',
-      data: {
-        scene: this.data.scene,
-        date: this.data.date,
-        startTime: this.data.startTime+":00",
-        endTime: e.detail.value+":00"
-      },
-      success: function (res) {
-        if(res.data.code == 200){
-          wx.showModal({
-            title: res.message,
-            icon: 'success',
-            duration: 2000
-          });
-        }else{
-          wx.showModal({
-            title: res.data.message,
-            icon: 'error',
-            duration: 2000
-          });
-        }
+    const weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+    const weekday = new Date(e.detail.value).getDay();
+    const week = weekdays[weekday]
+    if(week == '周一' || week == '周二'){
+      wx.showModal({
+        title: '开放时间为：星期三 至 星期日',
+        icon: 'error',
+        duration: 2000
+      });
+    }else{
+      //团队预约接口
+      if(this.data.eventType=='团队预约'){
+        wx.request({
+          url: api.teamisFull,
+          method: 'GET',
+          data: {
+            eventType:this.data.eventType,
+            scene: this.data.scene,
+            date: e.detail.value
+          },
+          success: function (res) {
+            console.log(res.data)
+            if(res.data.code == 200){
+              wx.showModal({
+                title: res.message,
+                icon: 'success',
+                duration: 2000
+              });
+            }else{
+              wx.showModal({
+                title: res.data.message,
+                icon: 'error',
+                duration: 2000
+              });
+            }
+          },
+        });
+      }else{
+        //个人预约接口
+        wx.request({
+          url: api.IsFull,
+          method: 'GET',
+          data: {
+            eventType:this.data.eventType,
+            scene: this.data.scene,
+            date: e.detail.value
+          },
+          success: function (res) {
+            console.log(res.data)
+            if(res.data.code == 200){
+              wx.showModal({
+                title: res.message,
+                icon: 'success',
+                duration: 2000
+              });
+            }else{
+              wx.showModal({
+                title: res.data.message,
+                icon: 'error',
+                duration: 2000
+              });
+            }
+          },
+        });
       }
-    });
-    this.setData({
-      endTime: e.detail.value
-    })
-    if(this.data.scene === '乒乓球馆'){
-      this.getTableList();
+      
+      this.setData({
+        date: e.detail.value
+      })
     }
   },
-
+  
+  bindStart: function(e) {
+    const validate = this.validateTime(e.detail.value,this.data.endTime);
+    if(validate != null){
+      wx.showModal({
+        title: validate,
+        icon: 'error',
+        duration: 2000
+      });
+    }else{
+      this.setData({
+        startTime: e.detail.value
+      })
+    }
+  },
+  bindEnd: function(e) {
+    const validate = this.validateTime(this.data.startTime,e.detail.value);
+    if(validate != null){
+      wx.showModal({
+        title: validate,
+        icon: 'error',
+        duration: 2000
+      });
+    }else{
+      wx.request({
+        url: api.IsFull,
+        method: 'GET',
+        data: {
+          scene: this.data.scene,
+          date: this.data.date,
+          startTime: this.data.startTime+":00",
+          endTime: e.detail.value+":00"
+        },
+        success: function (res) {
+          if(res.data.code == 200){
+            wx.showModal({
+              title: res.message,
+              icon: 'success',
+              duration: 2000
+            });
+          }else{
+            wx.showModal({
+              title: res.data.message,
+              icon: 'error',
+              duration: 2000
+            });
+          }
+        }
+      });
+      this.setData({
+        endTime: e.detail.value
+      })
+      if(this.data.scene === '乒乓球馆'){
+        this.getTableList();
+      }
+    }
+  },
+  //时间间隔
+  validateTime:function(startTimeStr, endTimeStr) {
+  // 将时间字符串转换为分钟数
+  const [startHour, startMinute] = startTimeStr.split(':').map(Number);
+  const [endHour, endMinute] = endTimeStr.split(':').map(Number);
+  const startTotalMinutes = startHour * 60 + startMinute;
+  const endTotalMinutes = endHour * 60 + endMinute;
+  // 检查结束时间是否大于等于开始时间
+  if (endTotalMinutes <= startTotalMinutes) {
+    return "结束时间不能小于等与开始时间";
+  }
+  // 检查时间间隔是否不大于两小时（120 分钟）
+  const timeDifference = endTotalMinutes - startTotalMinutes;
+  if (timeDifference > 120) {
+    return "预约时间不能超过过两格小时";
+  }
+  return null;
+},
   //点击结束时间获取已使用桌号
   getTableList:function(){
     var that = this
@@ -272,19 +469,45 @@ Page({
     this.data.userinfo = wx.getStorageSync('userInfo');
     this.initValidate();
     console.log("跳转带过来的参数：==",this.data.eventType,this.data.scene)
+    //健身房和团队预约时间限制不同
+    let now = new Date();
+    let later = new Date(now);//开始周
+    let mon = new Date(now);// 结束
+    let time2="";
+    let timeMon="";
 
-    // 明天
-    var start = new Date();
-    start.setTime(start.getTime()+24*60*60*1000);
-    this.setData({
-      checkStartTime: start.getFullYear()+"-" + (start.getMonth()+1) + "-" + start.getDate()
-    })
-    // 15天后
-    var end = new Date();
-    end.setTime(start.getTime()+15*24*60*60*1000);
-    this.setData({
-      checkEndTime: end.getFullYear()+"-" + (end.getMonth()+1) + "-" + end.getDate()
-    })
+    var date = new Date();
+    var start = ''
+    var end = ''
+    if(this.data.scene == '乒乓球馆'){
+      let now = new Date(),
+      time1=now.getFullYear() + "-" + (now.getMonth()+1) + "-" + now.getDate();
+      console.log(time1);
+      later.setDate(now.getDate());//当前日开始
+      mon.setDate(now.getDate() + 2);//2天
+      time2 = later.getFullYear() + "-" + (later.getMonth() +1 ) + "-" + later.getDate();
+      timeMon = mon.getFullYear() + "-" + (mon.getMonth() +1 ) + "-" + mon.getDate();
+    }else{
+
+      let now = new Date(),
+      time1=now.getFullYear() + "-" + (now.getMonth()+1) + "-" + now.getDate();
+      console.log(time1);
+
+      //获取当前时间
+      // let hh = now.getHours();
+      // let mm = now.getMinutes()<10?'0'+new Date().getMinutes() : new Date().getMinutes();
+      // let ss = now.getSeconds()<10?'0'+new Date().getSeconds() : new Date().getSeconds();
+      // let time = hh + ":" + mm + ":" + ss;
+      // console.log(time);
+
+      //获取一周后日期
+      later.setDate(now.getDate() + 7);//1周
+      mon.setDate(now.getMonth() +2);//1月
+       time2 = later.getFullYear() + "-" + (later.getMonth() +1 ) + "-" + later.getDate();
+       timeMon = mon.getFullYear() + "-" + (mon.getMonth() +2 ) + "-" + mon.getDate();
+    }
+      this.setData({checkStartTime: time2})
+      this.setData({checkEndTime: timeMon})
   },
 
   /**

@@ -280,15 +280,23 @@ page{
 }
 .goods_logo{
   position: absolute;
-  top:90rpx;
-  left:5%;
+  top:70rpx;
+  left:2%;
   width:75px;
   height: 75px;
 }
+.name{
+  position: absolute;
+  top:40rpx;
+  left:25%;
+  width:39%;
+  font-size: 30rpx;
+  text-align: left;
+}
 .goods_name{
   position: absolute;
-  top:70rpx;
-  left:30%;
+  top:80rpx;
+  left:25%;
   width:39%;
   font-size: 30rpx;
   text-align: left;
@@ -299,13 +307,20 @@ page{
   text-overflow:ellipsis;
   -webkit-box-orient:vertical;
   word-break:break-all; */
-  
+}
+.table_row{
+  position: absolute;
+  top:120rpx;
+  left:25%;
+  width:39%;
+  font-size: 25rpx;
+  text-align: left;
 }
 .introduce{
   position: absolute;
-  top:140rpx;
-  left:30%;
-  width:39%;
+  top:160rpx;
+  left:25%;
+  width:100%;
   text-align: left;
   font-size: 25rpx;
   /* height: 55rpx;
@@ -316,23 +331,25 @@ page{
 }
 .amount{
   position: absolute;
-  top:190rpx;
-  left:30%;
-  width:39%;
+  top:200rpx;
+  left:25%;
+  width:100%;
   font-size: 25rpx;
   text-align: left;
   /* height: 55rpx;
   color:rgba(185, 20, 20, 0.796); */
 }
+
 .btn_goods{
   position: absolute;
-  top:100rpx;
+  top:60rpx;
   right:6%;
   width: 150rpx;
   height: 60rpx;
   background: #67e956;
   z-index: 99999;
 }
+
 .btn_goods::after{
   border: 0ch;
 }

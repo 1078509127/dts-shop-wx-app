@@ -1,3 +1,8 @@
+
+.half-circle-image {
+  width: 100%;           /* 图片宽度填满容器 */
+  height: auto;          /* 图片高度自动 */
+}
 .user .header{padding:0 30rpx;height:190rpx;position:relative;}
 .user .header:after { position: absolute;left: 0;right: 0;bottom: -98rpx;z-index: -1;
   content:'';height:100rpx;width: 100%;border-radius: 0 0 50% 50%;background-color: #85c43f;}

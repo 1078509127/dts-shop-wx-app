@@ -1,5 +1,5 @@
 <view class='user'>
-   <!-- <view class='header bg-color acea-row row-between-wrapper'>
+  <!-- <view class='header bg-color acea-row row-between-wrapper'>
       <view class='picTxt acea-row row-between-wrapper' bindtap="goLogin">
          <view class='pictrue'><image src='{{userInfo.avatarUrl}}'></image></view>
          <view class='text'>
@@ -89,44 +89,91 @@
          </view>
       </view>
    </view> -->
-   <view class='header bg-color acea-row row-between-wrapper'>
-      <view class='picTxt acea-row row-between-wrapper' bindtap="goLogin">
-         <view class='pictrue'><image src='{{userInfo.avatarUrl}}'></image></view>
-         <view class='text'>
-            <view class='acea-row row-middle'>
-               <!-- <view class='name line1'>{{userInfo.nickName || '请授权'}}</view> -->
-               <view class='name line1'>用户编号：{{userInfo.userId || 0}}</view>
-            </view>
-            <!-- <view class='id'>用户编号：{{userInfo.userId || 0}}</view> -->
-         </view>
+  <!-- //////////////////////////////////// -->
+   <view class="half-circle-container" style="height: 400rpx;">
+    <image class="" src="/static/images/bgimg.jpg" style="width: 100%;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;height: 550rpx;"></image>
+    <view class='picTxt acea-row row-between-wrapper' bindtap="goLogin" style="position: absolute;top: 220rpx;left: 20rpx;">
+      <view class='pictrue'>
+         <image src='https://pic.qqans.com/up/2024-6/17183257325107618.jpg' style="height: 70px;width: 70px;border-radius: 50%;margin: 60rpx 60rpx;"></image>
+          <!--{{userInfo.avatarUrl}} -->
       </view>
-      <text class='iconfont icon-shezhi' bindtap='goPages' data-url='/pages/ucenter/user/user'></text>
-   </view>
-   <view class='wrapper'>
-      <view class='myOrder'>
-        <view class='title acea-row row-between-wrapper'>
-           <view class='jhx_f4'>我的预约</view>
+      <view class='text'>
+        <view class='acea-row row-middle'>
+          <view class='name line1' style="color: white;font-size: 35rpx;">用户ID：{{userInfo.userId || 0}}</view>
+          <!-- <text class='iconfont icon-shezhi' style="margin: 200rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text> -->
         </view>
-        <view class='orderState acea-row row-middle'>
-            <view class='item' hover-class='none' bindtap='goOrder' data-eventType="个人预约">
-              <view class='pictrue'><image src='/static/images/a-zujian341.png'></image></view>
-              <view class='jhx_f2'>个人预约</view>
-            </view>
-            <view class='item' hover-class='none' bindtap='goOrder' data-eventType="团队预约">
-              <view class='pictrue'><image src='/static/images/a-zujian351.png'></image></view>
-              <view class='jhx_f2'>团队预约</view>
-            </view>
+        <text class='iconfont icon-shezhi' style="position:absolute;top: 110rpx; left: 570rpx;color: white;font-size: 40rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text>
+      </view>
+      
+    </view>
+    
+  </view> 
+  <!-- ////////////// -->
+  <!-- <view>
+  <image src="../../../static/images/bgimg.jpg"  style="width: 100%; position: relative;"></image>
+    <view class='picTxt acea-row row-between-wrapper' bindtap="goLogin">
+      <view class='pictrue'>
+        <image src='{{userInfo.avatarUrl}}'></image>
+      </view>
+      <view class='text'>
+        <view class='acea-row row-middle'>
+          <view class='name line1'>{{userInfo.nickName || '请授权'}}</view>22
+          <view class='name line1'>用户ID：{{userInfo.userId || 0}}</view>
+        </view>
+        <view class='id'>用户编号：{{userInfo.userId || 0}}</view> 11
+      </view>
+    </view>
+    <text class='iconfont icon-shezhi' bindtap='goPages' data-url='/pages/ucenter/user/user'></text>
+  </view> -->
+  <view class='wrapper'>
+    <view class='myOrder'>
+      <view class='title acea-row row-between-wrapper'>
+        <view class='jhx_f4'>我的预约</view>
+      </view>
+      <view class='orderState acea-row row-middle'>
+        <view class='item' hover-class='none' bindtap='goOrder' data-eventType="个人预约">
+          <view class='pictrue'>
+            <image src='/static/images/a-zujian341.png'></image>
+          </view>
+          <view class='jhx_f2'>个人预约</view>
+        </view>
+        <view class='item' hover-class='none' bindtap='goOrder' data-eventType="团队预约">
+          <view class='pictrue'>
+            <image src='/static/images/a-zujian351.png'></image>
+          </view>
+          <view class='jhx_f2'>团队预约</view>
         </view>
       </view>
-      <view class='myService'>
-         <view class='title acea-row row-middle jhx_f4'>我的服务</view>
-         <view class='serviceList acea-row row-middle'>
-            <view class='item' wx:for="{{MyMenus}}" wx:key="index" bindtap='goPages' data-url='{{item.url}}' wx:if="{{item.url!='#'}}">
-              <view class='pictrue'><image src='/static/images/{{item.pic}}'></image></view>
-              <view class='jhx_f2'>{{item.name}}</view>
-            </view>
-         </view>
+    </view>
+    <view class='myService'>
+      <view class='title acea-row row-middle jhx_f4'>我的服务</view>
+      <view class='serviceList acea-row row-middle'>
+        <view class='item' wx:for="{{MyMenus}}" wx:key="index" bindtap='goPages' data-url='{{item.url}}' wx:if="{{item.url!='#'}}">
+          <view class='pictrue'>
+            <image src='/static/images/{{item.pic}}'></image>
+          </view>
+          <view class='jhx_f2'>{{item.name}}</view>
+        </view>
       </view>
-   </view>
+    </view>
+    <view class='myService'>
+      <view class='title acea-row row-middle jhx_f4'>场馆介绍</view>
+      <view class='serviceList acea-row row-middle'>
+        <view class='item' wx:for="{{MyMenus2}}" wx:key="index" bindtap='gogymnasiumDetail' data-url='{{item.url}}' wx:if="{{item.url!='#'}}">
+          <view class='pictrue'>
+            <image src='/static/images/{{item.pic}}'></image>
+          </view>
+          <view class='jhx_f2'>{{item.name}}</view>
+        </view>
+
+      </view>
+    </view>
+    <modal wx:if="{{canIUseGetUserProfile}}" hidden="{{hideModal}}" title="进行微信登录" confirm-text="一键微信登录" cancel-text="取消登录" bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}">
+      <!-- <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile">微信直接登录</button>
+     <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin">微信直接登录</button> -->
+    </modal>
+    <modal wx:else open-type="getUserInfo" hidden="{{hideModal}}" title="进行微信登录" confirm-text="一键微信登录" cancel-text="取消登录" bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}">
+    </modal>
+  </view>
 </view>
 <authorize bind:onLoadFun='onLoadFun'></authorize>
