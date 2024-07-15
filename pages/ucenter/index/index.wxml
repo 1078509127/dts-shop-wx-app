@@ -154,6 +154,10 @@
           </view>
           <view class='jhx_f2'>{{item.name}}</view>
         </view>
+        <view class='item'bindtap='scanBtn'>
+              <view class='pictrue'><image src='/static/images/扫一扫.png'></image></view>
+              <view class='jhx_f2'>扫一扫</view>
+        </view>
       </view>
     </view>
     <view class='myService'>

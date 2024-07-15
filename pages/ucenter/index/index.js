@@ -26,7 +26,7 @@ Page({
       // { url: "/pages/groupon/myGroupon/myGroupon", pic: "group.png", name: "我的拼团" },
       // { url: "/pages/ucenter/address/address", pic: "address.png", name: "地址管理" },
       { url: "/pages/ucenter/feedback/feedback", pic: "feedback.png", name: "意见反馈" },
-      { url: "/pages/about/about", pic: "about_us.png", name: "关于我们" },
+      //{ url: "/pages/about/about", pic: "扫一扫.png", name: "关于我们" },
       // { url: "/pages/ucenter/feedback/feedback", pic: "cg.png", name: "查看场馆" },
 
       // *,{ url: "/pages/about/about", pic: "comment.png", name: "使用帮助" }
@@ -108,6 +108,36 @@ Page({
       //   url: "/pages/auth/login/login"
       // });
     };
+  },
+
+  scanBtn:function(){
+    const userInfo =  wx.getStorageSync('userInfo');
+    wx.scanCode({
+      success (res) {
+        console.log(userInfo,res.result)
+        wx.request({
+          url: api.Scan,
+          data:{userId:userInfo.userId,scene:res.result},
+          method: 'GET',
+          success(res){
+            wx.showModal({
+              title: res.data.message,
+              icon: 'success',
+              duration: 2000
+            });
+          },
+          fail(res){
+            wx.showModal({
+              title: res.data.message,
+              icon: 'error',
+              duration: 2000
+            });
+          }
+        })
+      },fail: (err) => {
+        console.error('扫描失败', err);
+      }
+    })
   },
 
   /**
