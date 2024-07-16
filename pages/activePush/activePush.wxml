@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="picker">
+    <view class="fb-type">
+      <input class="mobile" maxlength="100" type="String" placeholder="请输入活动主题" bindinput="bindTheme" value="{{theme}}" />
+    </view>
+  </view>
+  <view class="picker">
+    <view class="fb-type">
+      <input class="mobile" maxlength="100" type="String" placeholder="请输入活动时间" bindinput="bindTime" value="{{time}}" />
+    </view>
+  </view>
+  <view class="picker">
+    <view class="fb-type">
+      <input class="mobile" maxlength="100" type="String" placeholder="请输入发布者" bindinput="bindProvider" value="{{provider}}" />
+    </view>
+  </view>
+  <view class="picker">
+    <view class="fb-type">
+      <input class="mobile" maxlength="100" type="String" placeholder="请输入活动地点" bindinput="bindSite" value="{{site}}" />
+    </view>
+  </view>
+  <view class="picker">
+    <view class="fb-type">
+      <input class="mobile" maxlength="100" type="String" placeholder="请输入组织机构" bindinput="bindOrgan" value="{{organ}}" />
+    </view>
+  </view>
+<!-- <view class="fb-body">
+  <textarea class="content" placeholder="活动详情..." bindinput="bindContent" maxlength="500" auto-focus="true" value="{{content}}" />
+</view> -->
+  <view class="fb-btn" bindtap="submitBtn">发布</view>
+</view>

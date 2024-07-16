@@ -1,0 +1,9 @@
+<!--pages/closeReserve/closeReserve.wxml-->
+<view>
+  <block wx:key="index" wx:for="{{setList}}">
+    <view class="view-row">
+      <view class="name-row">{{item.name}}</view>
+      <switch class="switch-row" checked="{{item.isOpen}}" bindchange="switch1Change" data-item="{{item}}" />
+    </view>
+  </block>
+</view>

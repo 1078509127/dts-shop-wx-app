@@ -1,0 +1,14 @@
+<!--pages/activeDesc/activeDesc.wxml-->
+<!-- <text>pages/activeDesc/activeDesc.wxml</text> -->
+<view style="padding: 10rpx;height: 100%;">
+   <view style="font-size: 30rpx; font-weight: 500;text-align: center;">活动信息修改</view>
+    <view class="text-area-box">
+              <!-- <form bindsubmit="bindFormSubmit" > -->
+                <!-- <view class="text-area-len">{{textAreaValue.length}}/{{textAreaMaxLen}}</view> -->
+                  <textarea class="textareaText" bindblur="getInputValue" maxlength="1000" value="{{ArticleDetailInfo}}" bindTextAreaBlur="getInputValue" />
+                 
+             <!-- </form>  -->
+      </view>
+      <button class="commitSty" type="primary" bindtap="upclick">修改</button> <!--bindtap="upclick" -->
+      <!-- class="downloadBtn"  -->
+</view>

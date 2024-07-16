@@ -1,0 +1,142 @@
+/* components/privacyPopup/privacyPopup.wxss */
+.pop-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 999;
+  top: 0rpx;
+  left: 0rpx;
+}
+.pop-page-open {
+  animation: openPopBg 0.3s ease-in-out both;
+}
+.pop-page-hide {
+  animation: hidePopBg 0.3s ease-in-out both;
+}
+.pop-box {
+  z-index: 999;
+  background-color: #ffffff;
+  width: 100vw;
+  height: 45vh;
+  border-radius: 60rpx 60rpx 0rpx 0rpx;
+}
+.pop-box-hide {
+  animation: hidePop 0.3s ease-in-out both;
+}
+.pop-box-open {
+  animation: openPop 0.3s ease-in-out both;
+}
+
+@keyframes openPop {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes openPopBg {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.pop-title {
+  height: 80rpx;
+  width: 100%;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.disagree-btn-class,
+.agree-btn-class {
+  font-weight: normal;
+  padding: 18rpx !important;
+  width: 50% !important;
+  margin: auto;
+}
+.agree-btn-class {
+  margin-top: 30rpx;
+  background-color: #28c841;
+  color: #ffffff;
+  font-size: 30rpx;
+}
+.disagree-btn-class {
+  font-size: 26rpx;
+  color: red;
+  margin-top: 10rpx;
+}
+
+.pop-content {
+  padding: 20rpx;
+  font-size: 28rpx;
+}
+
+.privacy-class {
+  color: #576b95;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.flex,
+.flex-jc,
+.flex-ac,
+.flex-jb,
+.flex-jc-ac,
+.flex-jb-ac,
+.flex-jc-col,
+.flex-je-ac,
+.flex-jc-ae,
+.flex-jc-col,
+.flex-ac-col,
+.flex-jc-ac-col {
+  display: flex;
+}
+
+.flex-jc,
+.flex-jc-ac,
+.flex-jc-col,
+.flex-jc-ae,
+.flex-jc-col,
+.flex-jc-ac-col {
+  justify-content: center;
+}
+
+.flex-jb {
+  justify-content: space-between;
+}
+
+.flex-ac,
+.flex-jc-ac,
+.flex-jb-ac,
+.flex-je-ac,
+.flex-ac-col,
+.flex-jc-ac-col {
+  align-items: center;
+}
+
+.flex-je-ac {
+  justify-content: flex-end;
+}
+
+.flex-jb-ac {
+  justify-content: space-between;
+}
+
+.flex-jc-col,
+.flex-ac-col,
+.flex-jc-ac-col {
+  flex-flow: column;
+}
+
+.flex-jc-ae {
+  align-items: flex-end;
+}

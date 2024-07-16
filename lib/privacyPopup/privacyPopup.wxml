@@ -1,0 +1,15 @@
+<!--components/privacyPopup/privacyPopup.wxml-->
+<view id="privacyPopup" class="pop-page flex-jc-ae {{showPop ? 'pop-page-open':''}}" catch:touchmove="catchTouchmove" wx:if="{{showPop}}">
+    <view class="pop-box {{showPop?'pop-box-open':''}}">
+        <view class="pop-title flex-jc-ac">{{title}}</view>
+        <view class="pop-content">
+            <view>{{desc1}}</view>
+            <view bind:tap="openPrivacyContract" class="privacy-class">{{privacyContractName}}</view>
+            <view>{{desc2}}</view>
+        </view>
+        <view class="bottom-btn-box flex-jb-ac-col">
+            <button class="agree-btn-class" open-type="agreePrivacyAuthorization" bind:tap="handleTap" data-result="agree">同意授权</button>
+            <view class="disagree-btn-class flex-jc-ac" bind:tap="handleTap" data-result="disagree">拒绝授权</view>
+        </view>
+    </view>
+</view>

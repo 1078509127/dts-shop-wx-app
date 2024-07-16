@@ -1,0 +1,22 @@
+/* pages/closeReserve/closeReserve.wxss */
+.view-row{
+  background-color: #efefef;
+  width: 100%;
+  margin: 10rpx auto;
+}
+.name-row{
+  width: 80%;
+  height: 110rpx;
+  line-height: 90rpx;
+  font-size: 40rpx;
+  background-color: #efefef;
+  display: inline-block;
+  padding-left: 20rpx;
+}
+.switch-row{
+  width: 20%;
+  height: 110rpx;
+  line-height: 110rpx;
+  display: inline-block;
+  text-align: center;
+}

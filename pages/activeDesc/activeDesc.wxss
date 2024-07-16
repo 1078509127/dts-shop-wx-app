@@ -1,0 +1,49 @@
+/* pages/activeDesc/activeDesc.wxss */
+/* pages/activeDesc/activeDesc.wxss */
+.textSty{
+  margin: 10px auto;
+  width: 90%;
+  height: 100%;
+  text-align: right;
+
+}
+
+.commitSty{
+  position: fixed;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 60rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  }
+  .text-area-box {
+    position: fixed;
+    padding: 0 auto;
+    width: 98%;
+    height: 1200rpx;
+    margin-top: 20rpx;
+    background-color: #f1f1f1;
+    border-radius: 20rpx;
+    border:2px solid rgb(196, 173, 173);
+  }
+.textareaText{
+  height: 100%;
+   width: 100%;
+   background-color:white;
+   text-align: center;
+}
+ 
+  /* .text-area-len {
+    width: 150rpx;
+    height: 50rpx;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    background-color: #dbe3f7;
+    color: #1552ff;
+    position: absolute;
+    right: 0rpx;
+    top: -60rpx;
+    text-align: center;
+    line-height: 50rpx;
+  } */

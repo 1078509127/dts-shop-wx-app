@@ -1,0 +1,13 @@
+<!--pages/messageView/messageView.wxml-->
+<text>pages/messageView/messageView.wxml</text>
+<scroll-view class='content' scroll-y="true" style='width: 100%; height:89%;background-color: #efefef;'>
+  <block wx:for="{{messageinfoArr}}" wx:key="scene"> 
+     <view  class = "button_item" data-testid="{{item}}"  >
+       <button  class="goods" data-testid="{{item}}" bindtap="cancel_click">
+        <!-- <text class="goods_name"> {{item}}</text> -->
+         <text class="introduce">{{item}}</text>
+        <!-- <text class="amount">{{item.endTime}}</text> - -->
+      </button>
+    </view> 
+  </block> 
+</scroll-view>

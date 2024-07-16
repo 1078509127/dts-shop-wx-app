@@ -1,0 +1,27 @@
+<!--pages/reserveInfo/reserveInfo.wxml-->
+<view>
+  <view class="search">
+    <view class="input jhx_bg1">
+      <image class="icon"></image>
+      <input class="txt jhx_f1" placeholder="请输入名字/卡号..." value="{{field}}" bindinput="inputCom"></input>
+    </view>
+    <button class="btn" type="primary" bindtap="selectBtn">查询</button>
+  </view>
+  <scroll-view class='content' scroll-y="true" style='width: 100%; height:82%;background-color: #efefef;' bindscrolltolower="paging">
+  <block wx:for="{{showData}}" wx:key="scene">
+    <view class = "button_item">
+      <button class="goods">
+        <text class="goods_name">姓名:{{item.userName}}</text>
+        <text class="introduce">场所:{{item.scene}}</text>
+        <text class="member-row">会员卡号:{{item.memberCard}}</text>
+        <text class="start-row">开始时间:{{item.startTime}}</text>
+        <text class="end-row">结束时间:{{item.endTime}}</text>
+        <button class = "btn_goods" data-item="{{item}}" bindtap="cancel_click" >
+          <text class = "buy">查看</text>
+        </button>
+      </button>
+    </view>
+  </block>
+</scroll-view>
+<button class="downloadBtn" type="primary" bindtap="download">导出</button>
+</view>

@@ -1,0 +1,19 @@
+<!--pages/swiperSet/swiperSet.wxml-->
+<view class="wrap">
+  <view class="img-wrap">
+    <view class="imglist">
+      <view class="item" wx:for="{{imgs}}" wx:key="item">
+        <image src="{{item.url}}" alt=""></image>
+        <view class='delete' bindtap='deleteImg' data-item="{{item}}">
+          <image src="../../static/images/closel.png"></image>
+        </view>
+      </view>
+      <view class="last-item" wx:if="{{imgs.length >= 6 ? false : true}}" bindtap="bindUpload">
+        <text class="sign">+</text>
+      </view>
+    </view>
+    <view class="txt">
+      <button type="primary" bindtap="btn" style="background-color: rgb(180, 132, 70);height: 60rpx;line-height: 60rpx;">上传图片</button>
+    </view>
+  </view>
+</view>
