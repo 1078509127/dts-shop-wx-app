@@ -115,17 +115,23 @@ Page({
 
   //上传按钮
   btn:function(){
-    wx.showModal({
-      title: "提示",
-      content: "上传成功",
-      success: function (res) {
-        if (res.confirm) {
-          wx.switchTab({
-            url:'/pages/index/index'
-          })
+    if(this.data.imgs.length>0){
+      wx.showModal({
+        title: "提示",
+        content: "上传成功",
+        success: function (res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url:'/pages/index/index'
+            })
+          }
         }
-      }
-    })
+      })
+    }else{
+      wx.showModal({
+        title: "请选择要上传的图片",
+       })
+    }
   },
 
   /**
