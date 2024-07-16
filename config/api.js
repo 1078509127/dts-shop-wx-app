@@ -1,6 +1,6 @@
 // 以下是业务服务器API地址
  // 本机开发API地址
-var WxApiRoot = 'http://192.168.2.249:8080/wx/';
+var WxApiRoot = 'http://localhost:8080/wx/';
 //var WxApiRoot = ' https://9aj327pr1567.vicp.fun/wx/';
 // 测试环境部署api地址
 // var WxApiRoot = 'http://192.168.0.101:8070/demo/wx/';
@@ -28,6 +28,19 @@ module.exports = {
   AuthReset: WxApiRoot + 'auth/reset', //账号密码重置
   AuthRegisterCaptcha: WxApiRoot + 'auth/regCaptcha', //验证码
   AuthBindPhone: WxApiRoot + 'auth/bindPhone', //绑定微信手机号
+
+  //管理端接口
+  ManReserve: WxApiRoot + 'manage/list', //预约查询
+  selMessage:WxApiRoot + 'manage/getMessage', //留言查看
+  AdmArticleDetail: WxApiRoot + 'manage/detail',//公告详情//////后增加////
+  activePush: WxApiRoot + 'manage/sendMsg', //活动推送
+  creSwiper: WxApiRoot + 'manage/create', //轮播图上传
+  selSwiper: WxApiRoot + 'ad/list', //轮播图查看
+  updSwiper: WxApiRoot + 'ad/update', //轮播图修改
+  delSwiper: WxApiRoot + 'ad/delete', //轮播图删除
+  activeList: WxApiRoot + 'manage/activeList', //预约通道查询
+  activeUpdate: WxApiRoot + 'manage/activeUpdate', //预约通道关闭
+  QRcode: WxApiRoot + 'manage/QRcode', //二维码生成
 
   GoodsCount: WxApiRoot + 'goods/count', //统计商品总数
   GoodsList: WxApiRoot + 'goods/list', //获得商品列表
