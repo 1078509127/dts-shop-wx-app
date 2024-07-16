@@ -73,6 +73,6 @@
       <label>活动内容描述：</label>
       <textarea class="area" name="remark" value="{{remark}}" placeholder="请输入活动内容描述"></textarea>
     </view>
-    <button type="primary" form-type="submit" style="height: 80rpx;width: 94%;line-height: 80rpx;margin: auto;margin-bottom: 20rpx;">预约</button>
+    <button type="primary" form-type="submit" style="height: 80rpx;width: 94%;line-height: 80rpx;margin: auto;margin-bottom: 20rpx;background-color: rgb(38, 132, 240);">预约</button>
   </form>
 </view>

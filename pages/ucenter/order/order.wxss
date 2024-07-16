@@ -346,7 +346,8 @@ page{
   right:6%;
   width: 150rpx;
   height: 60rpx;
-  background: #67e956;
+  /* background: #67e956; */
+  background-color: rgb(38, 132, 240);
   z-index: 99999;
 }
 

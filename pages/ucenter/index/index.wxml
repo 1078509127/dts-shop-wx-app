@@ -99,10 +99,10 @@
       </view>
       <view class='text'>
         <view class='acea-row row-middle'>
-          <view class='name line1' style="color: white;font-size: 35rpx;">用户ID：{{userInfo.userId || 0}}</view>
+          <view class='name line1' style="color: white;font-size: 45rpx;">用户ID：{{userInfo.userId || 0}}</view>
           <!-- <text class='iconfont icon-shezhi' style="margin: 200rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text> -->
         </view>
-        <text class='iconfont icon-shezhi' style="position:absolute;top: 110rpx; left: 570rpx;color: white;font-size: 40rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text>
+        <text class='iconfont icon-shezhi' style="position:absolute;top: 100rpx; left: 570rpx;color: white;font-size: 55rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text>
       </view>
       
     </view>

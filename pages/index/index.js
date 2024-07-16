@@ -92,7 +92,6 @@ Page({
   //跳转个人
   selectSingle: function (e) {
     let userInfo = wx.getStorageSync('userInfo');
-    debugger
     if(!userInfo){
       let that = this
       // that.setData({

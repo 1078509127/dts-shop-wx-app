@@ -18,7 +18,7 @@
   <view style="height: 20rpx;width: 100%;background-color: rgb(226, 226, 223);margin-top: 300rpx;"></view>
   <view class='news acea-row row-between-wrapper' style="background-color: #f7f8f6;margin: 20rpx 10rpx 20rpx 10rpx;height: 260rpx;">
        <view class='pictrue' style=" border-radius: 10px; border: 1px solid rgb(223, 213, 213);box-shadow: 10px 10px 10px rgba(151, 140, 140, 0.5);">
-        <image src='/static/images/notice.png'style="height:40rpx;width:40rpx;float:left;margin-top:7px;margin-left:10px">
+        <image src='/static/images/notice.png'style="height:40rpx;width:40rpx;float:left;margin-top:9px;margin-left:10px">
          </image>
          <view style="width: 100%;height: 10px;"> 
            <text style="float: left;margin-top:7px ;height: 15px;font-size: 35rpx;font-weight:800;">公告内容</text>
@@ -49,7 +49,7 @@
     </view> -->
 
    <view class="desc" style="height: 200rpx;">
-    <picker class="btn" mode="selector" value="{{index}}"  range-key="name"  bindchange='selectSingle' >
+    <picker class="btn" mode="selector" value="{{index}}"  range-key="name" range="{{singleList}}" bindchange='selectSingle' >
        <button type="primary" style="background-color: rgb(38, 132, 240);">个人预约</button>
     </picker>
     <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{multiList}}" bindchange='selectMulti'>

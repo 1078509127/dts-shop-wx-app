@@ -13,6 +13,7 @@ Page({
     totalPages: 1,
     eventType:"",
   },
+ 
 
   //取消按钮点击事件
   cancel_click:function(e){
@@ -73,7 +74,13 @@ Page({
     // } catch (e) {}
     that.setData({
       eventType : options.eventType
-    })
+    }),
+    // 动态显示导航上方文字
+      wx.setNavigationBarTitle({
+        title: options.eventType
+    }),
+  
+ 
     this.ReserveSel();
   },
   getOrderList() {

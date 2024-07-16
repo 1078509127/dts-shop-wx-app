@@ -74,7 +74,7 @@
       <!--之所以利用button控件来承载是因为block循环其他控件会产生重叠现象，这里我没有细究-->
         <!-- <view class= "goods_head"><image class="logo" src = "{{item.store_img_url}}"></image></view>
         <view class="divLine"></view> -->
-        <image class="goods_logo" src = "/static/images/home@selected.png"></image>
+        <image class="goods_logo" src = "/static/images/myblue.png"></image>
         <text class="name">姓名：{{item.userName}}</text>
         <text class="goods_name">场所：{{item.scene}}</text>
         <text class="table_row" wx:if="item.tableNumber !== ''">桌号：{{item.tableNumber}}</text>

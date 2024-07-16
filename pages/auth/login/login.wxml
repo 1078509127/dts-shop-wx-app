@@ -1,12 +1,38 @@
 <view class="container">
 <view style="text-align: center;">
-  <image src="../../../static/images/loginImg.png" style="width: 87%;text-align: center;margin-top: 20%;border-radius: 10%;"></image>
+  <image src="../../../static/images/bgimg.jpg" style="width: 100%;height:340rpx; text-align: center;margin-top: 0%;border-radius:0 0 30% 30%;"></image>
 </view>
+
+<!-- <view style="background-color: rgb(219, 166, 20);height: 80%;">
+  <view style="height: 10%;width: 80%;background-color: rgb(18, 146, 56);position: absolute;top :100rpx;margin:0 5%;">  -->
+    <view style="width: 90%;background-color: rgb(245, 244, 247);height: 60%;position: absolute;top: 5%;margin: 0 5%;border-radius:20rpx;border: 1px solid rgb(223, 213, 213);box-shadow:10px 10px 10px 0px rgba(186, 202, 202, 0.5);">
+      <image src="../../../static/images/bgimg.jpg" style="border-radius: 50%;width: 150rpx;height: 150rpx;margin:15%  37%;"></image>
+      <view style="width: 100%;height: 100rpx; text-align: center;font-size:40px;">
+          <text style="text-align: center;font-size:22px;font-weight: 550;"> 欢   迎   来   到   职   工   文   体   中   心</text>
+      </view>
+    <view style="margin: 20rpx 20px;">
+      <text style="text-align: center;"> 为提供优质的预约服务，职工文体中心小程序需要获取以下信息</text>
+    </view>
+    <view style="margin:20rpx 30rpx;font-size: 15rpx;font-weight: 100;">
+      <text>·您的公开信息(ID等)</text>
+    </view>
+    </view>
+    
+    
+     <view class="login-box" style="position: fixed;bottom: 200rpx;">
+    <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile" style="background-color: rgb(38, 132, 240);">微信授权登录</button>
+    <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin" style="background-color: rgb(38, 132, 240);">微信授权登录</button>
+     <!-- 1<button type="primary" class="account-login-btn" bindtap="accountLogin">账号登录</button> -->
+  </view> 
+    
+  
+  <!-- </view> 
+</view> -->
  
-  <view class="login-box" style="">
+  <!-- <view class="login-box" style="">
     <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile" style="background-color: rgb(38, 132, 240);">微信直接登录</button>
     <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin" style="background-color: rgb(38, 132, 240);">微信直接登录</button>
-    <!-- <button type="primary" class="account-login-btn" bindtap="accountLogin">账号登录</button> -->
-  </view>
+     1<button type="primary" class="account-login-btn" bindtap="accountLogin">账号登录</button>
+  </view> -->
   <privacyPopup showPop="{{showPop}}" exitApp bind:handle="popBtnTap"></privacyPopup>
 </view>
