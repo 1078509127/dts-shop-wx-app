@@ -118,7 +118,6 @@ Page({
     }else{
       wx.scanCode({
         success (res) {
-          console.log(userInfo,res.result)
           wx.request({
             url: api.Scan,
             data:{userId:userInfo.userId,scene:res.result},
@@ -285,15 +284,13 @@ Page({
   // =================================后台管理=================================//
 
   managerBtn: function (e) {
-    if (!app.globalData.hasLogin) {
-      wx.navigateTo({
-        url: "/pages/auth/accountLogin/accountLogin"
-      });
-    }
+    // if (!app.globalData.hasLogin) {
+    //   wx.navigateTo({
+    //     url: "/pages/auth/accountLogin/accountLogin"
+    //   });
+    // }
     var that = this;
-    that.setData({
-      name: e.currentTarget.dataset.name
-    })
+    that.setData({ name: e.currentTarget.dataset.name })
     if (this.data.name === '预约查询') {
       wx.navigateTo({
         url: '/pages/reserveInfo/reserveInfo'
@@ -329,5 +326,52 @@ Page({
     if (this.data.name === '二维码生成') {
         this.bindSetTap();
     }
+  },
+
+  bindSetTap: function (e, skin) {
+		let itemList = ['图书馆','健身房'];
+		wx.showActionSheet({
+			itemList,
+			success: async res => {
+        let idx = res.tapIndex;
+				if (idx == 0) {
+          this.QRcode('图书馆')
+        }
+        if (idx == 1) {
+          this.QRcode('健身房')
+				}
+			},
+			fail: function (res) { }
+		})
+  },
+  
+  QRcode: function (e) {
+    wx.request({
+      url: api.QRcode,
+      data: {scene: e},
+      method: "GET",
+      header: { 'Content-type': 'application/x-www-form-urlencoded', },
+      responseType: 'arraybuffer', 
+      success: res => {
+        console.log(res)
+        const fs = wx.getFileSystemManager();
+        fs.writeFile({
+          filePath: wx.env.USER_DATA_PATH + "/" + e + ".jpg", 
+          data: res.data,
+          encoding: "binary", 
+          success(res) {
+            wx.openDocument({ 
+              filePath: wx.env.USER_DATA_PATH + "/" + e + ".jpg", 
+              showMenu: true, 
+              success: function (res) {
+                setTimeout(() => {
+                  wx.hideLoading()
+                }, 500)
+              }
+            })
+          }
+        })
+      }
+    })
   },
 })

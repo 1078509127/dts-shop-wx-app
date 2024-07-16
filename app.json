@@ -3,6 +3,14 @@
     "pages/index/index",
     "pages/singleReserve/single",
     "pages/eventType/eventType",
+
+    "pages/reserveInfo/reserveInfo",
+    "pages/messageView/messageView",
+    "pages/activeDesc/activeDesc",
+    "pages/activePush/activePush",
+    "pages/swiperSet/swiperSet",
+    "pages/closeReserve/closeReserve",
+
     "pages/ucenter/index/index",
     "pages/ucenter/main/index",
     "pages/ucenter/address/address",
