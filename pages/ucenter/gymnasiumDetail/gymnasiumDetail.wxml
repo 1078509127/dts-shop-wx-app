@@ -1,0 +1,21 @@
+<scroll-view class='content' scroll-y="true" style='width: 100%; height:89%;background-color: #efefef;'>
+  <!-- <block wx:for="{{showData}}" wx:key="scene" > -->
+    <view class = "button_item" >
+      <button class="goods" >
+      <!--之所以利用button控件来承载是因为block循环其他控件会产生重叠现象，这里我没有细究-->
+        <!-- <view class= "goods_head"><image class="logo" src = "{{item.store_img_url}}"></image></view>
+        <view class="divLine"></view> -->
+        <!-- <image class="goods_logo" src = "https://mmbiz.qpic.cn/sz_mmbiz_png/9nkKHGicVb36BAJkghA4W5uu2feP3Ul8SBgAYKZaPXWYibCzyUAp6bGcR8ibpovueUNyn1GH3VGyYU31WJVONedBA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1"style="width:30%;height30%" ></image> -->
+        <text class="goods_name">乒乓球馆</text>
+        <!-- <text class="name">姓名</text> -->
+        <text class="introduce">被誉为中国的“国球”，是一种世界流行的球类体育项目之一，包括进攻乒乓球是一项历史悠久、广受欢迎的体育运动，它不仅能锻炼身体，提高反应速度和手眼协调能力，还能培养人们的竞争意识和团队精神。</text>
+       <!-- <text class="name">小伙伴们我们是每周三至周日下午3点-8点开放！</text> -->
+        <text class="amount">以下是乒乓球馆实景图片</text>
+       
+        <image class="imgSty1" src="../../../static/images/pb.png"></image>
+        <!-- <text>乒乓球运动区设有 10张标准比赛专用乒乓球台。场馆内环境优雅、宽敞明亮、通风良好。</text> -->
+        <!-- <image class="imgSty" src="../../../static/images/t011fc6d20dded32df8.jpg"></image> -->
+      </button>
+    </view>
+  <!-- </block> -->
+</scroll-view>
