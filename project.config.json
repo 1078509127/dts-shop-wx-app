@@ -64,16 +64,6 @@
           "query": "id=1001000"
         },
         {
-          "name": "人气推荐",
-          "pathName": "pages/hotGoods/hotGoods",
-          "query": ""
-        },
-        {
-          "name": "新品首发",
-          "pathName": "pages/newGoods/newGoods",
-          "query": ""
-        },
-        {
           "name": "分类",
           "pathName": "pages/catalog/catalog",
           "query": ""
@@ -196,11 +186,6 @@
         {
           "name": "意见反馈",
           "pathName": "pages/ucenter/feedback/feedback",
-          "query": ""
-        },
-        {
-          "name": "团购专区",
-          "pathName": "pages/groupon/grouponList/grouponList",
           "query": ""
         },
         {

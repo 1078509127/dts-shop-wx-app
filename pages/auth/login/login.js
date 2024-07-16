@@ -18,6 +18,7 @@ Page({
         });
         user.checkLogin().catch(() => {
           user.loginByWeixin(res.userInfo).then(res => {
+            console.log(123,res)
             app.globalData.hasLogin = true;
             wx.navigateBack({
               delta: 1

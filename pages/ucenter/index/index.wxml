@@ -90,12 +90,12 @@
       </view>
    </view> -->
   <!-- //////////////////////////////////// -->
-   <view class="half-circle-container" style="height: 400rpx;">
+  <view class="half-circle-container" style="height: 400rpx;">
     <image class="" src="/static/images/bgimg.jpg" style="width: 100%;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;height: 550rpx;"></image>
     <view class='picTxt acea-row row-between-wrapper' bindtap="goLogin" style="position: absolute;top: 220rpx;left: 20rpx;">
       <view class='pictrue'>
-         <image src='https://pic.qqans.com/up/2024-6/17183257325107618.jpg' style="height: 70px;width: 70px;border-radius: 50%;margin: 60rpx 60rpx;"></image>
-          <!--{{userInfo.avatarUrl}} -->
+        <image src='https://pic.qqans.com/up/2024-6/17183257325107618.jpg' style="height: 70px;width: 70px;border-radius: 50%;margin: 60rpx 60rpx;"></image>
+        <!--{{userInfo.avatarUrl}} -->
       </view>
       <view class='text'>
         <view class='acea-row row-middle'>
@@ -104,10 +104,10 @@
         </view>
         <text class='iconfont icon-shezhi' style="position:absolute;top: 100rpx; left: 570rpx;color: white;font-size: 55rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text>
       </view>
-      
+
     </view>
-    
-  </view> 
+
+  </view>
   <!-- ////////////// -->
   <!-- <view>
   <image src="../../../static/images/bgimg.jpg"  style="width: 100%; position: relative;"></image>
@@ -154,9 +154,11 @@
           </view>
           <view class='jhx_f2'>{{item.name}}</view>
         </view>
-        <view class='item'bindtap='scanBtn'>
-              <view class='pictrue'><image src='/static/images/扫一扫.png'></image></view>
-              <view class='jhx_f2'>扫一扫</view>
+        <view class='item' bindtap='scanBtn'>
+          <view class='pictrue'>
+            <image src='/static/images/扫一扫.png'></image>
+          </view>
+          <view class='jhx_f2'>扫一扫</view>
         </view>
       </view>
     </view>
@@ -169,14 +171,25 @@
           </view>
           <view class='jhx_f2'>{{item.name}}</view>
         </view>
-
       </view>
     </view>
- 
-      <!-- <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile">微信直接登录</button>
+
+    <view class='myService' wx:if="{{userInfo && userInfo.roleIds}}">
+      <view class='title acea-row row-middle jhx_f4'>后台管理</view>
+      <view class='serviceList acea-row row-middle'>
+        <view class='item' wx:for="{{managerList}}" wx:key="index" bindtap='managerBtn' data-name="{{item.name}}" >
+          <view class='pictrue'>
+            <image src='{{item.iconUrl}}'></image>
+          </view>
+          <view class='jhx_f2'>{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile">微信直接登录</button>
      <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin">微信直接登录</button> -->
-   
-  
+
+
   </view>
 </view>
 <authorize bind:onLoadFun='onLoadFun'></authorize>

@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "团购专区",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "zan-capsule": "/lib/zanui-weapp/capsule/index"
-  }
-}

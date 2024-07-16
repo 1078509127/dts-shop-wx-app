@@ -20,28 +20,27 @@ Page({
         unrecv: 0,
         uncomment: 0
       },
-    MyMenus: [
+    MyMenus: [ { url: "/pages/ucenter/feedback/feedback", pic: "feedback.png", name: "意见反馈" },],
+       MyMenus2: [
       // { url: "/pages/ucenter/collect/collect", pic:"icon_collect.png",name:"商品收藏"},
       // { url: "/pages/ucenter/footprint/footprint", pic: "footprint.png", name: "浏览足迹" },
       // { url: "/pages/groupon/myGroupon/myGroupon", pic: "group.png", name: "我的拼团" },
       // { url: "/pages/ucenter/address/address", pic: "address.png", name: "地址管理" },
-      { url: "/pages/ucenter/feedback/feedback", pic: "feedback.png", name: "意见反馈" },
-      //{ url: "/pages/about/about", pic: "扫一扫.png", name: "关于我们" },
-      // { url: "/pages/ucenter/feedback/feedback", pic: "cg.png", name: "查看场馆" },
-
-      // *,{ url: "/pages/about/about", pic: "comment.png", name: "使用帮助" }
-      ],
-       MyMenus2: [
-      //   // { url: "/pages/ucenter/collect/collect", pic:"icon_collect.png",name:"商品收藏"},
-      //   // { url: "/pages/ucenter/footprint/footprint", pic: "footprint.png", name: "浏览足迹" },
-      //   // { url: "/pages/groupon/myGroupon/myGroupon", pic: "group.png", name: "我的拼团" },
-      //   // { url: "/pages/ucenter/address/address", pic: "address.png", name: "地址管理" },
          { url: "/pages/ucenter/feedback/feedback", pic: "cg.png", name: "查看场馆" },
-        
-      //   // *,{ url: "/pages/about/about", pic: "comment.png", name: "使用帮助" }
+       // *,{ url: "/pages/about/about", pic: "comment.png", name: "使用帮助" }
          ],
       hasLogin: false,
-      totalAmount: 0.00
+      totalAmount: 0.00,
+      managerList:[
+        {id: 1,name: "预约查询",iconUrl: "../../../static/images/hetongguanli.png"},
+        {id: 2,name: "留言查看",iconUrl: "../../../static/images/a-2shouhouzerenweihu.png"},
+        {id: 3,name: "活动描述",iconUrl: "../../../static/images/huiqianguanli.png"},
+        {id: 4,name: "活动推送",iconUrl: "../../../static/images/a-2pandiandaochu.png"},
+        { id: 5,name: "轮播图配置",iconUrl: "../../../static/images/xiaoguotuguanli.png" },
+        {id: 6,name: "关闭预约通道",iconUrl: "../../../static/images/a-2kuanshigongxu.png"},
+        {id: 7,name: "二维码生成", iconUrl: "../../../static/images/二维码.png" },
+      ],
+      name: "",
   },
 
   getUserProfile(e) {
@@ -281,5 +280,54 @@ Page({
       icon: 'none',
       duration: 2000
     });
-  }
+  },
+
+  // =================================后台管理=================================//
+
+  managerBtn: function (e) {
+    if (!app.globalData.hasLogin) {
+      wx.navigateTo({
+        url: "/pages/auth/accountLogin/accountLogin"
+      });
+    }
+    var that = this;
+    that.setData({
+      name: e.currentTarget.dataset.name
+    })
+    if (this.data.name === '预约查询') {
+      wx.navigateTo({
+        url: '/pages/reserveInfo/reserveInfo'
+      })
+    }
+    //跳转到留言查看页面
+    if (this.data.name === '留言查看') {
+      wx.navigateTo({
+        url: '/pages/messageView/messageView'
+      })
+    }
+    //活动描述
+    if (this.data.name === '活动描述') {
+      wx.navigateTo({
+        url: '/pages/activeDesc/activeDesc'
+      })
+    }
+    if (this.data.name === '活动推送') {
+      wx.navigateTo({
+        url: '/pages/activePush/activePush'
+      })
+    }
+    if (this.data.name === '轮播图配置') {
+      wx.navigateTo({
+        url: '/pages/swiperSet/swiperSet'
+      })
+    }
+    if (this.data.name === '关闭预约通道') {
+      wx.navigateTo({
+        url: '/pages/closeReserve/closeReserve'
+      })
+    }
+    if (this.data.name === '二维码生成') {
+        this.bindSetTap();
+    }
+  },
 })
