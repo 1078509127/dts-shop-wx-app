@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/singleReserve/single",
     "pages/eventType/eventType",
+    "pages/eventTypeReBack/index",
     "pages/ucenter/gymnasiumDetail/gymnasiumDetail",
     "pages/reserveInfo/reserveInfo",
     "pages/messageView/messageView",

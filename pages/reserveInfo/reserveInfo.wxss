@@ -15,29 +15,33 @@ page{
     height: 70rpx;
     border-radius: 20rpx;
     display: flex;
-    padding-top: 18rpx;
+    /* padding-top: 18rpx; */
     padding-left: 20rpx;
+    margin-right: 7rpx;
   }
   .search .icon {
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAA8UExURUdwTGZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZjQWelcAAAATdFJOUwDUDlMW8DUFcdHpnc3cSLkosSd78uTdAAAAvUlEQVQoz4WS6QLDEBCE131L0nn/d23J0VCV+bP4LLsM0S6Tg1NQLmRDnYz1OOVti18OcFZLI7Utw/XGtEIS10wkKH3NVoWF3/byBerMNQ5be4vZ4I4Vi8S7+niC3bd55L54yvA1VSDSryJqheE4oZVFKMFBD6AGK0FBDiCHKgEwA/hZfsxkszun1U77nL7Q9G3nvzL6z1sH2ndOANi3eRmrhzjx6qGo2Z327pMNJSMO34paSkc7PdJI/2lc3naRCwMB9sl5AAAAAElFTkSuQmCC') center no-repeat;
     background-size: 100%;
     width: 34rpx;
     height: 34rpx;
-    margin-top: 6rpx;
+    margin: auto;
+    /* margin-top: 6rpx; */
   }
   .search .txt {
-    height: 42rpx;
-    line-height: 42rpx;
+    height: 70rpx;
+    line-height: 70rpx;
     padding-left: 10rpx;
     width: 100%;
   }
 .search .btn{
-  width: 140rpx;
+  width: 120rpx;
   right: 0%;
   float: left;
   height: 70rpx;
   line-height: 70rpx;
-  margin: 5rpx 0 5rpx 5rpx;
+  margin: auto;
+  color: white;
+  background-color:rgb(38, 132, 240);
 }
 
 .content{
@@ -153,8 +157,8 @@ page{
   right:6%;
   width: 150rpx;
   height: 60rpx;
-  background: #67e956;
-  z-index: 99999;
+  background: rgb(38, 132, 240);
+  z-index: 9999;
 }
 .btn_goods::after{
   border: 0ch;
@@ -185,4 +189,6 @@ page{
   bottom: 60rpx;
   height: 70rpx;
   line-height: 70rpx;
+  background-color: rgb(38, 132, 240);
+  color: white;
 }

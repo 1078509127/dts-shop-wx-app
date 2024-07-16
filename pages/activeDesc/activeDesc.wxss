@@ -16,6 +16,8 @@
   bottom: 60rpx;
   height: 70rpx;
   line-height: 70rpx;
+  color: white;
+  background-color: rgb(38, 132, 240);
   }
   .text-area-box {
     position: fixed;

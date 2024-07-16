@@ -114,13 +114,14 @@
 
 
 .container .fb-btn{
-  background-color:#85c43f;
-  font-size:32rpx;
-  color:#fff;
-  width:690rpx;
-  height:90rpx;
-  border-radius:50rpx;
-  text-align:center;
-  line-height:90rpx;
-  margin:20rpx auto 10rpx auto;
+  position: fixed;
+  width: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: white;
+  margin-top: 10rpx;
+  background-color: rgb(38, 132, 240);
 }

@@ -9,6 +9,5 @@
                  
              <!-- </form>  -->
       </view>
-      <button class="commitSty" type="primary" bindtap="upclick">修改</button> <!--bindtap="upclick" -->
-      <!-- class="downloadBtn"  -->
+      <button class="commitSty" bindtap="upclick">修改</button>
 </view>

@@ -52,9 +52,9 @@ Page({
 
   //查看详细信息
   cancel_click: function (e) {
-    console.log(e)
+    console.log(123,e)
     wx.navigateTo({
-      url: '/pages/eventType/eventType?form=' + JSON.stringify(e.currentTarget.dataset.item),
+      url: '/pages/eventTypeReBack/index?form=' + JSON.stringify(e.currentTarget.dataset.item),
     })
   },
   download: function () {

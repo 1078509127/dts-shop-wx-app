@@ -13,7 +13,7 @@
       </view>
     </view>
     <view class="txt">
-      <button type="primary" bindtap="btn" style="background-color: rgb(180, 132, 70);height: 60rpx;line-height: 60rpx;">上传图片</button>
+      <button bindtap="btn" style="background-color: rgb(38, 132, 240);height: 60rpx;line-height: 60rpx;color: white;margin-top: 10rpx;">上传图片</button>
     </view>
   </view>
 </view>
