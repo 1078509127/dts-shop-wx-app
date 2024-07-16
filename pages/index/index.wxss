@@ -13,17 +13,23 @@
   }
 
 .textSty{
-  display: -webkit-box; 
+  /* display: -webkit-box; 
   word-break: break-all; 
-  font-size: 28rpx;
-  font-weight: 700;
+   font-size: 30rpx; 
+    font-weight: 600;  
    overflow: auto; 
   -webkit-box-orient: vertical;
   -webkit-line-clamp:7;
-  color: rgb(97, 78, 78);
- font-size: 15px;
- font-family: Microsoft YaHei, tahoma, arial, Hiragino Sans GB, \\5b8b\4f53, sans-serif;
- background-color: #f0fff0;
+  color: rgb(19, 19, 19);
+  font-size: 15px;
+   font-family: Microsoft YaHei, tahoma, arial, Hiragino Sans GB, \\5b8b\4f53, sans-serif;  
+ background-color: #f0fff0; */
+ display: -webkit-box;
+ overflow: auto; 
+ word-break: break-all;  
+ -webkit-line-clamp:2;
+ font-size: 20rpx; 
+ font-size: 30rpx;font-weight:600;
 
 
  }

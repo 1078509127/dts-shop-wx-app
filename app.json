@@ -54,7 +54,7 @@
     "lib/home/index"
   ],
   "window": {
-  "navigationBarBackgroundColor": "#85c43f",
+  "navigationBarBackgroundColor": "#1E90FF",
   "navigationBarTitleText": "聚惠星",
   "enablePullDownRefresh": true,
   "navigationBarTextStyle": "white",

@@ -21,7 +21,7 @@
         <image src='/static/images/notice.png'style="height:40rpx;width:40rpx;float:left;margin-top:7px;margin-left:10px">
          </image>
          <view style="width: 100%;height: 10px;"> 
-           <text style="float: left;margin-top:7px ;height: 15px;">公告内容</text>
+           <text style="float: left;margin-top:7px ;height: 15px;font-size: 35rpx;font-weight:800;">公告内容</text>
           </view>
         
          <view style="height: 4rpx;width: 100%;background-color: rgb(226, 226, 223);margin-top: 50rpx;"></view>
@@ -58,12 +58,10 @@
   </view> 
 
  
-<modal wx:if="{{canIUseGetUserProfile}}" hidden="{{hideModal}}" title="进行微信登录" confirm-text="一键微信登录" cancel-text="取消登录"  bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}" >
+
   <!-- <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile">微信直接登录</button>
   <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin">微信直接登录</button> -->
-</modal>
-<modal wx:else open-type="getUserInfo" hidden="{{hideModal}}" title="进行微信登录" confirm-text="一键微信登录" cancel-text="取消登录"  bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}" >
-</modal>
+
      
 </view>
 <coupon-window window='{{window}}' couponList="{{coupon}}" bind:onColse="onColse"></coupon-window>

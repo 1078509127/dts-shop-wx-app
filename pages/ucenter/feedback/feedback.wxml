@@ -31,5 +31,5 @@
     </view>
   </view>
 
-  <view class="fb-btn" bindtap="submitFeedback">提交</view>
+  <view class="fb-btn" bindtap="submitFeedback" style="background-color: rgb(38, 132, 240);">提交</view>
 </view>

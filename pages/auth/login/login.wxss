@@ -3,12 +3,12 @@
   height: auto;
   overflow: hidden;
   padding: 0 40rpx;
-  margin-top: 200rpx;
+  margin-top: 10rpx;
   background: #f4f4f4;
 }
 
 .wx-login-btn {
-  margin: 500rpx 0 40rpx 0;
+  margin: 100rpx 0 40rpx 0;
   height: 96rpx;
   line-height: 96rpx;
   font-size: 30rpx;

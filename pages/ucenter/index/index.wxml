@@ -172,12 +172,11 @@
 
       </view>
     </view>
-    <modal wx:if="{{canIUseGetUserProfile}}" hidden="{{hideModal}}" title="进行微信登录" confirm-text="一键微信登录" cancel-text="取消登录" bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}">
+ 
       <!-- <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile">微信直接登录</button>
      <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin">微信直接登录</button> -->
-    </modal>
-    <modal wx:else open-type="getUserInfo" hidden="{{hideModal}}" title="进行微信登录" confirm-text="一键微信登录" cancel-text="取消登录" bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}">
-    </modal>
+   
+  
   </view>
 </view>
 <authorize bind:onLoadFun='onLoadFun'></authorize>

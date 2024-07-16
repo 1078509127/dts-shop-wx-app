@@ -47,7 +47,7 @@
       <view>代理专属推广二维码（长按保存到相册）</view>
       <image class="img" src="{{userSharedUrl}}" bindlongpress="saveShare" style="width:600rpx;height:600rpx;"></image>
     </view>
-    <button class='modifyBnt' bindtap="exitLogin">退 出</button>
+    <button class='modifyBnt' bindtap="exitLogin" style="background-color: rgb(38, 132, 240);">退 出</button>
   </view>
 </form>
 
