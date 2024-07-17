@@ -23,15 +23,16 @@
            <text class="AnnounTitle">公告内容</text>
           </view>
          <view class="AnnouncementLine"></view>
-         <view class="AnnouViewSty" >
+         <view style=""  class="AnnouViewSty">
          <rich-text class="textSty" nodes="{{ArticleDetail}}"></rich-text>
+         <!-- {{ArticleDetail}} -->
         </view>
        </view> 
   </view>
   <!-- 个体、团队 -->
    <view class="desc" style="height: 200rpx;">
     <picker class="btn" mode="selector" value="{{index}}"  range-key="name" range="{{singleList}}" bindchange='selectSingle' >
-       <button type="primary" style="background-color: rgb(38, 132, 240);">个人预约</button>
+    <button type="primary" style="background-color: rgb(38, 132, 240)">个人预约</button>
     </picker>
     <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{multiList}}" bindchange='selectMulti'>
        <button  type="primary" style="background-color: rgb(38, 132, 240);">团队预约</button> 
