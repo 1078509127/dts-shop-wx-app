@@ -241,8 +241,7 @@ Page({
       if (this.data.hasLogin) {
         try {
           wx.setStorageSync('tab', '0');
-        } catch (e) {
-        }
+        } catch (e) {}
         wx.navigateTo({
           url: "/pages/ucenter/order/order?eventType="+eventType
         });

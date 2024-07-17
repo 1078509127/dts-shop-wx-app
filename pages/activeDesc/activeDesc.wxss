@@ -10,10 +10,10 @@
 
 .commitSty{
   position: fixed;
-  width: 90%;
+  width: 95%;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 60rpx;
+  bottom: 90rpx;
   height: 70rpx;
   line-height: 70rpx;
   color: white;

@@ -1,10 +1,6 @@
-/* page {
-  height: 100%;
-  width: 100%;
-  background: #f4f4f4;
-}
 
-.orders-switch {
+
+/* .orders-switch {
   width: 100%;
   background: #fff;
   height: 84rpx;
@@ -229,9 +225,12 @@
   color: #fff;
   border-radius: 40rpx;
 } */
-page{
-  background: #f5f5f5;
-  }
+
+page {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
 .content{
   position: absolute;
   top:0rpx;

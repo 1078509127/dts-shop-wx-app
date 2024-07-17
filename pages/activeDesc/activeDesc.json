@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "活动描述"
+  "navigationBarTitleText": "活动描述",
+  "enablePullDownRefresh":false
 }
