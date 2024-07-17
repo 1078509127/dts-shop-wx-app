@@ -1,0 +1,15 @@
+<scroll-view class='content' scroll-y="true" style='width: 100%; height:89%;background-color: #efefef;'>
+    <view class = "button_item" >
+      <button class="goods" >
+        <text class="goods_name">烘焙室</text>
+        <text class="introduce">烘焙是趣味性、动手能力和创意性为一体的综合活动，通过亲手完成精美的烘焙作品，让大家在制作过程中充分调动感官和手指的协调。双手敲敲、打打、揉揉、拉拉，以及调配运用各种材料进行创作，让大家的创造力得到最大限度的体现，建立良好的自信心和对生活的热爱。</text>
+        <text class="jsTestSty">以下是烘焙室实景图片</text>
+        <view>
+          <image class="jsSty" src="../../../static/images/【烘焙室】1.JPG"></image>
+        </view>
+         <view>
+          <image class="img" src="../../../static/images/【烘焙室】2.JPG"></image>
+         </view>
+      </button>
+    </view>
+</scroll-view>

@@ -1,0 +1,90 @@
+<view class='user'>
+  <view class='wrapper'>
+    <view class='myOrder' style="height: 390rpx;">
+      <view class='title acea-row row-between-wrapper'>
+        <view class='jhx_f4'>所有场馆</view>
+      </view>
+      <view class='orderState acea-row row-middle'>
+        <!-- 健身房 -->
+        <view class='item'style="margin:20rpx 0" hover-class='none' bindtap='gay' data-eventType="个人预约" >
+          <view class='pictrue'>
+            <image src='/static/images/健身房 (1).png'></image>
+          </view>
+          <view class='jhx_f2'>健身房</view>
+        </view>
+        <!-- 图书馆 -->
+        <view class='item' hover-class='none' bindtap='libraryroom' data-eventType="团队预约">
+          <view class='pictrue'>
+            <image src='/static/images/图书馆-copy-copy.png'></image>
+          </view>
+          <view class='jhx_f2'>图书馆</view>
+        </view>
+        <!-- 微机室 -->
+        <view class='item' hover-class='none' bindtap='microcomputer' data-eventType="团队预约">
+          <view class='pictrue'>
+            <image src='/static/images/系统管理.png'></image>
+          </view>
+          <view class='jhx_f2'>微机室</view>
+        </view>
+        <!-- 瑜伽室 -->
+        <view class='item' hover-class='none' bindtap='yoga' data-eventType="团队预约">
+          <view class='pictrue'>
+            <image src='/static/images/icon-60024.png'></image>
+          </view>
+          <view class='jhx_f2'>瑜伽室</view>
+        </view>
+        <!-- 书法室 第二行-->
+        <view class='item'style="margin:20rpx 0"  hover-class='none' bindtap='calligraphy' data-eventType="团队预约">
+          <view class='pictrue'>
+            <image src='/static/images/钢笔 修改.png'></image>
+          </view>
+          <view class='jhx_f2'>书法室</view>
+        </view>
+        <!-- 录音室 -->
+        <view class='item' hover-class='none' bindtap='recording' data-eventType="团队预约">
+          <view class='pictrue'>
+            <image src='/static/images/图标五.png'></image>
+          </view>
+          <view class='jhx_f2'>录音室</view>
+        </view>
+        <!-- 烘培室 -->
+        <view class='item' hover-class='none' bindtap='bakingroom' data-eventType="团队预约">
+          <view class='pictrue'>
+            <image src='/static/images/烘培.png'></image>
+          </view>
+          <view class='jhx_f2'>烘培室</view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- <view class='myService'>
+      <view class='title acea-row row-middle jhx_f4'>场馆介绍</view>
+      <view class='serviceList acea-row row-middle'>
+        <view class='item' wx:for="{{MyMenus2}}" wx:key="index" bindtap='gogymnasiumDetail' data-url='{{item.url}}' wx:if="{{item.url!='#'}}">
+          <view class='pictrue'>
+            <image src='/static/images/{{item.pic}}'></image>
+          </view>
+          <view class='jhx_f2'>{{item.name}}</view>
+        </view>
+      </view>
+    </view> -->
+
+    <!-- <view class='myService' >
+      <view class='title acea-row row-middle jhx_f4'>后台管理</view>
+      <view class='serviceList acea-row row-middle'>
+        <view class='item' wx:for="{{managerList}}" wx:key="index" bindtap='managerBtn' data-name="{{item.name}}" >
+          <view class='pictrue'>
+            <image src='{{item.iconUrl}}'></image>
+          </view>
+          <view class='jhx_f2'>{{item.name}}</view>
+        </view>
+      </view>
+    </view> -->
+
+    <!-- <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile">微信直接登录</button>
+     <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin">微信直接登录</button> -->
+
+
+  </view>
+</view>
+<authorize bind:onLoadFun='onLoadFun'></authorize>

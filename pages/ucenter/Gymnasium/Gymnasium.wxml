@@ -1,0 +1,19 @@
+<scroll-view class='content' scroll-y="true" style='width: 100%; height:89%;background-color: #efefef;'>
+    <view class = "button_item" >
+      <button class="goods" >
+        <text class="goods_name">乒乓球馆</text>
+        <text class="introduce">被誉为中国的“国球”，是一种世界流行的球类体育项目之一，包括进攻乒乓球是一项历史悠久、广受欢迎的体育运动，它不仅能锻炼身体，提高反应速度和手眼协调能力，还能培养人们的竞争意识和团队精神。</text>
+        <text class="amount">以下是乒乓球馆实景图片</text>
+        <view><image class="imgSty1" src="../../../static/images/【乒乓球室】 (1).jpg"></image></view>
+         <view><image class="imgSty2" src="../../../static/images/【乒乓球室】 (2).jpg"></image></view>
+        <!--<view><image class="" src="../../../static/images/【乒乓球室】 (3).jpg"></image></view>
+        <view><image class="" src="../../../static/images/【乒乓球室】 (4).jpg"></image></view>
+        <view><image class="" src="../../../static/images/【乒乓球室】 (5).jpg"></image></view> -->
+        
+        <!-- <image class="imgSty1" src="../../../static/images/【乒乓球室】 (2).jpg"></image>
+        <image class="imgSty1" src="../../../static/images/【乒乓球室】 (3).jpg"></image>
+        <image class="imgSty1" src="../../../static/images/【乒乓球室】 (4).jpg"></image>
+        <image class="imgSty1" src="../../../static/images/【乒乓球室】 (5).jpg"></image> -->
+      </button>
+    </view>
+</scroll-view>
