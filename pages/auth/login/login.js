@@ -18,11 +18,8 @@ Page({
         });
         user.checkLogin().catch(() => {
           user.loginByWeixin(res.userInfo).then(res => {
-            console.log(123,res)
             app.globalData.hasLogin = true;
-            wx.navigateBack({
-              delta: 1
-            })
+            wx.navigateBack({delta: 1 })
           }).catch((err) => {
             app.globalData.hasLogin = false;
             util.showErrorToast('微信登录失败');
@@ -30,6 +27,7 @@ Page({
         });
       },
       fail: (res) => {
+        console.log(res)
         app.globalData.hasLogin = false;
         util.showErrorToast('微信登录失败');
       }
@@ -65,6 +63,29 @@ Page({
       showPop: privacySettingRes.needAuthorization,
     });
   },
+  
+  /**
+   * 获取隐私协议授权信息
+   * @returns {object} {needAuthorization: true/false, privacyContractName: '《xxx隐私保护指引》'}
+   */
+  getPrivacySetting() {
+    const res = {
+      needAuthorization: false,
+      privacyContractName: "基础库过低，不需要授权",
+    };
+    if (!wx.getPrivacySetting) return res;
+    return new Promise((resolve, reject) => {
+      wx.getPrivacySetting({
+        success(res) {
+          console.log(" 获取隐私协议授权信息成功",res)
+          resolve(res);
+        },
+        fail(err) {
+          reject(err);
+        },
+      });
+    });
+  },
   /**
    * 按钮点击回调
    */
@@ -82,28 +103,6 @@ Page({
         icon: "error",
       });
     }
-  },
-  /**
-   * 获取隐私协议授权信息
-   * @returns {object} {needAuthorization: true/false, privacyContractName: '《xxx隐私保护指引》'}
-   */
-  getPrivacySetting() {
-    const res = {
-      needAuthorization: false,
-      privacyContractName: "基础库过低，不需要授权",
-    };
-    if (!wx.getPrivacySetting) return res;
-    return new Promise((resolve, reject) => {
-      wx.getPrivacySetting({
-        success(res) {
-          console.log(res)
-          resolve(res);
-        },
-        fail(err) {
-          reject(err);
-        },
-      });
-    });
   },
   onReady: function() {
 
