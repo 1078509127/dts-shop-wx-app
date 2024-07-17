@@ -44,6 +44,7 @@ Page({
         break
     }
     var that = this
+    //wx.chooseMedia
     wx.chooseImage({
       count: that.data.count, // 默认3
       sizeType: ["original", "compressed"], // 可以指定是原图还是压缩图，默认二者都有
@@ -85,7 +86,10 @@ Page({
             }
           })
         }
-      }
+      },
+      fail: (res) => {
+        console.log(res)
+       }
     })
   },
   // 删除图片
