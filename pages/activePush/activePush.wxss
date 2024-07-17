@@ -89,6 +89,10 @@
   color: #666;
   font-size: 24rpx;
 }
+.mobile{
+  height: 104rpx;
+  width: 100%;
+}
 
 .fb-mobile {
   height: 162rpx;

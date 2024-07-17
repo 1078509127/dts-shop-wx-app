@@ -6,7 +6,7 @@
   </view>
   <view class="picker">
     <view class="fb-type">
-      <input class="mobile" maxlength="100" type="String" placeholder="请输入活动时间" bindinput="bindTime" value="{{time}}" />
+      <input class="mobile" maxlength="100" type="String" placeholder="请输入活动时间:20xx/xx/xx~20xx/xx/xx" bindinput="bindTime" value="{{time}}" />
     </view>
   </view>
   <view class="picker">
