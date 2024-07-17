@@ -307,7 +307,6 @@ Page({
             date: e.detail.value
           },
           success: function (res) {
-            console.log(res.data)
             if(res.data.code == 200){
               wx.showModal({
                 title: res.message,
@@ -334,7 +333,6 @@ Page({
             date: e.detail.value
           },
           success: function (res) {
-            console.log(res.data)
             if(res.data.code == 200){
               wx.showModal({
                 title: res.message,

@@ -116,6 +116,7 @@ page{
   text-align: left;
   /* height: 55rpx;
   color:rgba(185, 20, 20, 0.796); */
+  margin-top: 20rpx;
 }
 .imgSty{
   position: absolute;
