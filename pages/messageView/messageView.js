@@ -3,82 +3,76 @@ const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../utils/user.js');
 var messageinfo;
-var messageinfoArr =[];
+var messageinfoArr = [];
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    messageinfoArr:[],//留言数据展示
-    isSelect:false,//展示类型？
-    types:['查询全部','优化建议','功能异常'],//留言类型
-    type:"",//公司/商户类型
-    },
-    //点击控制下拉框的展示、隐藏
-    select:function(){
-      
+    messageinfoArr: [], //留言数据展示
+    isSelect: false, //展示类型？
+    types: ['查询全部', '优化建议', '功能异常'], //留言类型
+    type: "", //公司/商户类型
+  },
+  //点击控制下拉框的展示、隐藏
+  select: function () {
+
     var isSelect = this.data.isSelect
-    this.setData({ isSelect:!isSelect})
-    },
+    this.setData({
+      isSelect: !isSelect
+    })
+  },
 
 
 
 
 
-    //点击下拉框选项，选中并隐藏下拉框
-    getType:function(e){
-      
+  //点击下拉框选项，选中并隐藏下拉框
+  getType: function (e) {
+
     let value = e.currentTarget.dataset.type
-     util.request(api.selMessage,{ type:value },"GET").then(res => {
-           if (res.code == 200) {
-             console.log(res.data)
-             messageinfo=res.data;
-             console.log(messageinfo+"messageinfo")
-            
-           }else{
-             //console.log(res.code+"=========================")
-           } 
-     })
+    util.request(api.selMessage, {
+      type: value
+    }, "GET").then(res => {
+      if (res.code == 200) {
+        console.log(res.data)
+        messageinfo = res.data;
+        console.log(messageinfo + "messageinfo")
+
+      } else {
+        //console.log(res.code+"=========================")
+      }
+    })
 
     console.log()
     this.setData({
-    type:value ,
-    isSelect: false,
+      type: value,
+      isSelect: false,
     })
-    },
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     //初期查询留言
-    messageinfoArr=[]
-    util.request(api.selMessage,{
-      
-    },"GET").then(res => {
-        if (res.code == 200) {
-          messageinfo=res.data;
-          if(messageinfo.length>0){
-            console.log(messageinfo.length+"messageinfo.length")
-            for(var j = 0;j<messageinfo.length;j++){
-              console.log(j+"-------------------------"+messageinfo[j].content)
-              this.data.messageinfoArr.push(messageinfo[j].content)
-              console.log(this.data.messageinfoArr)
-              this.setData({
-                messageinfoArr:messageinfoArr//将db数据赋值给messageinfoArr数组前台展示
-                
-              })
-              
-              
-            } 
-           
+    messageinfoArr = []
+    util.request(api.selMessage, {}, "GET").then(res => {
+      if (res.code == 200) {
+        messageinfo = res.data;
+        if (messageinfo.length > 0) {
+          for (var j = 0; j < messageinfo.length; j++) {
+            this.data.messageinfoArr.push(messageinfo[j].content)
+            this.setData({
+              messageinfoArr: messageinfoArr //将db数据赋值给messageinfoArr数组前台展示
+            })
           }
-        }else{
-          console.log(res.code+"=========================")
-        } 
-  })
-
+        }
+      } else {
+        console.log(res.code + "=========================")
+      }
+    })
   },
 
   /**
