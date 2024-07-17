@@ -93,7 +93,6 @@ Page({
     this.WxValidate = new WxValidate.WxValidate(rules,messages);
   },
   submitForm(e){
-    gger
     var that = this;
     let formData = e.detail.value;
     formData.tableNumber = this.data.tableNumber;
