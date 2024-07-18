@@ -15,7 +15,7 @@
   </swiper>
   
   <view class="lineSty"></view>
-  <view class='news acea-row row-between-wrapper' style="background-color: #f7f8f6;margin: 20rpx 10rpx 20rpx 10rpx;height: 260rpx;">
+  <view class='news acea-row row-between-wrapper' style="background-color: #f7f8f6;margin: 20rpx 10rpx 20rpx 10rpx;height: 290rpx;">
        <view class='pictrue' style=" border-radius: 10px; border: 1px solid rgb(223, 213, 213);box-shadow: 10px 10px 10px rgba(151, 140, 140, 0.5);">
         <image class="AnnouImgSty"src='/static/images/notice.png'style="height:40rpx;width:40rpx;float:left;margin-top:9px;margin-left:10px">
          </image>

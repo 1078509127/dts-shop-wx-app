@@ -57,11 +57,11 @@ Page({
         canIUseGetUserProfile: true
       })
     }
-    const privacySettingRes = this.getPrivacySetting();
-    console.log("privacySettingRes :>> ", privacySettingRes);
-    this.setData({
-      showPop: privacySettingRes.needAuthorization,
-    });
+    // const privacySettingRes = this.getPrivacySetting();
+    // console.log("privacySettingRes :>> ", privacySettingRes);
+    // this.setData({
+    //   showPop: privacySettingRes.needAuthorization,
+    // });
   },
   
   /**
@@ -90,6 +90,7 @@ Page({
    * 按钮点击回调
    */
   popBtnTap(res) {
+    debugger
     console.log("授权结果返回数据 :>> ", res);
     console.log("授权结果 :>> ", res.detail);
     if (res.detail.result) {

@@ -38,9 +38,6 @@ Page({
       {id: "2", number: "3号桌"},
       {id: "3", number: "4号桌"},
       {id: "4", number: "5号桌"},
-      // {id: "5", number: "6号桌"},
-      // {id: "6", number: "7号桌"},
-      // {id: "7", number: "8号桌"},
     ],
   },
 
@@ -93,7 +90,6 @@ Page({
     this.WxValidate = new WxValidate.WxValidate(rules,messages);
   },
   submitForm(e){
-    gger
     var that = this;
     let formData = e.detail.value;
     formData.tableNumber = this.data.tableNumber;
@@ -308,7 +304,6 @@ Page({
             date: e.detail.value
           },
           success: function (res) {
-            console.log(res.data)
             if(res.data.code == 200){
               wx.showModal({
                 title: res.message,
@@ -335,7 +330,6 @@ Page({
             date: e.detail.value
           },
           success: function (res) {
-            console.log(res.data)
             if(res.data.code == 200){
               wx.showModal({
                 title: res.message,
@@ -451,7 +445,6 @@ Page({
   bindTNumber: function(e) {
   },
   selectApply:function(e){
-    console.log(e)
      this.setData({
       idx:e.currentTarget.dataset.id,
       tableNumber: this.data.tableList[e.currentTarget.dataset.id].number
@@ -482,7 +475,6 @@ Page({
     if(this.data.scene == '乒乓球馆'){
       let now = new Date(),
       time1=now.getFullYear() + "-" + (now.getMonth()+1) + "-" + now.getDate();
-      console.log(time1);
       later.setDate(now.getDate());//当前日开始
       mon.setDate(now.getDate() + 2);//2天
       time2 = later.getFullYear() + "-" + (later.getMonth() +1 ) + "-" + later.getDate();
@@ -491,14 +483,6 @@ Page({
 
       let now = new Date(),
       time1=now.getFullYear() + "-" + (now.getMonth()+1) + "-" + now.getDate();
-      console.log(time1);
-
-      //获取当前时间
-      // let hh = now.getHours();
-      // let mm = now.getMinutes()<10?'0'+new Date().getMinutes() : new Date().getMinutes();
-      // let ss = now.getSeconds()<10?'0'+new Date().getSeconds() : new Date().getSeconds();
-      // let time = hh + ":" + mm + ":" + ss;
-      // console.log(time);
 
       //获取一周后日期
       later.setDate(now.getDate() + 7);//1周
@@ -510,51 +494,56 @@ Page({
       this.setData({checkEndTime: timeMon})
   },
 
+  /** 预约时查询是否预约过，直接回显部分字段 */
+  getData:function(){
+    util.request(api.SelReserve,{userId:this.data.userinfo.userId,eventType:this.data.eventType},'GET').then(res => {
+      if(res.data.length>0){
+        const datas = res.data[0];
+        const that = this;
+        that.setData({
+          userName:datas.userName,
+          phone : datas.phone,
+          sex : datas.sex,
+          unit : datas.unit,
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {
-  },
+  onReady() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.getData();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide() {
-
-  },
+  onHide() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload() {
-
-  },
+  onUnload() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh() {
-
-  },
+  onPullDownRefresh() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom() {
-
-  },
+  onReachBottom() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage() {
-
-  }
+  onShareAppMessage() {}
 })
