@@ -12,6 +12,14 @@
           </view>
           <view class='jhx_f2'>健身房</view>
         </view>
+        <!-- 乒乓球馆 -->
+        <view class='item'style="margin:20rpx 0" hover-class='none' bindtap='pingpang' data-eventType="个人预约" >
+          <view class='pictrue'>
+            <image src='/static/images/健身房 (1).png'></image>
+          </view>
+          <view class='jhx_f2'>乒乓球馆</view>
+        </view>
+
         <!-- 图书馆 -->
         <view class='item' hover-class='none' bindtap='libraryroom' data-eventType="团队预约">
           <view class='pictrue'>

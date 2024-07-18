@@ -8,14 +8,6 @@ page{
   left:0%;
   width:100%;
 }
-.jsTestSty{
-  position: absolute;
-  top:360rpx;
-  left:2%;
-  width:100%;
-  font-size: 30rpx;
-  text-align: left;
-}
 .button_item{
   top:10rpx;
   left:0%;
@@ -27,7 +19,7 @@ page{
   top:10rpx;
   /* left:10%; */
   width:90%;
-  height: 1500rpx;
+  /* height: 1500rpx; */
   background: rgb(250, 249, 249);
   border-radius: 15rpx;
   box-shadow: 2px 2px 3px #cfcece;
@@ -115,27 +107,34 @@ page{
   text-overflow:ellipsis;
   white-space:nowrap; */
 }
-.amount{
+/* .amount{
   position: absolute;
-  top:270rpx;
+  top:1100rpx;
   left:2%;
   width:100%;
   font-size: 30rpx;
   text-align: left;
-  /* height: 55rpx;
-  color:rgba(185, 20, 20, 0.796); */
+  
+} */
+.jsTestSty{
+  position: absolute;
+  top:400rpx;
+  left:2%;
+  width:100%;
+  font-size: 30rpx;
+  text-align: left;
 }
 .imgSty{
   position: absolute;
-  top:310rpx;
+  top:200rpx;
   left:0px;
   width:96%;
   font-size: 25rpx;
   text-align: left;
 }
-.imgSty1{
+/* .imgSty1{
   position: absolute;
-  top:410rpx;
+  top:1100rpx;
   left:0px;
   width:100%;
   font-size: 25rpx;
@@ -143,13 +142,22 @@ page{
 }
 .imgSty2{
   position: absolute;
-  top:850rpx;
+  top:1550rpx;
+  left:0px;
+  width:100%;
+  font-size: 25rpx;
+  text-align: left;
+} */
+.jsSty{
+  margin: 455rpx 0 0 0;
   left:0px;
   width:100%;
   font-size: 25rpx;
   text-align: left;
 }
-
+.img{
+  width:100%;
+}
 .btn_goods{
   position: absolute;
   top:60rpx;
@@ -159,7 +167,6 @@ page{
   background: #67e956;
   z-index: 99999;
 }
-
 .btn_goods::after{
   border: 0ch;
 }

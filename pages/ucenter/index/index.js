@@ -26,8 +26,16 @@ Page({
       // { url: "/pages/ucenter/footprint/footprint", pic: "footprint.png", name: "浏览足迹" },
       // { url: "/pages/groupon/myGroupon/myGroupon", pic: "group.png", name: "我的拼团" },
       // { url: "/pages/ucenter/address/address", pic: "address.png", name: "地址管理" },
-         { url: "/pages/ucenter/feedback/feedback", pic: "cg.png", name: "查看场馆" },
-       // *,{ url: "/pages/about/about", pic: "comment.png", name: "使用帮助" }
+        //  { url: "/pages/ucenter/feedback/feedback", pic: "cg.png", name: "查看场馆" },
+         { url: "/pages/ucenter/gymnasiumDetail/gymnasiumDetail", pic: "健身房.png", name: "健身房"},
+         { url: "/pages/ucenter/pingpong/pingpong", pic: "ppq.png", name: "乒乓球馆"},
+         { url: "/pages/ucenter/libraryroom/libraryroom", pic: "图书馆-copy-copy (1).png", name: "图书馆"},
+         { url: "/pages/ucenter/microcomPuter/microcomPuter", pic: "2.png", name: "微机室"},
+         { url: "/pages/ucenter/yoga/yoga", pic: "运动6.png", name: "瑜伽室"},
+         { url: "/pages/ucenter/calligraphy/calligraphy", pic: "钢笔 修改 (1).png", name: "书法室"},
+         { url: "/pages/ucenter/recording/recording", pic: "17.png", name: "录音室"},
+         { url: "/pages/ucenter/Bakingroom/Bakingroom", pic: "26-Blueberry Muffins.png", name: "烘培室"},
+
          ],
       hasLogin: false,
       totalAmount: 0.00,
@@ -223,16 +231,13 @@ Page({
   },
   //点击场馆介绍按钮
   gogymnasiumDetail(e) {
-    let eventType = e.currentTarget.dataset.eventtype;
     if (this.data.hasLogin) {
       try {
         wx.setStorageSync('tab', '0');
       } catch (e) {}
-      // wx.navigateTo({
-      //   url: "/pages/ucenter/gymnasiumDetail/gymnasiumDetail?eventType="+eventType
-      // });
+      // 传过来的内容url跳转
       wx.navigateTo({
-        url: "/pages/ucenter/allVenues/allVenues?eventType="+eventType
+        url: e.currentTarget.dataset.url
       });
     } else {
       wx.navigateTo({

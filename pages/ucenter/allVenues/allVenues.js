@@ -243,6 +243,12 @@ Page({
       url: "/pages/ucenter/gymnasiumDetail/gymnasiumDetail"
     });
   },
+  //乒乓球馆
+  pingpang(e){
+    wx.redirectTo({
+      url: "/pages/ucenter/pingpong/pingpong"
+    });
+  },
   //图书馆
   libraryroom(e){
     wx.redirectTo({

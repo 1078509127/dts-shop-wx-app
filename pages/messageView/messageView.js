@@ -10,7 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    messageinfoArr: [], //留言数据展示
+    messageinfoArr: [{}], //留言数据展示
+    messageinfo:[{}],
     isSelect: false, //展示类型？
     types: ['查询全部', '优化建议', '功能异常'], //留言类型
     type: "", //公司/商户类型
@@ -60,13 +61,17 @@ Page({
     messageinfoArr = []
     util.request(api.selMessage, {}, "GET").then(res => {
       if (res.code == 200) {
+        debugger
         messageinfo = res.data;
         if (messageinfo.length > 0) {
           for (var j = 0; j < messageinfo.length; j++) {
-            this.data.messageinfoArr.push(messageinfo[j].content)
+            this.data.messageinfoArr.push(messageinfo[j])
+          
             this.setData({
-              messageinfoArr: messageinfoArr //将db数据赋值给messageinfoArr数组前台展示
+              //messageinfoArr: messageinfoArr, //将db数据赋值给messageinfoArr数组前台展示
+              messageinfo:messageinfo
             })
+            
           }
         }
       } else {
