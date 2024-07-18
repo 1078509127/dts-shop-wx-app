@@ -221,14 +221,18 @@ Page({
       });
     };
   },
+  //点击场馆介绍按钮
   gogymnasiumDetail(e) {
     let eventType = e.currentTarget.dataset.eventtype;
     if (this.data.hasLogin) {
       try {
         wx.setStorageSync('tab', '0');
       } catch (e) {}
+      // wx.navigateTo({
+      //   url: "/pages/ucenter/gymnasiumDetail/gymnasiumDetail?eventType="+eventType
+      // });
       wx.navigateTo({
-        url: "/pages/ucenter/gymnasiumDetail/gymnasiumDetail?eventType="+eventType
+        url: "/pages/ucenter/allVenues/allVenues?eventType="+eventType
       });
     } else {
       wx.navigateTo({
