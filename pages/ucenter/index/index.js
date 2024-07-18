@@ -22,11 +22,6 @@ Page({
       },
     MyMenus: [ { url: "/pages/ucenter/feedback/feedback", pic: "feedback.png", name: "意见反馈" },],
        MyMenus2: [
-      // { url: "/pages/ucenter/collect/collect", pic:"icon_collect.png",name:"商品收藏"},
-      // { url: "/pages/ucenter/footprint/footprint", pic: "footprint.png", name: "浏览足迹" },
-      // { url: "/pages/groupon/myGroupon/myGroupon", pic: "group.png", name: "我的拼团" },
-      // { url: "/pages/ucenter/address/address", pic: "address.png", name: "地址管理" },
-        //  { url: "/pages/ucenter/feedback/feedback", pic: "cg.png", name: "查看场馆" },
          { url: "/pages/ucenter/gymnasiumDetail/gymnasiumDetail", pic: "健身房.png", name: "健身房"},
          { url: "/pages/ucenter/pingpong/pingpong", pic: "ppq.png", name: "乒乓球馆"},
          { url: "/pages/ucenter/libraryroom/libraryroom", pic: "图书馆-copy-copy (1).png", name: "图书馆"},
