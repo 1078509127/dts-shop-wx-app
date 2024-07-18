@@ -29,57 +29,18 @@ Page({
     window: false,
     colseCoupon: false
   },
-
-  getUserProfile(e) {
-    wx.getUserProfile({
-      desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        wx.showLoading({
-          title: "登录中...",
-          mask: true
-        });
-        user.checkLogin().catch(() => {
-          user.loginByWeixin(res.userInfo).then(res => {
-            app.globalData.hasLogin = true;
-            wx.navigateBack({
-              delta: 1
-            })
-          }).catch((err) => {
-            app.globalData.hasLogin = false;
-            util.showErrorToast('微信登录失败');
-          });
-        });
-      },
-      fail: (res) => {
-        app.globalData.hasLogin = false;
-        util.showErrorToast('微信登录失败');
-      }
-    });
-  },
-
-  wxLogin: function (e) {
-    if (e.detail.userInfo == undefined) {
-      app.globalData.hasLogin = false;
-      util.showErrorToast('微信登录失败');
-      return;
-    }
-    user.checkLogin().catch(() => {
-      user.loginByWeixin(e.detail.userInfo).then(res => {
-        app.globalData.hasLogin = true;
-        wx.navigateBack({
-          delta: 1
-        })
-      }).catch((err) => {
-        app.globalData.hasLogin = false;
-        util.showErrorToast('微信登录失败');
-      });
-    });
+  onPullDownRefresh:function() {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.getIndexData();
+    this.getArticle();
+    this.activeList();
+    wx.hideNavigationBarLoading() //完成停止加载
+    wx.stopPullDownRefresh() //停止下拉刷新
   },
   //模态框确定绑定
   confirm: function (e) {
     this.getUserProfile(e);
     //this.wxLogin(e)
-
   },
   cancel: function (e) {
     let thst = this;
@@ -87,18 +48,11 @@ Page({
       hideModal: true
     })
   },
-
-
   //跳转个人
   selectSingle: function (e) {
     let userInfo = wx.getStorageSync('userInfo');
     if (!userInfo) {
       let that = this
-      // that.setData({
-      //   hideModal:false
-
-      // })
-
       wx.navigateTo({
         url: '/pages/auth/login/login',
       })
@@ -118,14 +72,9 @@ Page({
   selectMulti: function (e) {
     let userInfo = wx.getStorageSync('userInfo');
     if (!userInfo) {
-      //显示登录modal框
-      let that = this
-      that.setData({
-        hideModal: false
+      wx.navigateTo({
+        url: '/pages/auth/login/login',
       })
-      // wx.navigateTo({
-      //   url: '/pages/auth/login/login',
-      // })
     } else if (!this.data.multiList[e.detail.value].isOpen) {
       wx.showModal({
         title: '目前' + this.data.multiList[e.detail.value].name + '已关闭预约',
@@ -162,24 +111,22 @@ Page({
     })
   },
 
-  onShareAppMessage: function () {
-    let userInfo = wx.getStorageSync('userInfo');
-    let shareUserId = 1;
-    if (userInfo) {
-      shareUserId = userInfo.userId;
-    }
-    return {
-      title: '聚惠星',
-      desc: '长沙市聚惠星科技与您共约',
-      path: '/pages/index/index?shareUserId=' + shareUserId
-    }
-  },
+  //查询公告
+  getArticle: function () {
+    util.request(api.ArticleDetail, {
+      id: 1
+    }, "GET").then(res => {
+      if (res.data.content != undefined) {
+        this.setData({
+          ArticleDetail: res.data.content
 
-  onPullDownRefresh() {
-    wx.showNavigationBarLoading() //在标题栏中显示加载
-    this.getIndexData();
-    wx.hideNavigationBarLoading() //完成停止加载
-    wx.stopPullDownRefresh() //停止下拉刷新
+        });
+      } else {
+        this.setData({
+          ArticleDetail: res.data.content
+        });
+      }
+    })
   },
 
   getIndexData: function () {
@@ -200,39 +147,8 @@ Page({
         });
       }
     });
-    util.request(api.GoodsCount).then(function (res) {
-      that.setData({
-        goodsCount: res.data.goodsCount
-      });
-    });
   },
   onLoad: function (options) {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
-    }
-    // const privacySettingRes = this.getPrivacySetting();
-    // console.log("privacySettingRes :>> ", privacySettingRes);
-    // this.setData({
-    //   showPop: privacySettingRes.needAuthorization,
-    // });
-
-    //查询公告
-    util.request(api.ArticleDetail, {
-      id: 1
-    }, "GET").then(res => {
-      if (res.data.content != undefined) {
-        this.setData({
-          ArticleDetail: res.data.content
-
-        });
-      } else {
-        this.setData({
-          ArticleDetail: res.data.content
-        });
-      }
-    })
     ///end
     this.setData({
       colseCoupon: false
@@ -324,24 +240,7 @@ Page({
   },
   onShow: function () {
     this.activeList();
-    // 每次页面显示，需获取是否用户登录，如果用户登录，则查询用户是否有优惠券，有则弹出优惠券领取窗口
-    let that = this;
-    let userInfo = wx.getStorageSync('userInfo');
-    if (!userInfo) {
-      // util.request(api.GetUserCoupon, null, 'GET').then(res => {
-      //   if (res.errno === 0) {
-      //   that.setData({
-      //         coupon: res.data.couponList
-      //  });
-
-      //  if (!that.data.colseCoupon && userInfo && that.data.coupon.length > 0) {
-      //     that.setData({ window: true });
-      //  } else {
-      //     that.setData({window:false});
-      //  }
-      //   }
-      // })
-    }
+    this.getArticle()
   },
   onHide: function () {
     // 页面隐藏
@@ -375,54 +274,4 @@ Page({
       }
     })
   },
-
-  // 显示遮罩层
-  // showModal: function () {
-  //   var that=this;
-  //   that.setData({
-  //     hideModal:false
-  //   })
-  //   var animation = wx.createAnimation({
-  //     duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-  //     timingFunction: 'ease',//动画的效果 默认值是linear
-  //   })
-  //   this.animation = animation 
-  //   setTimeout(function(){
-  //     that.fadeIn();//调用显示动画
-  //   },200)   
-  // },
-
-  // // 隐藏遮罩层
-  // hideModal: function () {
-  //   var that=this; 
-  //   var animation = wx.createAnimation({
-  //     duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
-  //     timingFunction: 'ease',//动画的效果 默认值是linear
-  //   })
-  //   this.animation = animation
-  //   that.fadeDown();//调用隐藏动画   
-  //   setTimeout(function(){
-  //     that.setData({
-  //       hideModal:true
-  //     })      
-  //   },720)//先执行下滑动画，再隐藏模块
-
-  // },
-
-  // //动画集
-  // fadeIn:function(){
-  //   this.animation.translateY(0).step()
-  //   this.setData({
-  //     animationData: this.animation.export()//动画实例的export方法导出动画数据传递给组件的animation属性
-  //   })    
-  // },
-  // fadeDown:function(){
-  //   this.animation.translateY(300).step()
-  //   this.setData({
-  //     animationData: this.animation.export(),  
-  //   })
-  // }, 
-
-
-
 })

@@ -80,6 +80,7 @@ Page({
            this.setData({
              ArticleDetailInfo: res.data.content.replace(/<[^>]+>/g,'')
            });
+           console.log(res)
          }else{
            console.log(res.data.content)
            this.setData({

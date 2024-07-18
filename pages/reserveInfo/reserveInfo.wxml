@@ -8,17 +8,18 @@
     <button class="btn"  bindtap="selectBtn">查询</button>
   </view>
   <scroll-view class='content' scroll-y="true" style='width: 100%; height:82%;background-color: #efefef;' bindscrolltolower="paging">
-  <block wx:for="{{showData}}" wx:key="scene">
+  <block wx:for="{{showData}}" wx:key="index">
     <view class = "button_item">
-      <button class="goods">
+      <view class="goods">
         <text class="goods_name">姓名:{{item.userName}}</text>
-        <text class="introduce">场所:{{item.scene}}</text>
-        <text class="member-row">会员卡号:{{item.memberCard}}</text>
-        <text class="start-row">开始时间:{{item.startTime}}</text>
-        <text class="end-row">结束时间:{{item.endTime}}</text>
-        <button class = "btn_goods" data-item="{{item}}" bindtap="cancel_click" >
+        <text class="goods_name">场所:{{item.scene}}</text>
+        <text class="goods_name">手机号:{{item.phone}}</text>
+        <text class="goods_name" wx:if="{{item && item.memberCard}}">会员卡号:{{item.memberCard}}</text>
+        <text class="goods_name">开始时间:{{item.startTime}}</text>
+        <text class="goods_name"wx:if="{{item && item.memberCard}}">结束时间:{{item.endTime}}</text>
+      </view>
+      <button class = "btn_goods" data-item="{{item}}" bindtap="cancel_click" >
           <text class = "buy">查看</text>
-        </button>
       </button>
     </view>
   </block>

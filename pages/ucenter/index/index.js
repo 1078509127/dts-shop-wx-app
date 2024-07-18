@@ -42,7 +42,7 @@ Page({
       managerList:[
         {id: 1,name: "预约查询",iconUrl: "../../../static/images/hetongguanli.png"},
         {id: 2,name: "留言查看",iconUrl: "../../../static/images/a-2shouhouzerenweihu.png"},
-        {id: 3,name: "活动描述",iconUrl: "../../../static/images/huiqianguanli.png"},
+        {id: 3,name: "公告管理",iconUrl: "../../../static/images/huiqianguanli.png"},
         {id: 4,name: "活动推送",iconUrl: "../../../static/images/a-2pandiandaochu.png"},
         { id: 5,name: "轮播图配置",iconUrl: "../../../static/images/xiaoguotuguanli.png" },
         {id: 6,name: "关闭预约通道",iconUrl: "../../../static/images/a-2kuanshigongxu.png"},
@@ -311,7 +311,7 @@ Page({
       })
     }
     //活动描述
-    if (this.data.name === '活动描述') {
+    if (this.data.name === '公告管理') {
       wx.navigateTo({
         url: '/pages/activeDesc/activeDesc'
       })

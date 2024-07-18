@@ -21,7 +21,6 @@ Page({
     var that = this;
     util.request(api.ManReserve, { name: this.data.field }, "GET").then(res => {
       if (res.code == 200) {
-        console.log(res.data)
         for (var i = 0; i < res.data.length; i++) {
           res.data[i].startTime = this.test(res.data[i].startTime)
           res.data[i].endTime = this.test(res.data[i].endTime)
@@ -57,9 +56,30 @@ Page({
       url: '/pages/eventTypeReBack/index?form=' + JSON.stringify(e.currentTarget.dataset.item),
     })
   },
-  download: function () {
+
+  // bindSetTap: function (e, skin) {
+	// 	let itemList = ['近三个月','近半年','近一年'];
+	// 	wx.showActionSheet({
+	// 		itemList,
+	// 		success: async res => {
+  //       let idx = res.tapIndex;
+	// 			if (idx == 0) {
+  //         this.download('近三个月')
+  //       }
+  //       if (idx == 1) {
+  //         this.download('近半年')
+  //       },
+  //       if (idx == 2) {
+  //         this.download('近一年')
+	// 			}
+	// 		},
+	// 		fail: function (res) { }
+	// 	})
+  // },
+  download: function (data) {
     wx.downloadFile({
       url: api.dowReserve, // 文件的本身url
+      date:data,
       filePath: wx.env.USER_DATA_PATH + '//预约报表.xlsx', // 本地自定义的文件名
       success: function (res) {
         let filePath = res.filePath; // 微信临时文件路径(这里要使用自定义的名字文件名,否则打开的文件名是乱码)
