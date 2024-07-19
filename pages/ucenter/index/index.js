@@ -111,7 +111,21 @@ Page({
       });
     };
   },
+  upUser:function(){
+    const userInfo =  wx.getStorageSync('userInfo');
+    if (!this.data.hasLogin) {
+      wx.navigateTo({
+        url: "/pages/auth/login/login"
+      });
+    }else{
+    debugger
+    wx.navigateTo({
+      url:  "/pages/ucenter/updateuser/updateuser",
+    });
+   
+    }
 
+  },
   scanBtn:function(){
     const userInfo =  wx.getStorageSync('userInfo');
     if (!this.data.hasLogin) {

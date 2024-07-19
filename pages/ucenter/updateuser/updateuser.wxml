@@ -1,0 +1,30 @@
+<form bindsubmit="formSubmit">
+  <view class='personal-data'>
+    <view class='list'>
+        
+        <view class='item acea-row row-between-wrapper'>
+          <view>名字</view>
+          <view class='input'><input type='text'  name='nickname'  bindinput="bindUsernameInput" value='{{userInfo.nickName}}'></input></view>
+        </view>
+        <view class='item acea-row row-between-wrapper'>
+          <view>手机号码</view>
+          <view class='input'><input type='text' bindinput="bindMobileInput" name='nickname' value='{{userInfo.phone}}'></input></view>
+        </view>
+      
+        
+        <view class='item acea-row row-between-wrapper'>
+          <view>ID号</view>
+          <view class='input acea-row row-between-wrapper'>
+            <input type='text' value='1000{{userInfo.userId}}' disabled='true' class='id'></input>
+            <text class='iconfont icon-suozi'></text>
+          </view> 
+        </view>
+    </view>
+    <view wx:if="{{userSharedUrl && userSharedUrl!=''}}" style="text-align:center;background-color:#fff;">
+      <view>代理专属推广二维码（长按保存到相册）</view>
+      <image class="img" src="{{userSharedUrl}}" bindlongpress="saveShare" style="width:600rpx;height:600rpx;"></image>
+    </view>
+    <button class='modifyBnt' bindtap="upuserInfo" style="background-color: rgb(38, 132, 240);">修改</button>
+  </view>
+</form>
+

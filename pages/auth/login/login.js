@@ -20,7 +20,22 @@ Page({
           user.loginByWeixin(res.userInfo).then(res => {
             user.authsubscribe();
             app.globalData.hasLogin = true;
-            wx.navigateBack({delta: 1 })
+            if (app.globalData.hasLogin == true) {
+              if (wx.getStorageSync('register')!=true) {
+                wx.navigateTo({
+                  url: "/pages/auth/register/register"
+                })
+              }else{
+                wx.navigateTo({
+                  url: '/pages/index/index',
+                })
+              }
+             
+            }else{
+              wx.navigateBack({delta: 1 })
+            }
+            
+           
           }).catch((err) => {
             app.globalData.hasLogin = false;
             util.showErrorToast('微信登录失败');
@@ -91,7 +106,6 @@ Page({
    * 按钮点击回调
    */
   popBtnTap(res) {
-    debugger
     console.log("授权结果返回数据 :>> ", res);
     console.log("授权结果 :>> ", res.detail);
     if (res.detail.result) {

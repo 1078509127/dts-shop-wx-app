@@ -1,5 +1,19 @@
 /* pages/messageView/messageView.wxss */
 /* pages/messageView/messageView.wxss */
+.textSty{
+ display: -webkit-box;
+ overflow: auto; 
+ word-break: break-all;  
+ -webkit-line-clamp:2;
+ font-size: 20rpx; 
+ font-size: 30rpx;font-weight:600;
+  text-align: left;margin:10rpx 10rpx 50rpx 10rpx;height: 160rpx;
+
+ }
+ .addtime{
+  position:absolute;bottom: 10rpx;left: 400rpx;
+ }
+ 
 
 .sanjiao{
   width: 18rpx;

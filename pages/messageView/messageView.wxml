@@ -4,17 +4,15 @@
   <block wx:for="{{messageinfo}}" wx:key="scene"> 
      <view  class = "button_item" data-testid="{{item}}" >
        <button  class="goods" data-testid="{{item}}" bindtap="cancel_click">
-        <!-- <text class="goods_name"> {{item}}</text> -->
         <view style="">
         <text>用户Id:{{item.id}}</text>
         </view>
         <view style="position:absolute;bottom: 10rpx;left: 400rpx;">
           <text>{{item.addTime}}</text>
         </view>
-        <view>
-        <text>{{item.content}}</text>
+        <view style="width: 100%;height: 70%;">
+          <rich-text class="textSty" nodes="{{item.content}}"></rich-text>
         </view>
-        
       </button>
     </view> 
   </block> 

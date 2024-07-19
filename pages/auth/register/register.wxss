@@ -65,5 +65,6 @@
   color: #fff;
   font-size: 30rpx;
   width: 100%;
+  background-color: rgb(80, 181, 240);
   border-radius: 6rpx;
 }
