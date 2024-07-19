@@ -21,7 +21,6 @@ Page({
     var that = this;
     util.request(api.ManReserve, { name: this.data.field }, "GET").then(res => {
       if (res.code == 200) {
-        console.log(res.data)
         for (var i = 0; i < res.data.length; i++) {
           res.data[i].startTime = this.test(res.data[i].startTime)
           res.data[i].endTime = this.test(res.data[i].endTime)
@@ -57,9 +56,32 @@ Page({
       url: '/pages/eventTypeReBack/index?form=' + JSON.stringify(e.currentTarget.dataset.item),
     })
   },
-  download: function () {
+
+  bindSetTap: function (e, skin) {
+		let itemList = ['近三个月','近半年','近一年','全部'];
+		wx.showActionSheet({
+			itemList,
+			success: async res => {
+        let idx = res.tapIndex;
+				if (idx == 0) {
+          this.download('近三个月')
+        }
+        if (idx == 1) {
+          this.download('近半年')
+        }
+        if (idx == 2) {
+          this.download('近一年')
+        }
+        if (idx == 3) {
+          this.download('全部')
+				}
+			},
+			fail: function (res) { }
+		})
+  },
+  download: function (data) {
     wx.downloadFile({
-      url: api.dowReserve, // 文件的本身url
+      url: api.dowReserve +'?date='+data, // 文件的本身url
       filePath: wx.env.USER_DATA_PATH + '//预约报表.xlsx', // 本地自定义的文件名
       success: function (res) {
         let filePath = res.filePath; // 微信临时文件路径(这里要使用自定义的名字文件名,否则打开的文件名是乱码)
@@ -78,37 +100,7 @@ Page({
         console.log("err", x);
       }
     });
-    // wx.request({
-    //   url: api.dowReserve, //这个地方是你获取二进制流的接口地址
-    //   method: 'GET',
-    //   responseType: "arraybuffer", //arraybuffer特别注意的是此处是请求文件流必须加上的属性，不然你导出到手机上的时候打不开，即使是打开了也是空白
-    //   success: res => {
-    //     console.log(res)
-    //     console.log(wx.env.USER_DATA_PATH)
-    //     const fs = wx.getFileSystemManager(); //获取全局唯一的文件管理器 
-    //     fs.writeFile({ //写文件
-    //       filePath: wx.env.USER_DATA_PATH + "/预约报表.xlsx",  //wx.env.USER_DATA_PATH 指定临时文件存入的路径，后面字符串自定义
-    //       data: res.data, // res.data就是获取到的二进制文件流
-    //       encoding: "binary", //二进制流文件必须是 binary
-    //       success(e) {
-    //         wx.openDocument({ // 打开文档
-    //           filePath: wx.env.USER_DATA_PATH + "/统计报表.xlsx", //拿上面存入的文件路径
-    //           fileType: 'xlsx',
-    //           showMenu: true, // 显示右上角菜单
-    //           success: function (x) {
-    //             console.log("success", x);
-    //           },
-    //           fail:function(x){
-    //             console.log("fail",x)
-    //           }
-    //         })
-    //       },
-    //       fail:function(e){
-    //         console.log("fail",e)
-    //       }
-    //     })
-    //   }
-    // })
+  
   },
 
   /**

@@ -28,7 +28,7 @@ Page({
     util.request(api.activeUpdate, {id:e.currentTarget.dataset.item.id,isOpen:e.detail.value}, 'GET').then(res => {
       if(res.code ==200){
         wx.showModal({
-          title: '成功',
+          title: '操作成功',
           icon: 'success',
           duration: 2000
         });

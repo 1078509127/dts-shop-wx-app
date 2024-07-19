@@ -10,7 +10,8 @@ Page({
    */
   data: {
     imgs: [],
-    count: 3
+    count: 3,
+    tempFilePaths:[],
   },
 
   //查看图片
@@ -50,8 +51,7 @@ Page({
       sizeType: ["original", "compressed"], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ["album", "camera"], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths
+        const tempFilePaths = res.tempFilePaths
         for (var i = 0; i < tempFilePaths.length; i++) {
           wx.uploadFile({
             url: api.creSwiper,
@@ -81,11 +81,14 @@ Page({
                 duration: 2000
               })
             },
-            complete: function (result) {
-              console.log(result.errMsg)
-            }
+            complete: function (result) {console.log(result.errMsg) }
           })
         }
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        // for (var i = 0; i < res.tempFilePaths.length; i++) {
+        //   that.data.imgs.push({url:res.tempFilePaths[i]})
+        // }
+        // that.setData({tempFilePaths :res.tempFilePaths})
       },
       fail: (res) => {
         console.log(res)
@@ -119,23 +122,57 @@ Page({
 
   //上传按钮
   btn:function(){
-    if(this.data.imgs.length>0){
-      wx.showModal({
-        title: "提示",
-        content: "上传成功",
+    for (var i = 0; i < this.data.tempFilePaths.length; i++) {
+      wx.uploadFile({
+        url: api.creSwiper,
+        filePath: this.data.tempFilePaths[i],
+        name: "file",
+        header: {
+          "content-type": "multipart/form-data",
+          'X-Dts-Admin-Token': wx.getStorageSync('X-Dts-Admin-Token')
+        },
         success: function (res) {
-          if (res.confirm) {
-            wx.switchTab({
-              url:'/pages/index/index'
+          if (res.statusCode == 200) {
+            wx.showToast({
+              title: "上传成功",
+              icon: "none",
+              duration: 1500
+            })
+            that.data.imgs.push(JSON.parse(res.data).data)
+            that.setData({
+              imgs: that.data.imgs
             })
           }
+        },
+        fail: function (err) {
+          wx.showToast({
+            title: "上传失败",
+            icon: "none",
+            duration: 2000
+          })
+        },
+        complete: function (result) {
+          console.log(result.errMsg)
         }
       })
-    }else{
-      wx.showModal({
-        title: "请选择要上传的图片",
-       })
     }
+    // if(this.data.imgs.length>0){
+    //   wx.showModal({
+    //     title: "提示",
+    //     content: "上传成功",
+    //     success: function (res) {
+    //       if (res.confirm) {
+    //         wx.switchTab({
+    //           url:'/pages/index/index'
+    //         })
+    //       }
+    //     }
+    //   })
+    // }else{
+    //   wx.showModal({
+    //     title: "请选择要上传的图片",
+    //    })
+    // }
   },
 
   /**

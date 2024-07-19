@@ -1,6 +1,6 @@
 // 以下是业务服务器API地址
  // 本机开发API地址
-var WxApiRoot = 'http://192.168.2.249:8080/wx/';
+var WxApiRoot = 'http://192.168.2.232:8080/wx/';
 //var WxApiRoot = ' https://9aj327pr1567.vicp.fun/wx/';
 // 测试环境部署api地址
 // var WxApiRoot = 'http://192.168.0.101:8070/demo/wx/';
@@ -33,7 +33,7 @@ module.exports = {
   //管理端接口
   ManReserve: WxApiRoot + 'manage/list', //预约查询
   selMessage:WxApiRoot + 'manage/getMessage', //留言查看
-  AdmArticleDetail: WxApiRoot + 'manage/detail',//公告详情//////后增加////
+  dowReserve: WxApiRoot + 'manage/download', //预约导出
   activePush: WxApiRoot + 'manage/sendMsg', //活动推送
   creSwiper: WxApiRoot + 'manage/create', //轮播图上传
   selSwiper: WxApiRoot + 'ad/list', //轮播图查看
@@ -42,6 +42,9 @@ module.exports = {
   activeList: WxApiRoot + 'manage/activeList', //预约通道查询
   activeUpdate: WxApiRoot + 'manage/activeUpdate', //预约通道关闭
   QRcode: WxApiRoot + 'manage/QRcode', //二维码生成
+  AdmArticleDetail: WxApiRoot + 'manage/detail',//公告详情//////后增加////
+  AdmArticleDetail: WxApiRoot + 'manage/detail',//公告详情//////后增加////
+  AdmUpArticle:WxApiRoot + 'manage/update',//修改公告//////后增加////
 
   GoodsCount: WxApiRoot + 'goods/count', //统计商品总数
   GoodsList: WxApiRoot + 'goods/list', //获得商品列表

@@ -50,67 +50,38 @@ page{
 }
 
 .button_item{
-  top:10rpx;
-  left:0%;
-  /* width:100%; */
-  height: 310rpx;
+  width:95%;
+  margin: 20rpx auto;
+  padding: 30rpx;
+  background: #fff;
+  box-shadow: 2px 2px 3px #cfcece;
+  border-radius: 15rpx;
+  display: flex;
 }
 .goods{
-  top:10rpx;
-  /* left:10%; */
-  width:90%;
-  height: 280rpx;
-  background: #fff;
-  border-radius: 15rpx;
-  box-shadow: 2px 2px 3px #cfcece;
-  margin: auto;
+  width: 80%;
 }
 .goods::after{
   border:0px;
 }
-.goods_head{
-  position: absolute;
-  top:0rpx;
-  left:0%;
-  width:100%;
-  height: 65rpx;
-}
-.logo{
-  position: absolute;
-  top:12.5rpx;
-  left:5%;
-  width:40rpx;
-  height: 40rpx;
-}
-.divLine{
-  position: absolute;
-  background: #E0E3DA;
-  top:65rpx;
-  width: 91%;
-  height:3rpx;
-}
-.goods_logo{
-  position: absolute;
-  top:90rpx;
-  left:5%;
-  width:75px;
-  height: 75px;
-}
 .goods_name{
-  position: absolute;
-  top:40rpx;
-  left:5%;
-  width:60%;
-  font-size: 25rpx;
+  width:620%;
+  /* font-weight: 550; */
+  font-size: 30rpx;
   text-align: left;
-  /* height: 80rpx;
+  margin: 10rpx 0 0 20rpx;
   display:-webkit-box;
   -webkit-line-clamp:1;
   overflow:hidden;
   text-overflow:ellipsis;
   -webkit-box-orient:vertical;
-  word-break:break-all; */
-  
+  word-break:break-all;
+}
+.btn_goods{
+  width: 120rpx;
+  height: 60rpx;
+  background: rgb(38, 132, 240);
+  margin: auto;
 }
 .introduce{
   position: absolute;
@@ -151,15 +122,7 @@ page{
   font-size: 25rpx;
   text-align: left;
 }
-.btn_goods{
-  position: absolute;
-  top:80rpx;
-  right:6%;
-  width: 150rpx;
-  height: 60rpx;
-  background: rgb(38, 132, 240);
-  z-index: 9999;
-}
+
 .btn_goods::after{
   border: 0ch;
 }
@@ -183,7 +146,7 @@ page{
 }
 .downloadBtn{
   position: fixed;
-  width: 90%;
+  width: 95%;
   left: 50%;
   transform: translateX(-50%);
   bottom: 60rpx;

@@ -22,11 +22,6 @@ Page({
       },
     MyMenus: [ { url: "/pages/ucenter/feedback/feedback", pic: "feedback.png", name: "意见反馈" },],
        MyMenus2: [
-      // { url: "/pages/ucenter/collect/collect", pic:"icon_collect.png",name:"商品收藏"},
-      // { url: "/pages/ucenter/footprint/footprint", pic: "footprint.png", name: "浏览足迹" },
-      // { url: "/pages/groupon/myGroupon/myGroupon", pic: "group.png", name: "我的拼团" },
-      // { url: "/pages/ucenter/address/address", pic: "address.png", name: "地址管理" },
-        //  { url: "/pages/ucenter/feedback/feedback", pic: "cg.png", name: "查看场馆" },
          { url: "/pages/ucenter/gymnasiumDetail/gymnasiumDetail", pic: "健身房.png", name: "健身房"},
          { url: "/pages/ucenter/pingpong/pingpong", pic: "ppq.png", name: "乒乓球馆"},
          { url: "/pages/ucenter/libraryroom/libraryroom", pic: "图书馆-copy-copy (1).png", name: "图书馆"},
@@ -42,7 +37,7 @@ Page({
       managerList:[
         {id: 1,name: "预约查询",iconUrl: "../../../static/images/hetongguanli.png"},
         {id: 2,name: "留言查看",iconUrl: "../../../static/images/a-2shouhouzerenweihu.png"},
-        {id: 3,name: "活动描述",iconUrl: "../../../static/images/huiqianguanli.png"},
+        {id: 3,name: "公告管理",iconUrl: "../../../static/images/huiqianguanli.png"},
         {id: 4,name: "活动推送",iconUrl: "../../../static/images/a-2pandiandaochu.png"},
         { id: 5,name: "轮播图配置",iconUrl: "../../../static/images/xiaoguotuguanli.png" },
         {id: 6,name: "关闭预约通道",iconUrl: "../../../static/images/a-2kuanshigongxu.png"},
@@ -311,7 +306,7 @@ Page({
       })
     }
     //活动描述
-    if (this.data.name === '活动描述') {
+    if (this.data.name === '公告管理') {
       wx.navigateTo({
         url: '/pages/activeDesc/activeDesc'
       })

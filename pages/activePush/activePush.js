@@ -74,15 +74,25 @@ Page({
     //   return false;
     // }
     util.request(api.activePush,
-       {
-         theme:this.data.theme,
+       {theme:this.data.theme,
          time:this.data.time,
          provider:this.data.provider,
          site:this.data.site,
          organ:this.data.organ,
-      },
-        'GET').then(res => {
-        console.log(res)
+      },'GET').then(res => {
+        if(res.errcode == 0){
+          wx.showModal({
+            title: '发布成功',
+            icon: 'success',
+            duration: 2000,
+          })  
+        }else{
+          wx.showModal({
+            title: res.errmsg,
+            icon: 'error',
+            duration: 2000,
+          })  
+        }
     })
   },
  
