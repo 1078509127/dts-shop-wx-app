@@ -24,5 +24,5 @@
     </view>
   </block>
 </scroll-view>
-<button class="downloadBtn"  bindtap="download">导出</button>
+<button class="downloadBtn"  bindtap="bindSetTap">导出</button>
 </view>

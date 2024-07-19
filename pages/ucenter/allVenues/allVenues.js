@@ -402,7 +402,6 @@ Page({
       header: { 'Content-type': 'application/x-www-form-urlencoded', },
       responseType: 'arraybuffer', 
       success: res => {
-        console.log(res)
         const fs = wx.getFileSystemManager();
         fs.writeFile({
           filePath: wx.env.USER_DATA_PATH + "/" + e + ".jpg", 
