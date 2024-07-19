@@ -10,7 +10,7 @@
 <!-- 轮播图 -->
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banner}}" wx:key="id">
-      <image src="{{item.url}}" background-size="cover"></image>
+      <image src="{{item.url}}" background-size="contain"></image>
     </swiper-item>
   </swiper>
   
