@@ -7,9 +7,9 @@
         <view>
           <image class="jsSty" src="../../../static/images/【烘焙室】1.JPG"></image>
         </view>
-         <view>
+         <!-- <view>
           <image class="img" src="../../../static/images/【烘焙室】2.JPG"></image>
-         </view>
+         </view> -->
       </button>
     </view>
 </scroll-view>

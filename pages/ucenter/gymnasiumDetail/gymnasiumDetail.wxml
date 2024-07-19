@@ -1,26 +1,4 @@
-<!-- <scroll-view class='content' scroll-y="true" style='width: 100%; height:89%;background-color: #efefef;'>
-    <view class = "button_item" >
-      <button class="goods" >
-        <text class="goods_name">烘焙室</text>
-        <text class="introduce">烘培室配备了各种专业的烘焙设备和工具，适合进行各类烘焙活动和培训。以下是对烘焙室的详细介绍：
-1.专业烘焙设备：
-·搅拌机：用于混合和打发各种面糊和奶油，确保烘焙过程中的材料充分融合。
-·电烤箱：高效能的电烤箱能够均匀地加热，适合烘烤蛋糕、面包和饼干等多种烘焙食品。
-·蒸汽炉：可用于制作需要蒸制的甜点，提供均匀的蒸汽环境，确保食品的口感和质地。
-·发酵箱：用于面包等需要发酵的烘焙食品，提供稳定的温湿度环境，确保发酵效果。
-2.辅助设备：
-·搅拌器：多功能搅拌器适用于混合各种材料，如面粉、糖和奶油等。
-·电磁炉：用于加热和烹饪一些需要预处理的烘焙材料。
-·食品处理机：用于切割、研磨和混合材料，提高烘焙效率。
-这间烘焙室不仅适合日常烘焙爱好者使用，也非常适合进行专业的烘焙培训和教学活动。团队可以在这里进行各种复杂的烘焙操作，从基本的蛋糕、面包到高级的法式甜点，都能轻松完成。
-这是一间设备齐全、设计合理的现代化烘焙室，为使用者提供了一个高效、专业的烘焙环境</text>
-         <text class="amount">以下是乒乓球馆实景图片</text>
-         <view><image class="imgSty1" src="../../../static/images/【烘焙室】1.JPG"></image></view>
-         <view><image class="imgSty2" src="../../../static/images/【烘焙室】2.JPG"></image></view>
-        
-      </button>
-    </view>
-</scroll-view> -->
+
 
 
 <scroll-view class='content' scroll-y="true" style='width: 100%; height:90%;'>
@@ -32,12 +10,12 @@
          <view>
            <image class="jsSty" src="../../../static/images/【健身室】1.JPG"></image>
           </view>
-          <view>
+          <!-- <view>
             <image class="img" src="../../../static/images/【健身室】2.JPG"></image>
           </view>
           <view>
             <image class="img" src="../../../static/images/【健身室】3.JPG"></image>
-          </view>
+          </view> -->
       </button>
     </view>
 </scroll-view>

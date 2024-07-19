@@ -4,6 +4,13 @@
     "pages/singleReserve/single",
     "pages/ucenter/gymnasiumDetail/gymnasiumDetail",
     
+    "pages/ucenter/pingpong/pingpong",
+    "pages/ucenter/libraryroom/libraryroom",
+    "pages/ucenter/microcomPuter/microcomPuter",
+    "pages/ucenter/yoga/yoga",
+    "pages/ucenter/calligraphy/calligraphy",
+    "pages/ucenter/recording/recording",
+    "pages/ucenter/Bakingroom/Bakingroom",
     "pages/ucenter/index/index",
     "pages/ucenter/main/index",
     "pages/ucenter/address/address",

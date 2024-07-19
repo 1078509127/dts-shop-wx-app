@@ -8,12 +8,12 @@
           <view>
             <image class="jsSty" src="../../../static/images/【书法室】1.jpg"></image>
           </view>
-          <view>
+          <!-- <view>
             <image class="img" src="../../../static/images/【书法室】2.jpg"></image>
           </view>
           <view>
             <image class="img" src="../../../static/images/【书法室】3.jpg"></image>
-          </view>
+          </view> -->
       </button>
     </view>
 </scroll-view>

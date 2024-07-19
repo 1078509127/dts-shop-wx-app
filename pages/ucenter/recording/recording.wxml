@@ -7,7 +7,7 @@
         <view>
             <image class="jsSty" src="../../../static/images/【录音室】1.JPG"></image>
         </view>
-         <view>
+         <!-- <view>
             <image class="img" src="../../../static/images/【录音室】2.JPG"></image>
          </view>
          <view>
@@ -15,7 +15,7 @@
         </view>
          <view>
             <image class="img" src="../../../static/images/【录音室】4.JPG"></image>
-         </view>
+         </view> -->
 
       </button>
     </view>
