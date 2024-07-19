@@ -52,6 +52,8 @@ Page({
       sourceType: ["album", "camera"], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
         const tempFilePaths = res.tempFilePaths
+        // that.data.imgs.push({url:tempFilePaths[0]})
+        // console.log( that.data.imgs)
         for (var i = 0; i < tempFilePaths.length; i++) {
           wx.uploadFile({
             url: api.creSwiper,

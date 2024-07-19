@@ -80,19 +80,24 @@ Page({
          site:this.data.site,
          organ:this.data.organ,
       },'GET').then(res => {
-        if(res.errcode == 0){
-          wx.showModal({
-            title: '发布成功',
-            icon: 'success',
-            duration: 2000,
-          })  
-        }else{
-          wx.showModal({
-            title: res.errmsg,
-            icon: 'error',
-            duration: 2000,
-          })  
-        }
+        wx.showModal({
+          title: '发布成功',
+          icon: 'success',
+          duration: 2000,
+        })  
+        // if(res.errcode == 0){
+        //   wx.showModal({
+        //     title: '发布成功',
+        //     icon: 'success',
+        //     duration: 2000,
+        //   })  
+        // }else{
+        //   wx.showModal({
+        //     title: res.errmsg,
+        //     icon: 'error',
+        //     duration: 2000,
+        //   })  
+        // }
     })
   },
  

@@ -96,7 +96,7 @@ Page({
    * 页面跳转
   */
   goPages:function(e){
-    console.log();
+    console.log(1);
     if (this.data.hasLogin) {
       wx.navigateTo({
         url: e.currentTarget.dataset.url
@@ -188,22 +188,22 @@ Page({
         hasLogin: true
       });
 
-      let that = this;
-      util.request(api.UserIndex).then(function (res) {
-        if (res.errno === 0) {
-          that.setData({
-            order: res.data.order,
-            totalAmount: res.data.totalAmount,
-            remainAmount: res.data.remainAmount,
-            couponCount: res.data.couponCount
-          });
-        }
-      });
+    //   let that = this;
+    //   util.request(api.UserIndex).then(function (res) {
+    //     if (res.errno === 0) {
+    //       that.setData({
+    //         order: res.data.order,
+    //         totalAmount: res.data.totalAmount,
+    //         remainAmount: res.data.remainAmount,
+    //         couponCount: res.data.couponCount
+    //       });
+    //     }
+    //   });
     }
   },
   //模态框确定绑定
   confirm:function(e){
-    this.getUserProfile(e);
+    //this.getUserProfile(e);
     //this.wxLogin(e)
 
   },

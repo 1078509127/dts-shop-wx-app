@@ -41,28 +41,17 @@ Page({
  ReserveSel:function(){
    var that = this;
   this.data.userinfo = wx.getStorageSync('userInfo');
-  console.log(this.data.eventType)
   util.request(api.SelReserve,{userId:this.data.userinfo.userId,eventType:this.data.eventType},'GET').then(function (res) {
-    console.log(res)
     for (var i = 0; i < res.data.length; i++) {
-      res.data[i].startTime = that.changes(res.data[i].startTime)
-      res.data[i].endTime = that.changes(res.data[i].endTime)
+      res.data[i].startTime = res.data[i].date + " " + res.data[i].startTime
+      res.data[i].endTime = res.data[i].date + " " + res.data[i].endTime
     }
     that.setData({
       showData: res.data
     })
   });
  },
- changes: function (time) {
-  const date = new Date(time);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  const hours = String(date.getHours()).padStart(2, '0');
-  const minutes = String(date.getMinutes()).padStart(2, '0');
-  const seconds = String(date.getSeconds()).padStart(2, '0');
-  return `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
-},
+
   onLoad: function(options) {
     // 页面初始化 options为页面跳转所带来的参数
     let that = this
