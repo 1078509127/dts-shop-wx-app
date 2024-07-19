@@ -178,6 +178,16 @@ Page({
     formData.userId = this.data.userinfo.userId;
     console.log("formData>>>>>", formData)
     //验证规则 失败报错 成功请求后端
+    const validate = this.validateTime(this.data.startTime, e.detail.value);
+    console.log(validate)
+      if (validate != null) {
+      wx.showModal({
+        title: validate,
+        icon: 'error',
+        duration: 2000
+      });
+      return ;
+    }
     if (!this.WxValidate.checkForm(formData)) {
       const error = this.WxValidate.errorList[0];
       wx.showModal({
@@ -185,122 +195,122 @@ Page({
         icon: 'error',
         duration: 2000
       });
+      return;
+    }
+    //预约按钮 ==团队type
+    if (that.data.eventType === '团队预约') {
+      util.request(api.TeamReserve, formData, 'POST').then(function (res) {
+        if (res.code == 200) {
+          if (that.data.eventType === '团队预约') {
+            wx.showModal({
+              title: '团队预约成功',
+              icon: 'success',
+              duration: 2000,
+              complete: function () {
+                that.setData({
+                  userName: "",
+                  phone: "",
+                  sex: "",
+                  unit: "",
+                  memberCard: "",
+                  date: "",
+                  // startTime:"12:00",
+                  // endTime:"18:00",
+                  tableNumber: "",
+                  idx: "",
+                  activeNumber: "",
+                  remark: "",
+                });
+              },
+            });
+          } else {
+            wx.showModal({
+              title: '个人预约成功',
+              icon: 'success',
+              duration: 2000,
+              complete: function () {
+                that.setData({
+                  userName: "",
+                  phone: "",
+                  sex: "",
+                  unit: "",
+                  memberCard: "",
+                  date: "",
+                  startTime: "12:00",
+                  endTime: "18:00",
+                  tableNumber: "",
+                  idx: "",
+                  activeNumber: "",
+                  remark: "",
+                });
+              },
+            });
+          }
+        } else {
+          wx.showModal({
+            title: res.message,
+            icon: 'error',
+            duration: 2000
+          });
+        }
+      })
     } else {
-      //预约按钮 ==团队type
-      if (that.data.eventType === '团队预约') {
-        util.request(api.TeamReserve, formData, 'POST').then(function (res) {
-          if (res.code == 200) {
-            if (that.data.eventType === '团队预约') {
-              wx.showModal({
-                title: '团队预约成功',
-                icon: 'success',
-                duration: 2000,
-                complete: function () {
-                  that.setData({
-                    userName: "",
-                    phone: "",
-                    sex: "",
-                    unit: "",
-                    memberCard: "",
-                    date: "",
-                    // startTime:"12:00",
-                    // endTime:"18:00",
-                    tableNumber: "",
-                    idx: "",
-                    activeNumber: "",
-                    remark: "",
-                  });
-                },
-              });
-            } else {
-              wx.showModal({
-                title: '个人预约成功',
-                icon: 'success',
-                duration: 2000,
-                complete: function () {
-                  that.setData({
-                    userName: "",
-                    phone: "",
-                    sex: "",
-                    unit: "",
-                    memberCard: "",
-                    date: "",
-                    startTime: "12:00",
-                    endTime: "18:00",
-                    tableNumber: "",
-                    idx: "",
-                    activeNumber: "",
-                    remark: "",
-                  });
-                },
-              });
-            }
+      //个人预约
+      util.request(api.SaveReserve, formData, 'POST').then(function (res) {
+        if (res.code == 200) {
+          if (that.data.eventType === '团队预约') {
+            wx.showModal({
+              title: '团队预约成功',
+              icon: 'success',
+              duration: 2000,
+              complete: function () {
+                that.setData({
+                  userName: "",
+                  phone: "",
+                  sex: "",
+                  unit: "",
+                  memberCard: "",
+                  date: "",
+                  startTime: "12:00",
+                  endTime: "18:00",
+                  tableNumber: "",
+                  idx: "",
+                  activeNumber: "",
+                  remark: "",
+                });
+              },
+            });
           } else {
             wx.showModal({
-              title: res.message,
-              icon: 'error',
-              duration: 2000
+              title: '个人预约成功',
+              icon: 'success',
+              duration: 2000,
+              complete: function () {
+                that.setData({
+                  userName: "",
+                  phone: "",
+                  sex: "",
+                  unit: "",
+                  memberCard: "",
+                  date: "",
+                  startTime: "12:00",
+                  endTime: "18:00",
+                  tableNumber: "",
+                  idx: "",
+                  activeNumber: "",
+                  remark: "",
+                });
+              },
             });
           }
-        })
-      } else {
-        //个人预约
-        util.request(api.SaveReserve, formData, 'POST').then(function (res) {
-          if (res.code == 200) {
-            if (that.data.eventType === '团队预约') {
-              wx.showModal({
-                title: '团队预约成功',
-                icon: 'success',
-                duration: 2000,
-                complete: function () {
-                  that.setData({
-                    userName: "",
-                    phone: "",
-                    sex: "",
-                    unit: "",
-                    memberCard: "",
-                    date: "",
-                    startTime: "12:00",
-                    endTime: "18:00",
-                    tableNumber: "",
-                    idx: "",
-                    activeNumber: "",
-                    remark: "",
-                  });
-                },
-              });
-            } else {
-              wx.showModal({
-                title: '个人预约成功',
-                icon: 'success',
-                duration: 2000,
-                complete: function () {
-                  that.setData({
-                    userName: "",
-                    phone: "",
-                    sex: "",
-                    unit: "",
-                    memberCard: "",
-                    date: "",
-                    startTime: "12:00",
-                    endTime: "18:00",
-                    tableNumber: "",
-                    idx: "",
-                    activeNumber: "",
-                    remark: "",
-                  });
-                },
-              });
-            }
-          } else {
-            wx.showModal({
-              title: res.message,
-              icon: 'error',
-              duration: 2000
-            });
-          }
-        })
-      }
+        } else {
+          wx.showModal({
+            title: res.message,
+            icon: 'error',
+            duration: 2000
+          });
+        }
+      })
     }
   },
 
@@ -361,14 +371,42 @@ Page({
 
   },
   bindDate: function (e) {
-    const weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
-    const weekday = new Date(e.detail.value).getDay();
-    const week = weekdays[weekday]
-    if (week == '周一' || week == '周二') {
-      wx.showModal({
-        title: '开放时间为：星期三 至 星期日',
-        icon: 'error',
-        duration: 2000
+    if (this.data.eventType == '个人预约') {
+      const weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+      const weekday = new Date(e.detail.value).getDay();
+      const week = weekdays[weekday]
+      if (week == '周一' || week == '周二') {
+        wx.showModal({
+          title: '开放时间为：星期三 至 星期日',
+          icon: 'error',
+          duration: 2000
+        });
+        return;
+      }
+      wx.request({
+        url: api.IsFull,
+        method: 'GET',
+        data: {
+          userId: this.data.userinfo.userId,
+          eventType: this.data.eventType,
+          scene: this.data.scene,
+          date: e.detail.value
+        },
+        success: function (res) {
+          if (res.data.code == 200) {
+            wx.showModal({
+              title: res.message,
+              icon: 'success',
+              duration: 2000
+            });
+          } else {
+            wx.showModal({
+              title: res.data.message,
+              icon: 'error',
+              duration: 2000
+            });
+          }
+        },
       });
     } else {
       //团队预约接口
@@ -397,95 +435,69 @@ Page({
             }
           },
         });
-      } else {
-        //个人预约接口
-        wx.request({
-          url: api.IsFull,
-          method: 'GET',
-          data: {
-            eventType: this.data.eventType,
-            scene: this.data.scene,
-            date: e.detail.value
-          },
-          success: function (res) {
-            if (res.data.code == 200) {
-              wx.showModal({
-                title: res.message,
-                icon: 'success',
-                duration: 2000
-              });
-            } else {
-              wx.showModal({
-                title: res.data.message,
-                icon: 'error',
-                duration: 2000
-              });
-            }
-          },
-        });
       }
-
-      this.setData({
-        date: e.detail.value
-      })
     }
+    this.setData({
+      date: e.detail.value
+    })
   },
 
   bindStart: function (e) {
-    const validate = this.validateTime(e.detail.value, this.data.endTime);
-    if (validate != null) {
-      wx.showModal({
-        title: validate,
-        icon: 'error',
-        duration: 2000
-      });
-    } else {
-      this.setData({
-        startTime: e.detail.value
-      })
-    }
+    // const validate = this.validateTime(e.detail.value, this.data.endTime);
+    // if (validate != null) {
+    //   wx.showModal({
+    //     title: validate,
+    //     icon: 'error',
+    //     duration: 2000
+    //   });
+    // } else {
+    this.setData({
+      startTime: e.detail.value
+    })
+    // }
   },
   bindEnd: function (e) {
-    const validate = this.validateTime(this.data.startTime, e.detail.value);
-    if (validate != null) {
-      wx.showModal({
-        title: validate,
-        icon: 'error',
-        duration: 2000
-      });
-    } else {
-      wx.request({
-        url: api.IsFull,
-        method: 'GET',
-        data: {
-          scene: this.data.scene,
-          date: this.data.date,
-          startTime: this.data.startTime + ":00",
-          endTime: e.detail.value + ":00"
-        },
-        success: function (res) {
-          if (res.data.code == 200) {
-            wx.showModal({
-              title: res.message,
-              icon: 'success',
-              duration: 2000
-            });
-          } else {
-            wx.showModal({
-              title: res.data.message,
-              icon: 'error',
-              duration: 2000
-            });
-          }
-        }
-      });
-      this.setData({
-        endTime: e.detail.value
-      })
-      if (this.data.scene === '乒乓球馆') {
-        this.getTableList();
-      }
+    // const validate = this.validateTime(this.data.startTime, e.detail.value);
+    // if (validate != null) {
+    //   wx.showModal({
+    //     title: validate,
+    //     icon: 'error',
+    //     duration: 2000
+    //   });
+    // } else {
+    // wx.request({
+    //   url: api.IsFull,
+    //   method: 'GET',
+    //   data: {
+    //     userId: this.data.userinfo.userId,
+    //     scene: this.data.scene,
+    //     date: this.data.date,
+    //     startTime: this.data.startTime + ":00",
+    //     endTime: e.detail.value + ":00"
+    //   },
+    //   success: function (res) {
+    //     if (res.data.code == 200) {
+    //       wx.showModal({
+    //         title: res.message,
+    //         icon: 'success',
+    //         duration: 2000
+    //       });
+    //     } else {
+    //       wx.showModal({
+    //         title: res.data.message,
+    //         icon: 'error',
+    //         duration: 2000
+    //       });
+    //     }
+    //   }
+    // });
+    this.setData({
+      endTime: e.detail.value
+    })
+    if (this.data.scene === '乒乓球馆') {
+      this.getTableList();
     }
+    // }
   },
   //时间间隔
   validateTime: function (startTimeStr, endTimeStr) {
@@ -508,15 +520,13 @@ Page({
   //点击结束时间获取已使用桌号
   getTableList: function () {
     var that = this
-    util.request(
-      api.GetTableList, {
+    util.request(api.GetTableList, {
         scene: this.data.scene,
         date: this.data.date,
         startTime: this.data.startTime,
         endTime: this.data.endTime
       },
-      'GET'
-    ).then(function (res) {
+      'GET').then(function (res) {
       if (res.code == 200) {
         that.setData({
           usedList: res.data
@@ -538,27 +548,31 @@ Page({
     var that = this;
     that.setData({
       eventType: options.eventType,
-      scene: options.scene
+      scene: options.scene,
+      userinfo: wx.getStorageSync('userInfo')
     })
-    this.data.userinfo = wx.getStorageSync('userInfo');
-    this.initValidate();
     console.log("跳转带过来的参数：==", this.data.eventType, this.data.scene)
-    //健身房和团队预约时间限制不同
-    var start=''
-    var end=''
+    this.initValidate();
+    this.astrictTime();
+  },
+
+  //健身房和团队预约时间限制不同
+  astrictTime: function () {
+    var start = ''
+    var end = ''
     var sDate = new Date();
     var eDate = new Date();
     if (this.data.scene == '乒乓球馆') {
       sDate.setTime(sDate.getTime() + 24 * 60 * 60 * 1000);
       start = sDate.getFullYear() + "-" + (sDate.getMonth() + 1) + "-" + sDate.getDate();
 
-      eDate.setTime(eDate.getTime() + 3*24 * 60 * 60 * 1000);
+      eDate.setTime(eDate.getTime() + 2 * 24 * 60 * 60 * 1000);
       end = eDate.getFullYear() + "-" + (eDate.getMonth() + 1) + "-" + eDate.getDate();
     } else {
-      sDate.setTime(sDate.getTime() + 7*24 * 60 * 60 * 1000);
+      sDate.setTime(sDate.getTime() + 7 * 24 * 60 * 60 * 1000);
       start = sDate.getFullYear() + "-" + (sDate.getMonth() + 1) + "-" + sDate.getDate();
 
-      eDate.setTime(eDate.getTime() + 30*24 * 60 * 60 * 1000);
+      eDate.setTime(eDate.getTime() + 30 * 24 * 60 * 60 * 1000);
       end = eDate.getFullYear() + "-" + (eDate.getMonth() + 1) + "-" + eDate.getDate();
     }
     this.setData({
