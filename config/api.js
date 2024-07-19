@@ -132,5 +132,6 @@ module.exports = {
   ExtractList: WxApiRoot + 'brokerage/extractList',//佣金账号提现记录
   ArticleDetail: WxApiRoot + 'article/detail',//公告详情
   ApplyAgency: WxApiRoot + 'user/applyAgency',//代理申请
-  GetSharedUrl: WxApiRoot + 'user/getSharedUrl' //获取推广二维码
+  GetSharedUrl: WxApiRoot + 'user/getSharedUrl', //获取推广二维码
+  selFeedbackUser:WxApiRoot + 'feedback/selFeedbackUser',
 };
