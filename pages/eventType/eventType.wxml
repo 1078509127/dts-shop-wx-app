@@ -2,7 +2,6 @@
 <wxs src="../eventType/util.wxs" module="util" />
 <view class="container">
   <form bindsubmit="submitForm">
-    <scroll-view hidden="{{isHidden}}" scroll-y='true' style='height: 200rpx;'hid>"+res.message+" </scroll-view>
     <view class="form-group">
       <label>姓名：</label>
       <input type="text" name="userName" value="{{userName}}"  placeholder="请输入中文/英文名字" wx:if="{{eventType === '个人预约'}}"/>

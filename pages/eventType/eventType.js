@@ -546,22 +546,21 @@ Page({
     //健身房和团队预约时间限制不同
     var start=''
     var end=''
-    var date = new Date();
-    debugger
+    var sDate = new Date();
+    var eDate = new Date();
     if (this.data.scene == '乒乓球馆') {
-      var s = date.getTime() + 24 * 60 * 60 * 1000;
-      start = s.getFullYear() + "-" + (s.getMonth() + 1) + "-" + s.getDate();
+      sDate.setTime(sDate.getTime() + 24 * 60 * 60 * 1000);
+      start = sDate.getFullYear() + "-" + (sDate.getMonth() + 1) + "-" + sDate.getDate();
 
-      var e = date.getTime() + 3*24 * 60 * 60 * 1000;
-      end = e.getFullYear() + "-" + (e.getMonth() + 1) + "-" + e.getDate();
+      eDate.setTime(eDate.getTime() + 3*24 * 60 * 60 * 1000);
+      end = eDate.getFullYear() + "-" + (eDate.getMonth() + 1) + "-" + eDate.getDate();
     } else {
-      var s = date.getTime() + 7*24 * 60 * 60 * 1000;
-      start = s.getFullYear() + "-" + (s.getMonth() + 1) + "-" + s.getDate();
+      sDate.setTime(sDate.getTime() + 7*24 * 60 * 60 * 1000);
+      start = sDate.getFullYear() + "-" + (sDate.getMonth() + 1) + "-" + sDate.getDate();
 
-      var e = date.getTime() + 30*24 * 60 * 60 * 1000;
-      end = e.getFullYear() + "-" + (e.getMonth() + 1) + "-" + e.getDate();
+      eDate.setTime(eDate.getTime() + 30*24 * 60 * 60 * 1000);
+      end = eDate.getFullYear() + "-" + (eDate.getMonth() + 1) + "-" + eDate.getDate();
     }
-    debugger
     this.setData({
       checkStartTime: start,
       checkEndTime: end
