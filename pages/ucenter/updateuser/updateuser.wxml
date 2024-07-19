@@ -8,7 +8,7 @@
         </view>
         <view class='item acea-row row-between-wrapper'>
           <view>手机号码</view>
-          <view class='input'><input type='text' bindinput="bindMobileInput" name='nickname' value='{{userInfo.phone}}'></input></view>
+          <view class='input'><input type='text' bindinput="bindMobileInput" name='phone' value='{{userInfo.phone}}'></input></view>
         </view>
       
         
@@ -24,7 +24,7 @@
       <view>代理专属推广二维码（长按保存到相册）</view>
       <image class="img" src="{{userSharedUrl}}" bindlongpress="saveShare" style="width:600rpx;height:600rpx;"></image>
     </view>
-    <button class='modifyBnt' bindtap="upuserInfo" style="background-color: rgb(38, 132, 240);">修改</button>
+    <button class='modifyBnt' bindtap="requestRegister" style="background-color: rgb(38, 132, 240);">修改</button>
   </view>
 </form>
 

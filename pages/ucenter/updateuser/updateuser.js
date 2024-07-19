@@ -2,6 +2,10 @@ var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 var user = require('../../../utils/user.js');
 var app = getApp();
+var username1="";
+var mobile1= "";
+
+
 Page({
 
   /**
@@ -29,7 +33,6 @@ Page({
     let that = this;
     //获取用户的登录信息
     let userInfo = wx.getStorageSync('userInfo');
-    debugger
     this.setData({
       userInfo: userInfo,
       hasLogin: true
@@ -84,6 +87,18 @@ Page({
       }
     });
   },
+
+  bindMobileInput:function(e){
+    if (!(/^1[345768]\d{9}$/.test(e.detail.value))) {
+      wx.showToast({ title: '手机号码有误', duration: 2000, icon:'none' });    
+       return 
+      }
+    e.detail.value
+     mobile1 =e.detail.value
+    this.setData({
+        mobile: e.detail.value
+    });
+ },
   getPhoneNumber: function (e) {
     let that = this;
     if (e.detail.errMsg !== "getPhoneNumber:ok") {
@@ -153,7 +168,17 @@ Page({
       }
     })
   },
-  upuserInfo: function () {
+
+
+  requestRegister: function(wxCode) {
+    if (!(/^1[345768]\d{9}$/.test(mobile1))) {
+      wx.showToast({ title: '手机号码有误', duration: 2000, icon:'none' });    
+       return 
+      }
+      if (!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(username1))) { 
+        wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: true });     
+        return ; 
+      }
     wx.showModal({
       title: '',
       confirmColor: '#b4282d',
@@ -162,20 +187,76 @@ Page({
         if (!res.confirm) {
           return;
         }
+    
+ const userInfo =  wx.getStorageSync('userInfo');
+    if (username1=="") {
+      username1=userInfo.nickName
+    }
+    if (mobile1 =="") {
+      mobile1 = userInfo.nickName
+      }
+    wx.request({
+      url: api.AuthRegister,
+      data: {
+        username: username1,
+        mobile:mobile1,
+        userid:userInfo.userId.toLocaleString()
+   
+     },
+     method: 'POST',
+     header: {
+       'content-type': 'application/json'
+     },
+     success: function(res) {
+       if (res.data.errno == 0) {
+         app.globalData.hasLogin = true;
+         wx.setStorageSync('userInfo', res.data.data.userInfo);
+         wx.setStorageSync('register',true);
+         wx.switchTab({
+            url: '/pages/ucenter/index/index'
+          });
+   
+       } else {
+         alert(res.data.errmsg)
+         wx.showModal({
+           title: '错误信息',
+           content: res.data.errmsg,
+           showCancel: false
+         });
+       }
+     }
+   });
+
+  }
+})
+},
+
+
+
+
+
+
+
+  upuserInfo: function () {
+    let that = this;
+    wx.showModal({
+      title: '',
+      confirmColor: '#b4282d',
+      content: '确认修改？',
+      success: function (res) {
+        debugger;
+        if (!res.confirm) {
+          return;
+        }
         
-        // util.request(api.AuthRegister, {
-        //   data: {
-        //   username: that.data.username,
-        //   mobile: that.data.mobile,
-        //   userid:userInfo.userId.toLocaleString()
-        
-        // },}, 'POST');
+      
         // 点击确认修改
         wx.request({
+          
           url: api.AuthRegister,
           data: {
-            username: that.data.username,
-            mobile: that.data.mobile,
+            username: userInfo.username,
+            mobile: userInfo.phone,
             userid:userInfo.userId.toLocaleString()
            
           },
@@ -218,27 +299,17 @@ Page({
     })
   },
 
-
-
-
-
   bindUsernameInput: function(e) {
+    debugger
     if (!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(e.detail.value))) { 
           wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: true });     
           return ; 
         }
+        username1 = e.detail.value
     this.setData({
       username: e.detail.value
     });
   },
-  bindPasswordInput: function(e) {
-    if (!(/^1[345768]\d{9}$/.test(e.detail.value.phone))) {
-           wx.showToast({ title: '手机号码有误', duration: 2000, icon:'none' });    
-            return 
-           }
-    this.setData({
-      password: e.detail.value
-    });
-  },
+  
 })
  
