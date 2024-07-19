@@ -432,7 +432,7 @@ Page({
 
   QRcode: function (e) {
     wx.downloadFile({
-      url: api.QRcode,
+      url: api.QRcode + "?scene=" + e,
       success: function (res) {
         wx.saveImageToPhotosAlbum({
           filePath: res.tempFilePath,
