@@ -5,7 +5,7 @@
       <view class="item" wx:for="{{imgs}}" wx:key="item">
         <image src="{{item.url}}" alt=""></image>
         <view class='delete' bindtap='deleteImg' data-item="{{item}}">
-          <image src="../../static/images/closel.png"></image>
+          <image src="../../../static/images/closel.png"></image>
         </view>
       </view>
       <view class="last-item" wx:if="{{imgs.length >= 6 ? false : true}}" bindtap="bindUpload">

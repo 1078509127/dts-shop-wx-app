@@ -1,7 +1,7 @@
 // pages/reserveInfo/reserveInfo.js
-const util = require('../../utils/util.js');
-const api = require('../../config/api.js');
-const user = require('../../utils/user.js');
+const util = require('../../../utils/util.js');
+const api = require('../../../config/api.js');
+const user = require('../../../utils/user.js');
 Page({
 
   /**
@@ -53,7 +53,7 @@ Page({
   cancel_click: function (e) {
     console.log(123,e)
     wx.navigateTo({
-      url: '/pages/eventTypeReBack/index?form=' + JSON.stringify(e.currentTarget.dataset.item),
+      url: '/subPackages/pages/eventTypeReBack/index?form=' + JSON.stringify(e.currentTarget.dataset.item),
     })
   },
 

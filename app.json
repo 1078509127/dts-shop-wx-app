@@ -2,16 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/singleReserve/single",
-    "pages/eventType/eventType",
-    "pages/eventTypeReBack/index",
     "pages/ucenter/gymnasiumDetail/gymnasiumDetail",
-    "pages/reserveInfo/reserveInfo",
-    "pages/messageView/messageView",
-    "pages/activeDesc/activeDesc",
-    "pages/activePush/activePush",
-    "pages/swiperSet/swiperSet",
-    "pages/closeReserve/closeReserve",
-
+    
     "pages/ucenter/index/index",
     "pages/ucenter/main/index",
     "pages/ucenter/address/address",
@@ -36,6 +28,20 @@
     "lib/coupon-window/index",
     "lib/home/index"
   ],
+  "subPackages": [{
+    "root": "subPackages",
+    "name": "分包",
+    "pages": [
+      "pages/eventType/eventType",
+      "pages/eventTypeReBack/index",
+      "pages/messageView/messageView",
+      "pages/reserveInfo/reserveInfo",
+      "pages/activeDesc/activeDesc",
+      "pages/activePush/activePush",
+      "pages/swiperSet/swiperSet",
+      "pages/closeReserve/closeReserve"
+    ]
+  }],
   "window": {
   "navigationBarBackgroundColor": "#1E90FF",
   "navigationBarTitleText": "聚惠星",

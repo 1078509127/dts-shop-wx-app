@@ -1,7 +1,7 @@
 // pages/activePush/activePush.js
-var util = require('../../utils/util.js');
-var check = require('../../utils/check.js');
-var api = require('../../config/api.js');
+var util = require('../../../utils/util.js');
+var check = require('../../../utils/check.js');
+var api = require('../../../config/api.js');
 
 var app = getApp();
 Page({

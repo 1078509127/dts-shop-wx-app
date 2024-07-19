@@ -1,7 +1,7 @@
 // pages/messageView/messageView.js
-const util = require('../../utils/util.js');
-const api = require('../../config/api.js');
-const user = require('../../utils/user.js');
+const util = require('../../../utils/util.js');
+const api = require('../../../config/api.js');
+const user = require('../../../utils/user.js');
 var messageinfo;
 var messageinfoArr = [];
 Page({

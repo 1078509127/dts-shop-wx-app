@@ -64,7 +64,7 @@ Page({
       });
     } else {
       wx.navigateTo({
-        url: '/pages/eventType/eventType?eventType=个人预约&scene=' + this.data.singleList[e.detail.value].name,
+        url: '/subPackages/pages/eventType/eventType?eventType=个人预约&scene=' + this.data.singleList[e.detail.value].name,
       })
     }
   },
@@ -83,7 +83,7 @@ Page({
       });
     } else {
       wx.navigateTo({
-        url: '/pages/eventType/eventType?eventType=团队预约&scene=' + this.data.multiList[e.detail.value].name,
+        url: '/subPackages/pages/eventType/eventType?eventType=团队预约&scene=' + this.data.multiList[e.detail.value].name,
       })
     }
   },
