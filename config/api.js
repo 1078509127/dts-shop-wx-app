@@ -14,6 +14,7 @@ module.exports = {
   SelReserve: WxApiRoot + 'reserve/selReserve', //查询预约接口
   SelCategury: WxApiRoot + 'catalog/categurInfo', //查询场馆信息
   IsFull: WxApiRoot + 'reserve/isFull', //当日是否约满
+  GetTableList: WxApiRoot + 'reserve/getTableList', //查询预约乒乓球桌号
   teamisFull:WxApiRoot + 'reserve/teamisFull',//团队是否约满
   ActiveList: WxApiRoot + 'reserve/activeList', //预约活动列表
   Scan: WxApiRoot + 'reserve/scan', //扫一扫接口

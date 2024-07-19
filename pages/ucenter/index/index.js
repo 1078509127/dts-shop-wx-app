@@ -362,32 +362,52 @@ Page({
   },
   
   QRcode: function (e) {
-    wx.request({
-      url: api.QRcode,
-      data: {scene: e},
-      method: "GET",
-      header: { 'Content-type': 'application/x-www-form-urlencoded', },
-      responseType: 'arraybuffer', 
-      success: res => {
-        console.log(res)
-        const fs = wx.getFileSystemManager();
-        fs.writeFile({
-          filePath: wx.env.USER_DATA_PATH + "/" + e + ".jpg", 
-          data: res.data,
-          encoding: "binary", 
-          success(res) {
-            wx.openDocument({ 
-              filePath: wx.env.USER_DATA_PATH + "/" + e + ".jpg", 
-              showMenu: true, 
-              success: function (res) {
-                setTimeout(() => {
-                  wx.hideLoading()
-                }, 500)
-              }
-            })
+    wx.downloadFile({
+      url: api.QRcode +'?scene='+e, // 文件的本身url
+      filePath: wx.env.USER_DATA_PATH +'//'+e+ '.jpg', // 本地自定义的文件名
+      success: function (res) {
+        let filePath = res.filePath; // 微信临时文件路径(这里要使用自定义的名字文件名,否则打开的文件名是乱码)
+        wx.openDocument({
+          filePath: filePath,
+          showMenu: true, // 是否显示右上角菜单按钮 默认为false(看自身需求，可要可不要。后期涉及到右上角分享功能)
+          success: function (x) {
+            console.log("success", x);
+          },
+          fail: function (x) {
+            console.log("err", x);
           }
-        })
+        });
+      },
+      fail: function (x) {
+        console.log("err", x);
       }
-    })
+    });
+    // wx.request({
+    //   url: api.QRcode,
+    //   data: {scene: e},
+    //   method: "GET",
+    //   header: { 'Content-type': 'application/x-www-form-urlencoded', },
+    //   responseType: 'arraybuffer', 
+    //   success: res => {
+    //     const fs = wx.getFileSystemManager();
+    //     fs.writeFile({
+    //       filePath: wx.env.USER_DATA_PATH + "/" + e + ".jpg", 
+    //       data: res.data,
+    //       encoding: "binary", 
+    //       success:function(res) {
+    //         wx.openDocument({ 
+    //           filePath: wx.env.USER_DATA_PATH + "/" + e + ".jpg", 
+    //           showMenu: true, 
+    //           success: function (res) {
+    //             setTimeout(() => {
+    //               wx.hideLoading()
+    //             }, 500)
+    //           },fail:function(err){console.log()}
+    //         })
+    //       },
+    //       fail:function(err){console.log()}
+    //     })
+    //   },fail:err =>{console.log(err)}
+    // })
   },
 })

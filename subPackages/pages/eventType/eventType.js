@@ -178,23 +178,16 @@ Page({
     formData.userId = this.data.userinfo.userId;
     console.log("formData>>>>>", formData)
     //验证规则 失败报错 成功请求后端
-    const validate = this.validateTime(this.data.startTime, e.detail.value);
-    console.log(validate)
+    if(this.data.eventType == '个人预约'){
+      const validate = this.validateTime(this.data.startTime, this.data.endTime);
       if (validate != null) {
-      wx.showModal({
-        title: validate,
-        icon: 'error',
-        duration: 2000
-      });
-      return ;
+        wx.showModal({title: validate,icon: 'error',duration: 2000 });
+        return ;
+      }
     }
     if (!this.WxValidate.checkForm(formData)) {
       const error = this.WxValidate.errorList[0];
-      wx.showModal({
-        title: error.msg,
-        icon: 'error',
-        duration: 2000
-      });
+      wx.showModal({title: error.msg,icon: 'error',duration: 2000});
       return;
     }
     //预约按钮 ==团队type
@@ -440,6 +433,9 @@ Page({
     this.setData({
       date: e.detail.value
     })
+    if (this.data.scene === '乒乓球馆') {
+      this.getTableList();
+    }
   },
 
   bindStart: function (e) {
@@ -451,9 +447,10 @@ Page({
     //     duration: 2000
     //   });
     // } else {
-    this.setData({
-      startTime: e.detail.value
-    })
+    this.setData({startTime: e.detail.value})
+    if (this.data.scene === '乒乓球馆') {
+      this.getTableList();
+    }
     // }
   },
   bindEnd: function (e) {
@@ -491,9 +488,7 @@ Page({
     //     }
     //   }
     // });
-    this.setData({
-      endTime: e.detail.value
-    })
+    this.setData({ endTime: e.detail.value})
     if (this.data.scene === '乒乓球馆') {
       this.getTableList();
     }
@@ -508,7 +503,7 @@ Page({
     const endTotalMinutes = endHour * 60 + endMinute;
     // 检查结束时间是否大于等于开始时间
     if (endTotalMinutes <= startTotalMinutes) {
-      return "结束时间不能小于等与开始时间";
+      return "结束时间不能小于开始时间";
     }
     // 检查时间间隔是否不大于两小时（120 分钟）
     const timeDifference = endTotalMinutes - startTotalMinutes;

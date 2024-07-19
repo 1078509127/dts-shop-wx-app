@@ -8,7 +8,7 @@
       </view>
       <view class='text'>
         <view class='acea-row row-middle'>
-          <view class='name line1' style="color: white;font-size: 45rpx;">用户名字：{{userInfo.nickName || '未登录'}}</view>
+          <view class='name line1' style="color: white;font-size: 45rpx;">用户：{{userInfo.nickName || '未登录'}}</view>
           <!-- <text class='iconfont icon-shezhi' style="margin: 200rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text> -->
         </view>
         <text class='iconfont icon-shezhi' style="position:absolute;top: 100rpx; left: 630rpx;color: white;font-size: 55rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text>
@@ -17,7 +17,7 @@
     </view>
 
   </view>
- 
+
   <view class='wrapper'>
     <view class='myOrder'>
       <view class='title acea-row row-between-wrapper'>
@@ -64,7 +64,7 @@
     <view class='myService'>
       <view class='title acea-row row-middle jhx_f4'>场馆介绍</view>
       <view class='serviceList acea-row row-middle'>
-        <view class='item' wx:for="{{MyMenus2}}" wx:key="index" bindtap='gogymnasiumDetail' data-url='{{item.url}}'data-name='{{item.name}}'wx:if="{{item.url!='#'}}">
+        <view class='item' wx:for="{{MyMenus2}}" wx:key="index" bindtap='gogymnasiumDetail' data-url='{{item.url}}' data-name='{{item.name}}' wx:if="{{item.url!='#'}}">
           <view class='pictrue'>
             <image src='/static/images/{{item.pic}}'></image>
           </view>
@@ -76,7 +76,7 @@
     <view class='myService' wx:if="{{userInfo && userInfo.roleIds}}">
       <view class='title acea-row row-middle jhx_f4'>后台管理</view>
       <view class='serviceList acea-row row-middle'>
-        <view class='item' wx:for="{{managerList}}" wx:key="index" bindtap='managerBtn' data-name="{{item.name}}" >
+        <view class='item' wx:for="{{managerList}}" wx:key="index" bindtap='managerBtn' data-name="{{item.name}}">
           <view class='pictrue'>
             <image src='{{item.iconUrl}}'></image>
           </view>
