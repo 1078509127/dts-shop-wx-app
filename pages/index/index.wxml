@@ -8,9 +8,10 @@
    <image class="logoBgimg" src="/static/images/bgimg.jpg"></image>
   </view>
 <!-- 轮播图 -->
-  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-    <swiper-item wx:for="{{banner}}" wx:key="id">
-      <image src="{{item.url}}" background-size="cover"></image>
+  <swiper class="banner" indicator-dots="true" autoplay="true">
+    <swiper-item wx:for="{{banner}}" wx:key="id" >
+      <image src="{{item.url}}"background-size="100%" background-position="center" style=""></image>
+      <!-- background-size="contain" -->
     </swiper-item>
   </swiper>
   
