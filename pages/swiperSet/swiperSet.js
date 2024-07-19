@@ -84,11 +84,6 @@ Page({
             complete: function (result) {console.log(result.errMsg) }
           })
         }
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        // for (var i = 0; i < res.tempFilePaths.length; i++) {
-        //   that.data.imgs.push({url:res.tempFilePaths[i]})
-        // }
-        // that.setData({tempFilePaths :res.tempFilePaths})
       },
       fail: (res) => {
         console.log(res)
@@ -107,6 +102,11 @@ Page({
           util.request(api.delSwiper, img, 'POST').then(res => {
             if (res.errno == 0) {
               that.imgViwe()
+              wx.showToast({
+                title: "删除成功",
+                icon: "none",
+                duration: 1500
+              })
             } else {
               wx.showModal({
                 title: res.errmsg,
@@ -116,7 +116,8 @@ Page({
             }
           })
         }
-      }
+      },
+      fail:function(err){}
     })
   },
 

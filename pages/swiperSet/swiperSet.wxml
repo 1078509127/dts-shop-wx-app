@@ -12,8 +12,8 @@
         <text class="sign">+</text>
       </view>
     </view>
-    <view class="txt">
+    <!-- <view class="txt">
       <button bindtap="btn" style="background-color: rgb(38, 132, 240);height: 60rpx;line-height: 60rpx;color: white;margin-top: 10rpx;">上传图片</button>
-    </view>
+    </view> -->
   </view>
 </view>
