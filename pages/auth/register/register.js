@@ -101,7 +101,7 @@ Page({
         'content-type': 'application/json'
       },
       success: function(res) {
-        if (res.data.errno == 0) {//
+        if (res.data.errno == 0) {
           app.globalData.hasLogin = true;
           wx.setStorageSync('userInfo', res.data.data.userInfo);
           wx.setStorageSync('register',true);
@@ -212,13 +212,15 @@ Page({
     });
   },
   bindConfirmPasswordInput: function(e) {
-
     this.setData({
       confirmPassword: e.detail.value
     });
   },
   bindMobileInput: function(e) {
-
+    if (!(/^1[345768]\d{9}$/.test(e.detail.value.phone))) {
+      wx.showToast({ title: '手机号码有误', duration: 1000, icon:'none' });    
+       return 
+      }
     this.setData({
       mobile: e.detail.value
     });

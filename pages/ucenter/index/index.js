@@ -118,7 +118,6 @@ Page({
         url: "/pages/auth/login/login"
       });
     }else{
-    debugger
     wx.navigateTo({
       url:  "/pages/ucenter/updateuser/updateuser",
     });

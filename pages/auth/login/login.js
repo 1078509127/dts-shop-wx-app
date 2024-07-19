@@ -21,6 +21,7 @@ Page({
             user.authsubscribe();
             app.globalData.hasLogin = true;
             if (app.globalData.hasLogin == true) {
+              debugger
               if (wx.getStorageSync('register')!=true) {
                 wx.navigateTo({
                   url: "/pages/auth/register/register"
