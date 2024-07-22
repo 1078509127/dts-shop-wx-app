@@ -443,20 +443,24 @@ Page({
                 content: '',
                 duration: 2000,
                 success: function (res) {
-                  wx.openSetting({
-                    success: function (res) {},
-                    fail: function (res) {}
-                  })
+                  if(res.confirm){
+                    wx.openSetting({
+                      success: function (res) {},
+                      fail: function (res) {}
+                    })
+                  }else{
+                    wx.showToast({title: '权限不足',icon: "error",})
+                  }
                 },
                 fail:function(res){
-                  wx.showToast({title: '权限不足',})
+                  wx.showToast({title: '设置失败',icon: "error",})
                 }
               });
             } else {
               wx.saveImageToPhotosAlbum({
                 filePath: ress.tempFilePath,
                 success: function (data) {
-                  uni.showToast({
+                  wx.showToast({
                     title: "保存成功",
                     icon: "success",
                     duration: 2000

@@ -3,7 +3,7 @@ const util = require('../../../utils/util.js');
 const api = require('../../../config/api.js');
 const user = require('../../../utils/user.js');
 const WxValidate = require('../../../utils/WxValidate.js');
-var startTime = ''
+// const { raycast } = require('XrFrame/physics/raycast');
 
 //获取应用实例
 const app = getApp();
@@ -57,40 +57,17 @@ Page({
 
   initValidate() {
     const rules = {
-      userName: {
-        required: true
-      },
-      phone: {
-        required: true,
-        tel: true
-      },
-      sex: {
-        required: true
-      },
-      unit: {
-        required: true
-      },
-      memberCard: {
-        required: true
-      },
-      date: {
-        required: true
-      },
-      startTime: {
-        required: true
-      },
-      endTime: {
-        required: true
-      },
-      tableNumber: {
-        required: true
-      },
-      activeNumber: {
-        required: true
-      },
-      remark: {
-        required: true
-      }
+      userName: { required: true},
+      phone: {required: true,tel: true},
+      sex: { required: true},
+      unit: {required: true},
+      memberCard: { required: true},
+      date: { required: true},
+      startTime: { required: true},
+      endTime: {required: true},
+      tableNumber: {required: true},
+      activeNumber: {required: true},
+      remark: {required: true}
     }
     const messages = { //提示信息
       userName: {
@@ -103,39 +80,30 @@ Page({
       },
       sex: {
         required: "请选择性别",
-        fax: "请输入正确传真号码"
       },
       unit: {
         required: "请输入工作单位",
-        fax: "请输入正确传真号码"
       },
       memberCard: {
         required: "请输入会员卡号",
-        fax: "请输入正确传真号码"
       },
       date: {
         required: "请选择日期",
-        fax: "请输入正确传真号码"
       },
       startTime: {
         required: "请选择开始时间",
-        fax: "请输入正确传真号码"
       },
       endTime: {
         required: "请选择结束时间",
-        fax: "请输入正确传真号码"
       },
       tableNumber: {
         required: "请选择桌号",
-        fax: "请输入正确传真号码"
       },
       activeNumber: {
         required: "请输入活动人数",
-        fax: "请输入正确传真号码"
       },
       remark: {
         required: "请简单描述",
-        fax: "请输入正确传真号码"
       },
     }
 
@@ -146,7 +114,6 @@ Page({
         delete messages.activeNumber;
         delete messages.remark;
       } else {
-
         delete rules.tableNumber;
         delete rules.activeNumber;
         delete rules.remark;
@@ -207,8 +174,6 @@ Page({
                   unit: "",
                   memberCard: "",
                   date: "",
-                  // startTime:"12:00",
-                  // endTime:"18:00",
                   tableNumber: "",
                   idx: "",
                   activeNumber: "",

@@ -29,7 +29,7 @@
     </view>
     <view class="form-group" >
       <label>预约时间：</label>
-      <picker mode="date" name="date" value="{{checkStartTime}}" start="{{checkStartTime}}" end="{{checkEndTime}}" bindchange="bindDate">
+      <picker mode="date" name="date" value="{{date}}" start="{{checkStartTime}}" end="{{checkEndTime}}" bindchange="bindDate">
         <view class="picker" wx:if="{{date}}">{{date}}<view class="arrow"></view></view>
         <view class="picker" wx:else>请选择日期<view class="arrow"></view></view>
       </picker>
