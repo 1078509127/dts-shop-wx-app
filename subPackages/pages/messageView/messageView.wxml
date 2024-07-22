@@ -7,10 +7,10 @@
         <view>
         <text>用户名字:{{item.username}}</text>
         </view>
-        <view style="position:absolute;bottom: 40rpx;left: 400rpx;">
+        <view style="position:absolute;bottom: 40rpx;left: 360rpx;">
           <text>手机:{{item.mobile}}</text>
         </view>
-        <view style="position:absolute;bottom: 10rpx;left: 400rpx;">
+        <view style="position:absolute;bottom: 10rpx;left: 360rpx;">
           <text>{{item.addTime}}</text>
         </view>
         <view style="width: 100%;height: 70%;">
