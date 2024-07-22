@@ -396,7 +396,7 @@ Page({
               });
             } else {
               wx.showModal({
-                title: res.data.message,
+                title: '此日已预约，请选择其他日期',
                 icon: 'error',
                 duration: 2000
               });
