@@ -3,7 +3,8 @@
     <view class='list'>
         <view class='item acea-row row-between-wrapper'>
           <view>头像</view>
-          <view class='pictrue'><image src='{{userInfo.avatarUrl}}'></image></view>
+          <view class='pictrue'><image src='https://pic.qqans.com/up/2024-6/17183257325107618.jpg'></image></view>
+          <!-- src='{{userInfo.avatarUrl}}' -->
         </view>
         <view class='item acea-row row-between-wrapper'>
           <view>名字</view>

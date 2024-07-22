@@ -181,6 +181,9 @@ page{
   text-align: center;
   font-size: 13px;
 }
+.borderSty{
+  border: 1px solid rgb(139, 136, 136);
+}
 .goods_progress{
   position: absolute;
   top:185rpx;

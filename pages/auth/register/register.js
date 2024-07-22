@@ -89,7 +89,7 @@ Page({
       data: {
         username: that.data.username,
         mobile: that.data.mobile,
-        userid:userInfo.userId.toLocaleString()
+        userid:userInfo.userId
    
       },
       method: 'POST',
@@ -127,6 +127,7 @@ Page({
   },
   startRegister: function() {
     var that = this;
+    debugger
 
     // if (this.data.password.length < 6 || this.data.username.length < 6) {
     //   wx.showModal({

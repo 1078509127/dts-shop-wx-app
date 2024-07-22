@@ -201,7 +201,7 @@ Page({
       data: {
         username: username1,
         mobile:mobile1,
-        userid:userInfo.userId.toLocaleString()
+        userid:userInfo.userId
    
      },
      method: 'POST',
@@ -219,7 +219,7 @@ Page({
 
         //   });
         wx.navigateBack({
-          delta: 1 // 返回的页面数，如果是1表示返回上一级页面
+          //delta: 1 // 返回的页面数，如果是1表示返回上一级页面
           })
    
        } else {
