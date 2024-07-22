@@ -1,6 +1,6 @@
 // 以下是业务服务器API地址
  // 本机开发API地址
-var WxApiRoot = 'http://192.168.2.249:8080/wx/';
+var WxApiRoot = 'http://192.168.2.232:8080/wx/';
 //var WxApiRoot = ' https://9aj327pr1567.vicp.fun/wx/';
 // 测试环境部署api地址
 // var WxApiRoot = 'http://192.168.0.101:8070/demo/wx/';
@@ -12,6 +12,7 @@ module.exports = {
   TeamReserve: WxApiRoot + 'reserve/teamReserve',//团队预约接口
   DelReserve: WxApiRoot + 'reserve/delReserve', //取消预约接口
   SelReserve: WxApiRoot + 'reserve/selReserve', //查询预约接口
+  Echo: WxApiRoot + 'reserve/echo', //预约回显基本数据
   SelCategury: WxApiRoot + 'catalog/categurInfo', //查询场馆信息
   IsFull: WxApiRoot + 'reserve/isFull', //当日是否约满
   GetTableList: WxApiRoot + 'reserve/getTableList', //查询预约乒乓球桌号

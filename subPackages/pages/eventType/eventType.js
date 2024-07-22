@@ -439,19 +439,22 @@ Page({
   },
 
   bindStart: function (e) {
-    // const validate = this.validateTime(e.detail.value, this.data.endTime);
-    // if (validate != null) {
-    //   wx.showModal({
-    //     title: validate,
-    //     icon: 'error',
-    //     duration: 2000
-    //   });
-    // } else {
+    let selectedTime = e.detail.value;
+    let hour = parseInt(selectedTime.split(':')[0]);
+    let minute = parseInt(selectedTime.split(':')[1]);
+    debugger
+    if (minute!== 0) {
+      wx.showToast({
+        title: '请选择整点时间',
+        icon: 'none'
+      });
+      return;
+    }
+
     this.setData({startTime: e.detail.value})
     if (this.data.scene === '乒乓球馆') {
       this.getTableList();
     }
-    // }
   },
   bindEnd: function (e) {
     // const validate = this.validateTime(this.data.startTime, e.detail.value);
@@ -508,7 +511,7 @@ Page({
     // 检查时间间隔是否不大于两小时（120 分钟）
     const timeDifference = endTotalMinutes - startTotalMinutes;
     if (timeDifference > 120) {
-      return "预约时间不能超过过两格小时";
+      return "预约时间不能超过两个小时";
     }
     return null;
   },
@@ -578,7 +581,7 @@ Page({
 
   /** 预约时查询是否预约过，直接回显部分字段 */
   getData: function () {
-    util.request(api.SelReserve, {
+    util.request(api.Echo, {
       userId: this.data.userinfo.userId,
       eventType: this.data.eventType
     }, 'GET').then(res => {
@@ -590,6 +593,7 @@ Page({
           phone: datas.phone,
           sex: datas.sex,
           unit: datas.unit,
+          memberCard:datas.memberCard
         })
       }
     })

@@ -171,7 +171,6 @@ Page({
 
 
   requestRegister: function(wxCode) {
-    debugger
     const userInfo =  wx.getStorageSync('userInfo');
     if (username1=="") {
       username1=userInfo.nickName
