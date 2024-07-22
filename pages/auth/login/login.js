@@ -23,7 +23,7 @@ Page({
                 if (app.globalData.hasLogin == true) {
                   let userInfo = wx.getStorageSync('userInfo');
                   if (userInfo.register !=1) {//0未注册1已注册
-                    wx.switchTab({
+                    wx.navigateTo({
                       url: "/pages/auth/register/register"
                     })
                   }else{

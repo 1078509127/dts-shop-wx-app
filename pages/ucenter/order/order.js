@@ -40,13 +40,11 @@ Page({
    var that = this;
   this.data.userinfo = wx.getStorageSync('userInfo');
   util.request(api.SelReserve,{userId:this.data.userinfo.userId,eventType:this.data.eventType},'GET').then(function (res) {
-    for (var i = 0; i < res.data.length; i++) {
-      res.data[i].startTime = res.data[i].date + " " + res.data[i].startTime
-      res.data[i].endTime = res.data[i].date + " " + res.data[i].endTime
+      for (var i = 0; i < res.data.length; i++) {
+        res.data[i].startTime = res.data[i].date + " " + res.data[i].startTime
+        res.data[i].endTime = res.data[i].date + " " + res.data[i].endTime
     }
-    that.setData({
-      showData: res.data
-    })
+    that.setData({ showData: res.data})
   });
  },
 
