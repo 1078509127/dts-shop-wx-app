@@ -20,7 +20,7 @@
          </view>
          <view class="borderSty"style="height: 900rpx;">
             <image style="height: 100%" class="img" src="http://192.168.2.232:8080/storage/xcru1wjvcloguzomgb1c.jpg"></image>
-         </view>  -->
+         </view>
       </button>
     </view>
 </scroll-view>
