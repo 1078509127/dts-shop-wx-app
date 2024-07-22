@@ -433,7 +433,7 @@ Page({
   QRcode: function (e) {
     wx.downloadFile({
       url: api.QRcode + "?scene=" + e,
-      success: function (res) {
+      success: function (ress) {
         wx.getSetting({
           success: function (res) {
             console.log("getSetting",res)
@@ -454,7 +454,7 @@ Page({
               });
             } else {
               wx.saveImageToPhotosAlbum({
-                filePath: res.tempFilePath,
+                filePath: ress.tempFilePath,
                 success: function (data) {
                   uni.showToast({
                     title: "保存成功",
@@ -462,18 +462,12 @@ Page({
                     duration: 2000
                   });
                 },
-                fail: function (err) {
-                  console.log(err);
-                },
-                complete(res) {
-                  console.log(res);
-                }
+                fail: function (err) { console.log(err);},
+                complete(res) { console.log(res);}
               });
             }
           },
-          fail: function (res) {
-            console.log("fail", res)
-          }
+          fail: function (res) { console.log("fail", res)}
         })
       }
     });

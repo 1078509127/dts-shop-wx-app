@@ -440,9 +440,7 @@ Page({
 
   bindStart: function (e) {
     let selectedTime = e.detail.value;
-    let hour = parseInt(selectedTime.split(':')[0]);
     let minute = parseInt(selectedTime.split(':')[1]);
-    debugger
     if (minute!== 0) {
       wx.showToast({
         title: '请选择整点时间',
@@ -450,52 +448,25 @@ Page({
       });
       return;
     }
-
     this.setData({startTime: e.detail.value})
     if (this.data.scene === '乒乓球馆') {
       this.getTableList();
     }
   },
   bindEnd: function (e) {
-    // const validate = this.validateTime(this.data.startTime, e.detail.value);
-    // if (validate != null) {
-    //   wx.showModal({
-    //     title: validate,
-    //     icon: 'error',
-    //     duration: 2000
-    //   });
-    // } else {
-    // wx.request({
-    //   url: api.IsFull,
-    //   method: 'GET',
-    //   data: {
-    //     userId: this.data.userinfo.userId,
-    //     scene: this.data.scene,
-    //     date: this.data.date,
-    //     startTime: this.data.startTime + ":00",
-    //     endTime: e.detail.value + ":00"
-    //   },
-    //   success: function (res) {
-    //     if (res.data.code == 200) {
-    //       wx.showModal({
-    //         title: res.message,
-    //         icon: 'success',
-    //         duration: 2000
-    //       });
-    //     } else {
-    //       wx.showModal({
-    //         title: res.data.message,
-    //         icon: 'error',
-    //         duration: 2000
-    //       });
-    //     }
-    //   }
-    // });
+    let selectedTime = e.detail.value;
+    let minute = parseInt(selectedTime.split(':')[1]);
+    if (minute!== 0) {
+      wx.showToast({
+        title: '请选择整点时间',
+        icon: 'none'
+      });
+      return;
+    }
     this.setData({ endTime: e.detail.value})
     if (this.data.scene === '乒乓球馆') {
       this.getTableList();
     }
-    // }
   },
   //时间间隔
   validateTime: function (startTimeStr, endTimeStr) {
