@@ -3,7 +3,7 @@ const util = require('../../../utils/util.js');
 const api = require('../../../config/api.js');
 const user = require('../../../utils/user.js');
 const WxValidate = require('../../../utils/WxValidate.js');
-var startTime = ''
+// const { raycast } = require('XrFrame/physics/raycast');
 
 //获取应用实例
 const app = getApp();
@@ -57,40 +57,17 @@ Page({
 
   initValidate() {
     const rules = {
-      userName: {
-        required: true
-      },
-      phone: {
-        required: true,
-        tel: true
-      },
-      sex: {
-        required: true
-      },
-      unit: {
-        required: true
-      },
-      memberCard: {
-        required: true
-      },
-      date: {
-        required: true
-      },
-      startTime: {
-        required: true
-      },
-      endTime: {
-        required: true
-      },
-      tableNumber: {
-        required: true
-      },
-      activeNumber: {
-        required: true
-      },
-      remark: {
-        required: true
-      }
+      userName: { required: true},
+      phone: {required: true,tel: true},
+      sex: { required: true},
+      unit: {required: true},
+      memberCard: { required: true},
+      date: { required: true},
+      startTime: { required: true},
+      endTime: {required: true},
+      tableNumber: {required: true},
+      activeNumber: {required: true},
+      remark: {required: true}
     }
     const messages = { //提示信息
       userName: {
@@ -103,39 +80,30 @@ Page({
       },
       sex: {
         required: "请选择性别",
-        fax: "请输入正确传真号码"
       },
       unit: {
         required: "请输入工作单位",
-        fax: "请输入正确传真号码"
       },
       memberCard: {
         required: "请输入会员卡号",
-        fax: "请输入正确传真号码"
       },
       date: {
         required: "请选择日期",
-        fax: "请输入正确传真号码"
       },
       startTime: {
         required: "请选择开始时间",
-        fax: "请输入正确传真号码"
       },
       endTime: {
         required: "请选择结束时间",
-        fax: "请输入正确传真号码"
       },
       tableNumber: {
         required: "请选择桌号",
-        fax: "请输入正确传真号码"
       },
       activeNumber: {
         required: "请输入活动人数",
-        fax: "请输入正确传真号码"
       },
       remark: {
         required: "请简单描述",
-        fax: "请输入正确传真号码"
       },
     }
 
@@ -146,7 +114,6 @@ Page({
         delete messages.activeNumber;
         delete messages.remark;
       } else {
-
         delete rules.tableNumber;
         delete rules.activeNumber;
         delete rules.remark;
@@ -207,8 +174,6 @@ Page({
                   unit: "",
                   memberCard: "",
                   date: "",
-                  // startTime:"12:00",
-                  // endTime:"18:00",
                   tableNumber: "",
                   idx: "",
                   activeNumber: "",
@@ -439,60 +404,34 @@ Page({
   },
 
   bindStart: function (e) {
-    // const validate = this.validateTime(e.detail.value, this.data.endTime);
-    // if (validate != null) {
-    //   wx.showModal({
-    //     title: validate,
-    //     icon: 'error',
-    //     duration: 2000
-    //   });
-    // } else {
+    let selectedTime = e.detail.value;
+    let minute = parseInt(selectedTime.split(':')[1]);
+    if (minute!== 0) {
+      wx.showToast({
+        title: '请选择整点时间',
+        icon: 'none'
+      });
+      return;
+    }
     this.setData({startTime: e.detail.value})
     if (this.data.scene === '乒乓球馆') {
       this.getTableList();
     }
-    // }
   },
   bindEnd: function (e) {
-    // const validate = this.validateTime(this.data.startTime, e.detail.value);
-    // if (validate != null) {
-    //   wx.showModal({
-    //     title: validate,
-    //     icon: 'error',
-    //     duration: 2000
-    //   });
-    // } else {
-    // wx.request({
-    //   url: api.IsFull,
-    //   method: 'GET',
-    //   data: {
-    //     userId: this.data.userinfo.userId,
-    //     scene: this.data.scene,
-    //     date: this.data.date,
-    //     startTime: this.data.startTime + ":00",
-    //     endTime: e.detail.value + ":00"
-    //   },
-    //   success: function (res) {
-    //     if (res.data.code == 200) {
-    //       wx.showModal({
-    //         title: res.message,
-    //         icon: 'success',
-    //         duration: 2000
-    //       });
-    //     } else {
-    //       wx.showModal({
-    //         title: res.data.message,
-    //         icon: 'error',
-    //         duration: 2000
-    //       });
-    //     }
-    //   }
-    // });
+    let selectedTime = e.detail.value;
+    let minute = parseInt(selectedTime.split(':')[1]);
+    if (minute!== 0) {
+      wx.showToast({
+        title: '请选择整点时间',
+        icon: 'none'
+      });
+      return;
+    }
     this.setData({ endTime: e.detail.value})
     if (this.data.scene === '乒乓球馆') {
       this.getTableList();
     }
-    // }
   },
   //时间间隔
   validateTime: function (startTimeStr, endTimeStr) {
@@ -508,7 +447,7 @@ Page({
     // 检查时间间隔是否不大于两小时（120 分钟）
     const timeDifference = endTotalMinutes - startTotalMinutes;
     if (timeDifference > 120) {
-      return "预约时间不能超过过两格小时";
+      return "预约时间不能超过两个小时";
     }
     return null;
   },
@@ -578,7 +517,7 @@ Page({
 
   /** 预约时查询是否预约过，直接回显部分字段 */
   getData: function () {
-    util.request(api.SelReserve, {
+    util.request(api.Echo, {
       userId: this.data.userinfo.userId,
       eventType: this.data.eventType
     }, 'GET').then(res => {
@@ -590,6 +529,7 @@ Page({
           phone: datas.phone,
           sex: datas.sex,
           unit: datas.unit,
+          memberCard:datas.memberCard
         })
       }
     })

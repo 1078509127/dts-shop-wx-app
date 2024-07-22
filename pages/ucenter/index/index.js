@@ -433,32 +433,46 @@ Page({
   QRcode: function (e) {
     wx.downloadFile({
       url: api.QRcode + "?scene=" + e,
-      success: function (res) {
-        wx.saveImageToPhotosAlbum({
-          filePath: res.tempFilePath,
-          success: function (data) {
-            console.log('aaaaaaaaaaaaaa', data)
-            uni.showToast({
-              title: "保存成功",
-              icon: "success",
-              duration: 2000
-            });
+      success: function (ress) {
+        wx.getSetting({
+          success: function (res) {
+            console.log("getSetting",res)
+            if (res.authSetting["scope.writePhotosAlbum"] === false) {
+              wx.showModal({
+                title: '检测到您没有打开相册权限，是否取设置打开',
+                content: '',
+                duration: 2000,
+                success: function (res) {
+                  if(res.confirm){
+                    wx.openSetting({
+                      success: function (res) {},
+                      fail: function (res) {}
+                    })
+                  }else{
+                    wx.showToast({title: '权限不足',icon: "error",})
+                  }
+                },
+                fail:function(res){
+                  wx.showToast({title: '设置失败',icon: "error",})
+                }
+              });
+            } else {
+              wx.saveImageToPhotosAlbum({
+                filePath: ress.tempFilePath,
+                success: function (data) {
+                  wx.showToast({
+                    title: "保存成功",
+                    icon: "success",
+                    duration: 2000
+                  });
+                },
+                fail: function (err) { console.log(err);},
+                complete(res) { console.log(res);}
+              });
+            }
           },
-          fail: function (err) {
-            console.log(err);
-          },
-          complete(res) {console.log(res);}
-        });
-        // wx.getSetting({
-        //   success(res) {
-        //     console.log(res)
-        //     if (ress.authSetting["scope.writePhotosAlbum"] === false) {
-        //       wx.openSetting({success(res) {}})
-        //     } else {
-              
-        //     }
-        //   }
-        // })
+          fail: function (res) { console.log("fail", res)}
+        })
       }
     });
 

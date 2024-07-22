@@ -27,16 +27,14 @@ Page({
                       url: "/pages/auth/register/register"
                     })
                   }else{
-                    wx.navigateTo({
-                      url: '/pages/index/index',
+                    wx.switchTab({
+                      url: '/pages/ucenter/index/index',
                     })
                   }
-
+                  wx.hideLoading();
                 }else{
                   wx.navigateBack({delta: 1 })
                 }
-
-
               }).catch((err) => {
                 app.globalData.hasLogin = false;
                 util.showErrorToast('微信登录失败');
