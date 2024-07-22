@@ -439,7 +439,7 @@ Page({
             console.log("getSetting",res)
             if (res.authSetting["scope.writePhotosAlbum"] === false) {
               wx.showModal({
-                title: '检测到您没有打开相册权限，是否取设置打开',
+                title: '检测到您没有打开相册权限，是否去设置打开',
                 content: '',
                 duration: 2000,
                 success: function (res) {

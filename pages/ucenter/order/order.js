@@ -22,18 +22,16 @@ Page({
     datas.userId = this.data.userinfo.userId;
     util.request(api.DelReserve,datas,'POST').then(function (res) {
       if(res.code == 200){
-        wx.showModal({
+        wx.showToast({
           title: '取消成功',
           icon: 'success',
-          duration: 2000
-        });
+        })
       that.ReserveSel();
       }else{
-        wx.showModal({
-          title: res.message,
+        wx.showToast({
+          title: '取消失败',
           icon: 'error',
-          duration: 2000
-        });
+        })
       }
     })
   },
