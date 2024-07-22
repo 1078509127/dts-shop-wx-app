@@ -57,11 +57,14 @@ Page({
       util.showErrorToast('请输入活动时间');
       return false;
     }
-    // const regex = /^\d{4}(\-|\/|\.)\d{1,2}\1\d{1,2}$/
-    // if(!regex.test(this.data.time)){
-    //   util.showErrorToast('日期格式错误');
-    //   return false;
-    // }
+    const regex = /^\d{4}(\-|\/|\.)\d{1,2}\1\d{1,2}$/
+    const regexs = /^\d{4}\/\d{2}\/\d{2}\~\d{4}\/\d{2}\/\d{2}$/
+    console.log(regexs.test(this.data.time))
+    console.log(regex.test(this.data.time))
+    if(!regex.test(this.data.time) && !regexs.test(this.data.time)){
+      util.showErrorToast('日期格式错误');
+      return false;
+    }
     if (this.data.provider == '') {
       util.showErrorToast('请输入发布者');
       return false;
