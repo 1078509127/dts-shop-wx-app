@@ -1,5 +1,5 @@
 
-<scroll-view class='content' scroll-y="true" style='width: 100%; height:80%;'>
+<scroll-view class='content' scroll-y="true" style='width: 100%; height:90%;'>
     <view class = "button_item">
       <button class="goods">
         <text class="goods_name">书法室</text>

@@ -246,6 +246,14 @@ Page({
 
 
   bindUsernameInput: function(e) {
+    var regLowerCase=new RegExp('[a-z]','g');//判断用户输入的是否为小写字母
+    var regCapitalLetter=new RegExp('[A-Z]','g');//判断用户输入的是否为大写字母
+    var xaz =   regLowerCase.exec(e.detail.value);
+    Array  =""
+    if (xaz.length>12) {
+      
+    }
+  
     if (!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(e.detail.value))) { 
           wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: true });     
           return; 

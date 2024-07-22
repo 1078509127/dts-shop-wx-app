@@ -66,7 +66,7 @@
     </view>
     <view class="form-group" wx:if="{{eventType === '团队预约' && scene==='烘培室'}}">
       <label>活动人数：</label>
-      <input type="number" name="activeNumber" value="{{activeNumber}}" placeholder="烘培室预约上限人数30" bindblur="activeNum"/>
+      <input type="number" name="activeNumber"  value="{{activeNumber}}" placeholder="烘培室预约上限人数30" bindblur="activeNum"/>
     </view>
 
     <view class="form-group" wx:if="{{eventType === '团队预约'}}">

@@ -137,6 +137,7 @@ Page({
     this.WxValidate = new WxValidate.WxValidate(rules, messages);
   },
   submitForm(e) {
+    debugger
     var that = this;
     let formData = e.detail.value;
     formData.tableNumber = this.data.tableNumber;
@@ -159,6 +160,15 @@ Page({
     }
     //预约按钮 ==团队type
     if (that.data.eventType === '团队预约') {
+      // 活动人数数字check
+      if (typeof(formData.activeNum)!="number") {
+        wx.showModal({
+          title: '活动人数请输入数字',
+          icon: 'error',
+          duration: 2000,
+        })
+        return;
+      }
       util.request(api.TeamReserve, formData, 'POST').then(function (res) {
         if (res.code == 200) {
           if (that.data.eventType === '团队预约') {

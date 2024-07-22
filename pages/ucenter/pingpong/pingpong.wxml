@@ -9,18 +9,18 @@
          <view>
           <image class="jsSty" src="http://192.168.2.232:8080/storage/i1hvjjst4gtveaabfcnf.jpg"></image>
         </view>
-        <view class="borderSty">
-            <image background-size="contain" background-position="center" class="img" src="http://192.168.2.232:8080/storage/88hrvhodoc7z7k1ur23u.jpg"></image>
+        <view class="borderSty" style="height: 900rpx;">
+            <image style="height: 100%" class="img" src="http://192.168.2.232:8080/storage/88hrvhodoc7z7k1ur23u.jpg"></image>
          </view>
-         <view class="borderSty">
-            <image background-size="contain" background-position="center" class="img" src="http://192.168.2.232:8080/storage/qk1k2z2gclspme6g0ey6.jpg"></image>
+          <view class=""style="height:900rpx" >
+            <image style="height: 100%" class="img" src="http://192.168.2.232:8080/storage/qk1k2z2gclspme6g0ey6.jpg"></image>
          </view>
-         <view class="borderSty">
-            <image background-size="contain" background-position="center" class="img" src="http://192.168.2.232:8080/storage/wy94vflfilasy2yta4vs.jpg"></image>
+         <view class="borderSty"style="height: 900rpx;">
+            <image style="height: 100%" class="img" src="http://192.168.2.232:8080/storage/wy94vflfilasy2yta4vs.jpg"></image>
          </view>
-         <view class="borderSty">
-            <image background-size="contain" background-position="center" class="img" src="http://192.168.2.232:8080/storage/xcru1wjvcloguzomgb1c.jpg"></image>
-         </view> 
+         <view class="borderSty"style="height: 900rpx;">
+            <image style="height: 100%" class="img" src="http://192.168.2.232:8080/storage/xcru1wjvcloguzomgb1c.jpg"></image>
+         </view>  -->
       </button>
     </view>
 </scroll-view>
