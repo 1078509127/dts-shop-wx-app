@@ -8,48 +8,48 @@ Page({
     canIUseGetUserProfile: false, // 2.27之前用于向前兼容
     showPop: false,
   },
-  getUserProfile(e) {
-    wx.getUserProfile({
-      desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        wx.showLoading({ 
-          title: "登录中...",
-          mask: true 
-        });
-        user.checkLogin().catch(() => {
-          user.loginByWeixin(res.userInfo).then(res => {
-            user.authsubscribe();
-            app.globalData.hasLogin = true;
-            if (app.globalData.hasLogin == true) {
-              debugger
-              if (wx.getStorageSync('register')!=true) {
-                wx.navigateTo({
-                  url: "/pages/auth/register/register"
-                })
-              }else{
-                wx.navigateTo({
-                  url: '/pages/index/index',
-                })
-              }
-             
-            }else{
-              wx.navigateBack({delta: 1 })
-            }
-            
-           
-          }).catch((err) => {
+   getUserProfile(e) {
+        wx.getUserProfile({
+          desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+          success: (res) => {
+            wx.showLoading({
+              title: "登录中...",
+              mask: true
+            });
+            user.checkLogin().catch(() => {
+              user.loginByWeixin(res.userInfo).then(res => {
+                user.authsubscribe();
+                app.globalData.hasLogin = true;
+                if (app.globalData.hasLogin == true) {
+                  let userInfo = wx.getStorageSync('userInfo');
+                  if (userInfo.register !=1) {//0未注册1已注册
+                    wx.navigateTo({
+                      url: "/pages/auth/register/register"
+                    })
+                  }else{
+                    wx.navigateTo({
+                      url: '/pages/index/index',
+                    })
+                  }
+
+                }else{
+                  wx.navigateBack({delta: 1 })
+                }
+
+
+              }).catch((err) => {
+                app.globalData.hasLogin = false;
+                util.showErrorToast('微信登录失败');
+              });
+            });
+          },
+          fail: (res) => {
+            console.log(res)
             app.globalData.hasLogin = false;
             util.showErrorToast('微信登录失败');
-          });
+          }
         });
       },
-      fail: (res) => {
-        console.log(res)
-        app.globalData.hasLogin = false;
-        util.showErrorToast('微信登录失败');
-      }
-    });
-  },
   wxLogin: function(e) {
     if (e.detail.userInfo == undefined) {
       app.globalData.hasLogin = false;
