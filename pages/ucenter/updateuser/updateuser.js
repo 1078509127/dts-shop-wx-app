@@ -89,10 +89,10 @@ Page({
   },
 
   bindMobileInput:function(e){
-    if (!(/^1[345768]\d{9}$/.test(e.detail.value))) {
-      wx.showToast({ title: '手机号码有误', duration: 2000, icon:'none' });    
-       return 
-      }
+    // if (!(/^1[345768]\d{9}$/.test(e.detail.value))) {
+    //   wx.showToast({ title: '手机号码有误', duration: 2000, icon:'none' });    
+    //    return 
+    //   }
     e.detail.value
      mobile1 =e.detail.value
     this.setData({
@@ -171,13 +171,21 @@ Page({
 
 
   requestRegister: function(wxCode) {
+    debugger
+    const userInfo =  wx.getStorageSync('userInfo');
+    if (username1=="") {
+      username1=userInfo.nickName
+    }
+    if (mobile1 =="") {
+      mobile1 = userInfo.phone
+      }
     if (!(/^1[345768]\d{9}$/.test(mobile1))) {
       wx.showToast({ title: '手机号码有误', duration: 2000, icon:'none' });    
-       return 
+       return; 
       }
       if (!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(username1))) { 
         wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: true });     
-        return ; 
+        return; 
       }
     wx.showModal({
       title: '',
@@ -188,15 +196,9 @@ Page({
           return;
         }
     
- const userInfo =  wx.getStorageSync('userInfo');
-    if (username1=="") {
-      username1=userInfo.nickName
-    }
-    if (mobile1 =="") {
-      mobile1 = userInfo.nickName
-      }
+ 
     wx.request({
-      url: api.AuthRegister,
+      url: api.AuthUpUser,
       data: {
         username: username1,
         mobile:mobile1,
@@ -212,9 +214,14 @@ Page({
          app.globalData.hasLogin = true;
          wx.setStorageSync('userInfo', res.data.data.userInfo);
          wx.setStorageSync('register',true);
-         wx.switchTab({
-            url: '/pages/ucenter/index/index'
-          });
+        //  wx.navigateTo({
+        //     url: '/pages/ucenter/index/index'
+      
+
+        //   });
+        wx.navigateBack({
+          delta: 1 // 返回的页面数，如果是1表示返回上一级页面
+          })
    
        } else {
          alert(res.data.errmsg)
@@ -237,78 +244,19 @@ Page({
 
 
 
-  upuserInfo: function () {
-    let that = this;
-    wx.showModal({
-      title: '',
-      confirmColor: '#b4282d',
-      content: '确认修改？',
-      success: function (res) {
-        debugger;
-        if (!res.confirm) {
-          return;
-        }
-        
-      
-        // 点击确认修改
-        wx.request({
-          
-          url: api.AuthRegister,
-          data: {
-            username: userInfo.username,
-            mobile: userInfo.phone,
-            userid:userInfo.userId.toLocaleString()
-           
-          },
-          method: 'POST',
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function(res) {
-            if (res.data.errno == 0) {
-              app.globalData.hasLogin = true;
-              wx.setStorageSync('userInfo', res.data.data.userInfo);
-              wx.setStorageSync('register',true);
-              wx.switchTab({
-                 url: '/pages/ucenter/index/index'
-               });
-              // wx.setStorage({
-              //   key: "token",
-              //   data: res.data.data.token,
-              //   success: function() {
-              //     wx.navigateTo({
-              //       url: '/pages/ucenter/index/index'
-              //     });
-              //   }
-              // });
-            } else {
-              wx.showModal({
-                title: '错误信息',
-                content: res.data.errmsg,
-                showCancel: false
-              });
-            }
-          }
-        });
-        
-       
-        wx.reLaunch({
-          url: '/pages/index/index'
-        });
-      }
-    })
-  },
+
 
   bindUsernameInput: function(e) {
-    debugger
     if (!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(e.detail.value))) { 
           wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: true });     
-          return ; 
+          return; 
+        }else{
+          username1 = e.detail.value
+          this.setData({
+            username: e.detail.value
+          });
         }
-        username1 = e.detail.value
-    this.setData({
-      username: e.detail.value
-    });
+ 
   },
   
 })

@@ -4,8 +4,11 @@
   <block wx:for="{{messageinfo}}" wx:key="scene"> 
      <view  class = "button_item" data-testid="{{item}}" >
        <button  class="goods" data-testid="{{item}}" bindtap="cancel_click">
-        <view style="">
-        <text>用户名字:{{item.id}}</text>
+        <view>
+        <text>用户名字:{{item.username}}</text>
+        </view>
+        <view style="position:absolute;bottom: 40rpx;left: 400rpx;">
+          <text>手机:{{item.mobile}}</text>
         </view>
         <view style="position:absolute;bottom: 10rpx;left: 400rpx;">
           <text>{{item.addTime}}</text>

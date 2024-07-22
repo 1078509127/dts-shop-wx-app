@@ -15,7 +15,7 @@ Page({
     isSelect: false, //展示类型？
     types: ['查询全部', '优化建议', '功能异常'], //留言类型
     type: "", //公司/商户类型
-    uesrIdArr:[{}]
+    userId:[]
   },
   //点击控制下拉框的展示、隐藏
   select: function () {
@@ -58,31 +58,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    //this.selmessage
-    //初期查询留言
-    // messageinfoArr = []
-    // util.request(api.selMessage, {}, "GET").then(res => {
-    //   if (res.code == 200) {
-    //     debugger
-    //     messageinfo = res.data;
-    //     if (messageinfo.length > 0) {
-    //       for (var j = 0; j < messageinfo.length; j++) {
-    //         this.data.messageinfoArr.push(messageinfo[j])
-          
-    //         this.setData({
-    //           //messageinfoArr: messageinfoArr, //将db数据赋值给messageinfoArr数组前台展示
-    //           messageinfo:messageinfo
-    //         })
-            
-    //       }
-    //     } 
-        
-    //     this.selUserName;
-    //   } else {
-    //     console.log(res.code + "=========================")
-    //   }
-    // })
-    this.selmessage
+    
+    this.selmessage()
+
     
   },
 
@@ -90,7 +68,6 @@ selmessage:function(){
   messageinfoArr = []
   util.request(api.selMessage, {}, "GET").then(res => {
     if (res.code == 200) {
-      debugger
       messageinfo = res.data;
       if (messageinfo.length > 0) {
         for (var j = 0; j < messageinfo.length; j++) {
@@ -103,34 +80,12 @@ selmessage:function(){
           
         }
       } 
-      
-      this.selUserName;
     } else {
       console.log(res.code + "=========================")
     }
   })
 },
-  selUserName:function(){
-   
-    util.request(api.selFeedbackUser, {
-      uesrIdArr:messageinfo.userId
-    }, "POST").then(res => {
-      if (res.code == 200) {
-        debugger
-        messageinfo = res.data;
-        if (messageinfo.length > 0) {
-          for (var j = 0; j < messageinfo.length; j++) {
-            this.data.messageinfoArr.push(messageinfo[j])
-          
-            // this.setData({
-            //   messageinfo:messageinfo
-            // })
-            
-          }
-        }
-      }
-    })
-  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

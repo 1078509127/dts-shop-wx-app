@@ -17,7 +17,7 @@
     </view> -->
 
     <view class="form-item">
-      <input class="mobile" value="{{mobile}}" bindinput="bindMobileInput" placeholder="手机号" />
+      <input class="mobile" value="{{mobile}}" bindinput="bindMobileInput" placeholder="手机号" auto-focus/>
       <image wx:if="{{ mobile.length > 0 }}" id="clear-mobile" class="clear" src="/static/images/clear_input.png" catchtap="clearInput"></image>
     </view>
 
