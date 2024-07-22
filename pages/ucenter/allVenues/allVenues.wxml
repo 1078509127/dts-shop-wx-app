@@ -8,7 +8,7 @@
         <!-- 健身房 -->
         <view class='item'style="margin:20rpx 0" hover-class='none' bindtap='gay' data-eventType="个人预约" >
           <view class='pictrue'>
-            <image src='/static/images/健身房 (1).png'></image>
+            <image src='http://192.168.2.232:8080/storage/vep6m9x42p0xyu39xgeh.jpg'></image>
           </view>
           <view class='jhx_f2'>健身房</view>
         </view>

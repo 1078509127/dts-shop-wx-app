@@ -203,10 +203,10 @@ Page({
     });
   },
   bindMobileInput: function(e) {
-    if (!(/^1[345768]\d{9}$/.test(e.detail.value))) {
-      wx.showToast({ title: '手机号码有误', duration: 1000, icon:'none' });    
-       return 
-      }
+    // if (!(/^1[345768]\d{9}$/.test(e.detail.value))) {
+    //   wx.showToast({ title: '手机号码有误', duration: 1000, icon:'none' });    
+    //    return 
+    //   }
     this.setData({
       mobile: e.detail.value
     });
