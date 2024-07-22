@@ -161,14 +161,18 @@ Page({
     //预约按钮 ==团队type
     if (that.data.eventType === '团队预约') {
       // 活动人数数字check
-      if (typeof(formData.activeNum)!="number") {
-        wx.showModal({
-          title: '活动人数请输入数字',
-          icon: 'error',
-          duration: 2000,
-        })
-        return;
+      debugger
+      if(isNaN(parseInt(formData.activeNumber))){
+        //if (/^[1-9]\d*$|^0$/.test(parseInt(formData.activeNumber))) {
+          wx.showModal({
+            title: '活动人数请输入数字',
+            icon: 'error',
+            duration: 2000,
+          })
+          return;
+        //}
       }
+      
       util.request(api.TeamReserve, formData, 'POST').then(function (res) {
         if (res.code == 200) {
           if (that.data.eventType === '团队预约') {
