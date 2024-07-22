@@ -45,7 +45,6 @@ function login() {
  * 调用微信登录
  */
 function loginByWeixin(userInfo) {
-  debugger
   let shareUserId = wx.getStorageSync('shareUserId');
   if (!shareUserId || shareUserId =='undefined'){
     shareUserId = 1;
@@ -80,7 +79,6 @@ function loginByWeixin(userInfo) {
  */
 function checkLogin() {
   return new Promise(function(resolve, reject) {
-    debugger
     if (wx.getStorageSync('userInfo') && wx.getStorageSync('token')) {
       checkSession().then(() => {
         resolve(true);

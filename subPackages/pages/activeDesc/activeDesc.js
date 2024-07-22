@@ -14,7 +14,6 @@ Page({
   },
     //编辑富文本后失去光标调用
     getInputValue:function(e){
-      debugger
       wx.showModal({
         content: '确认修改',
         complete: (res) => {
