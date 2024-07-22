@@ -4,8 +4,8 @@
         <text class="goods_name">瑜伽室</text>
         <text class="introduce">为了适应现代化教育，我们创建了微机室，时代发展到今天，到处有电脑（也是计算机、微机），有微机室是必然的趋势也发挥着不可或缺的作用，使大家跟上时代发展的需要，学会打字、绘画等操作，更快、更直观地了解世界，增强学习兴趣。</text>
          <text class="jsTestSty">以下是瑜伽室实景图片</text>
-        <view><image class="imgSty1" src="../../../static/images/【瑜伽室】1.JPG"></image></view>
-         <!-- <view><image class="imgSty2" src="../../../static/images/【瑜伽室】2.JPG"></image></view> -->
+        <view><image class="imgSty1" src="http://192.168.2.232:8080/storage/co2khbzaa2nh16l3ypho.JPG"></image></view>
+         <view><image class="imgSty2" src="http://192.168.2.232:8080/storage/rrv55c8k4ou3rsbnzo9c.JPG"></image></view>
 
       </button>
     </view>

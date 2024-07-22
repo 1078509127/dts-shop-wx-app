@@ -8,14 +8,20 @@
         <text class="introduce">健身室配备多台高性能动感单车和划船机，适合进行高强度有氧运动和全身肌肉训练。墙面上的图案和警示标志增添了运动氛围，并提醒用户注意安全。电视屏幕可以播放训练视频或音乐，增强训练的乐趣和效果。整体环境宽敞明亮，适合个人健身，为用户提供了一个安全、高效的锻炼环境。</text>
          <text class="jsTestSty">以下是健身室实景图片</text>
          <view>
-           <image class="jsSty" src="../../../static/images/【健身室】1.JPG"></image>
+           <image class="jsSty" src="http://192.168.2.232:8080/storage/vep6m9x42p0xyu39xgeh.jpg"></image>
+          </view>
+          <view>
+            <image class="img" src="http://192.168.2.232:8080/storage/6sqch2zk0emjgpug7nz8.JPG"></image>
+          </view>
+          <view>
+            <image class="img" src="http://192.168.2.232:8080/storage/mtfqu0w011lpf2gqzrr0.jpg"></image>
           </view>
           <!-- <view>
             <image class="img" src="../../../static/images/【健身室】2.JPG"></image>
           </view>
           <view>
             <image class="img" src="../../../static/images/【健身室】3.JPG"></image>
-          </view> -->
+          </view>  -->
       </button>
     </view>
 </scroll-view>
