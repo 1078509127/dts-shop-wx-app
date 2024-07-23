@@ -74,7 +74,10 @@
     </view>
 
     <view class='myService' wx:if="{{userInfo && userInfo.roleIds}}">
+    <view style="display: flex;border-bottom:1px dashed #ddd;">
       <view class='title acea-row row-middle jhx_f4'>后台管理</view>
+      <view style="height:88rpx;line-height: 88rpx;font-size:28rpx;color:#666;font-weight: bold;margin-left: auto;margin-right: 50rpx;color: black;">管理员</view>
+    </view>
       <view class='serviceList acea-row row-middle'>
         <view class='item' wx:for="{{managerList}}" wx:key="index" bindtap='managerBtn' data-name="{{item.name}}">
           <view class='pictrue'>
