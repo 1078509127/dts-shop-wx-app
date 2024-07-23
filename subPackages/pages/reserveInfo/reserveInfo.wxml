@@ -1,9 +1,10 @@
 <!--pages/reserveInfo/reserveInfo.wxml-->
+<wxs src="../reserveInfo/util.wxs" module="util" />
 <view>
   <view class="search">
     <view class="input jhx_bg1">
       <image class="icon"></image>
-      <input class="txt jhx_f1" placeholder="请输入名字/卡号..." value="{{field}}" bindinput="inputCom"></input>
+      <input class="txt jhx_f1" placeholder="请输入名字/会员卡号..." value="{{field}}" bindinput="inputCom"></input>
     </view>
     <button class="btn"  bindtap="selectBtn">查询</button>
   </view>
@@ -15,7 +16,10 @@
         <text class="goods_name">场所:{{item.scene}}</text>
         <text class="goods_name">手机号:{{item.phone}}</text>
         <text class="goods_name" wx:if="{{item && item.memberCard}}">会员卡号:{{item.memberCard}}</text>
-        <text class="goods_name">开始时间:{{item.startTime}}</text>
+
+        <text class="goods_name" wx:if="{{item.eventType == '个人预约'}}">开始时间:{{item.startTime}}</text>
+        <text class="goods_name" wx:else>预约时间:{{util.strReplace(item.startTime)}}</text>
+
         <text class="goods_name"wx:if="{{item && item.memberCard}}">结束时间:{{item.endTime}}</text>
       </view>
       <button class = "btn_goods" data-item="{{item}}" bindtap="cancel_click" >

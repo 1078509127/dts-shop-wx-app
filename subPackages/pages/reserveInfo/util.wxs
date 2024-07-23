@@ -1,0 +1,9 @@
+var strReplace = function (value) {  //  *号替换
+  value = value.toString();
+  var str = '';
+  str = value.replace(' 00:00:00','');
+  return str;
+}
+module.exports = {
+  strReplace: strReplace
+}
