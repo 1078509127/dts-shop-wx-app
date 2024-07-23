@@ -59,8 +59,6 @@ Page({
     }
     const regex = /^\d{4}(\-|\/|\.)\d{1,2}\1\d{1,2}$/
     const regexs = /^\d{4}\/\d{2}\/\d{2}\~\d{4}\/\d{2}\/\d{2}$/
-    console.log(regexs.test(this.data.time))
-    console.log(regex.test(this.data.time))
     if(!regex.test(this.data.time) && !regexs.test(this.data.time)){
       util.showErrorToast('日期格式错误');
       return false;
