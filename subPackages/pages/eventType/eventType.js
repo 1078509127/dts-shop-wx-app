@@ -137,7 +137,6 @@ Page({
     this.WxValidate = new WxValidate.WxValidate(rules, messages);
   },
   submitForm(e) {
-    debugger
     var that = this;
     let formData = e.detail.value;
     formData.tableNumber = this.data.tableNumber;
@@ -161,7 +160,7 @@ Page({
     //预约按钮 ==团队type
     if (that.data.eventType === '团队预约') {
       // 活动人数数字check
-      debugger
+      
       if (/[\u3400-\u4dbf\u4e00-\u9fff]+/g.test(formData.activeNumber)== true) {
       // if(isNaN(parseInt(formData.activeNumber))){
         

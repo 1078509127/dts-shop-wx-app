@@ -83,7 +83,7 @@ Page({
       {
         id: 3,
         name: "公告管理",
-        iconUrl: "../../../static/images/huiqianguanli.png"
+        iconUrl: "../../../static/images/huiqianguanli11.png"
       },
       {
         id: 4,
