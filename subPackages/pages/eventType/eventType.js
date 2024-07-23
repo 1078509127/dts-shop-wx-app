@@ -162,8 +162,9 @@ Page({
     if (that.data.eventType === '团队预约') {
       // 活动人数数字check
       debugger
-      if(isNaN(parseInt(formData.activeNumber))){
-        //if (/^[1-9]\d*$|^0$/.test(parseInt(formData.activeNumber))) {
+      if (/[\u3400-\u4dbf\u4e00-\u9fff]+/g.test(formData.activeNumber)== true) {
+      // if(isNaN(parseInt(formData.activeNumber))){
+        
           wx.showModal({
             title: '活动人数请输入数字',
             icon: 'error',
