@@ -263,7 +263,7 @@ Page({
     //判断中文
     if(/^[\u4e00-\u9fa5]+$/.test(e.detail.value)){
       if(e.detail.value.length>5){
-        username1 = e.detail.value.slice(0, 6)
+        username1 = e.detail.value.slice(0, 5)
       }else{
         //不大于长度10不截取
         username1 = e.detail.value
