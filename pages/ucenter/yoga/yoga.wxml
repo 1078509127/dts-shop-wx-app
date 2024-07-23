@@ -2,7 +2,7 @@
     <view class = "button_item" >
       <button class="goods" >
         <text class="goods_name">瑜伽室</text>
-        <text class="introduce">为了适应现代化教育，我们创建了微机室，时代发展到今天，到处有电脑（也是计算机、微机），有微机室是必然的趋势也发挥着不可或缺的作用，使大家跟上时代发展的需要，学会打字、绘画等操作，更快、更直观地了解世界，增强学习兴趣。</text>
+        <text class="introduce">瑜伽（英文：Yoga，印地语：योग）是一个汉语词汇，最早是从印度梵语“yug”或“yuj”而来，其含意为“一致”、“结合”或“和谐”。瑜伽源于古印度，是古印度六大哲学派别中的一系，探寻“梵我合一”的道理与方法。而现代人所称的瑜伽则主要是一系列的修身养心方法。</text>
          <text class="jsTestSty">以下是瑜伽室实景图片</text>
         <view><image class="imgSty1" src="http://192.168.2.232:8080/storage/co2khbzaa2nh16l3ypho.JPG"></image></view>
          <view><image class="imgSty2" src="http://192.168.2.232:8080/storage/rrv55c8k4ou3rsbnzo9c.JPG"></image></view>

@@ -254,6 +254,7 @@ Page({
     //判断英文
     if(/^[A-Za-z]+$/.test(e.detail.value)){
         if(e.detail.value.length>10){
+          wx.showToast({ title: '最多10个英文字符', duration: 2000, icon: true }); 
           username1 = e.detail.value.slice(0, 10)
         }else{
           //不大于长度10不截取
@@ -262,6 +263,7 @@ Page({
     }
     //判断中文
     if(/^[\u4e00-\u9fa5]+$/.test(e.detail.value)){
+      wx.showToast({ title: '最多五个中文字符', duration: 2000, icon: true }); 
       if(e.detail.value.length>5){
         username1 = e.detail.value.slice(0, 5)
       }else{
