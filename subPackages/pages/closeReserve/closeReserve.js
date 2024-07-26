@@ -11,28 +11,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    setList:[],
-    switchChecked:"",
+    setList: [],
+    switchChecked: "",
   },
   //查询数据
-  list:function(){
-  util.request(api.activeList, null, 'GET').then(res => {
+  list: function () {
+    util.request(api.activeList, null, 'GET').then(res => {
+      for (var i = 0; i < res.length; i++) {
+        if (res[i].name != '乒乓球馆') {
+          res.splice(i, 1)
+          i--;
+        }
+      }
       this.setData({
         setList: res
       })
     })
   },
- 
+
   //是否开通
-  switch1Change:function(e){
-    util.request(api.activeUpdate, {id:e.currentTarget.dataset.item.id,isOpen:e.detail.value}, 'GET').then(res => {
-      if(res.code ==200){
+  switch1Change: function (e) {
+    util.request(api.activeUpdate, {
+      id: e.currentTarget.dataset.item.id,
+      isOpen: e.detail.value
+    }, 'GET').then(res => {
+      if (res.code == 200) {
         wx.showModal({
           title: '操作成功',
           icon: 'success',
           duration: 2000
         });
-      }else{
+      } else {
         wx.showModal({
           title: res.message,
           icon: 'error',

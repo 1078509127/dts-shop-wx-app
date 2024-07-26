@@ -1,6 +1,6 @@
 // 以下是业务服务器API地址
  // 本机开发API地址
-var WxApiRoot = 'http://192.168.2.232:8080/wx/';
+var WxApiRoot = 'https://9442w887i9.goho.co/wx/';
 //var WxApiRoot = ' https://9aj327pr1567.vicp.fun/wx/';
 // 测试环境部署api地址
 // var WxApiRoot = 'http://192.168.0.101:8070/demo/wx/';

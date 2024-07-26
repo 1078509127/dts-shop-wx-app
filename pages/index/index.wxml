@@ -35,9 +35,9 @@
     <picker class="btn" mode="selector" value="{{index}}"  range-key="name" range="{{singleList}}" bindchange='selectSingle' >
     <button type="primary" style="background-color: rgb(38, 132, 240)">个人预约</button>
     </picker>
-    <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{multiList}}" bindchange='selectMulti'>
+    <!-- <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{multiList}}" bindchange='selectMulti'>
        <button  type="primary" style="background-color: rgb(38, 132, 240);">团队预约</button> 
-    </picker>
+    </picker> -->
   </view> 
 
  
