@@ -1,12 +1,12 @@
 <view class="container">
 <view style="text-align: center;">
-  <image src="../../../static/images/bgimg.jpg" style="width: 100%;height:340rpx; text-align: center;margin-top: 0%;border-radius:0 0 30% 30%;"></image>
+  <image src="http://49.232.190.244/images/bgimg.jpg" style="width: 100%;height:340rpx; text-align: center;margin-top: 0%;border-radius:0 0 30% 30%;"></image>
 </view>
 
 <!-- <view style="background-color: rgb(219, 166, 20);height: 80%;">
   <view style="height: 10%;width: 80%;background-color: rgb(18, 146, 56);position: absolute;top :100rpx;margin:0 5%;">  -->
     <view style="width: 90%;background-color: rgb(245, 244, 247);height: 60%;position: absolute;top: 5%;margin: 0 5%;border-radius:20rpx;border: 1px solid rgb(223, 213, 213);box-shadow:10px 10px 10px 0px rgba(186, 202, 202, 0.5);">
-      <image src="../../../static/images/bgimg.jpg" style="border-radius: 50%;width: 150rpx;height: 150rpx;margin:15%  37%;"></image>
+      <image src="http://49.232.190.244/images/bgimg.jpg" style="border-radius: 50%;width: 150rpx;height: 150rpx;margin:15%  37%;"></image>
       <view style="width: 100%;height: 100rpx; text-align: center;font-size:40px;">
           <text style="text-align: center;font-size:22px;font-weight: 550;"> 欢   迎   来   到   职   工   文   体   中   心</text>
       </view>

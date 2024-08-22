@@ -101,8 +101,8 @@ function authsubscribe(){
       // 调起授权界面弹窗
       if (res.subscriptionsSetting.mainSwitch) {  // 用户打开了订阅消息总开关
         if (res.subscriptionsSetting.itemSettings != null) {   // 用户同意总是保持是否推送消息的选择, 这里表示以后不会再拉起推送消息的授权
-          let moIdState = res.subscriptionsSetting.itemSettings['FAapMIqVsN3El4ONaIeHha1B0LHuYkJE4yCzLnCvMvk'];  // 用户同意的消息模板id
-          const status = res.subscriptionsSetting.itemSettings['FAapMIqVsN3El4ONaIeHha1B0LHuYkJE4yCzLnCvMvk'].status; // 检查特定模板的订阅状态
+          let moIdState = res.subscriptionsSetting.itemSettings['zTwgHBPnajISzZh8OrD-jrdB7n2uuKJeotCYnoPcAX8'];  // 用户同意的消息模板id
+          const status = res.subscriptionsSetting.itemSettings['zTwgHBPnajISzZh8OrD-jrdB7n2uuKJeotCYnoPcAX8'].status; // 检查特定模板的订阅状态
           if(moIdState === 'accept'){   
             console.log('接受了消息推送');
           }else if(moIdState === 'reject'){
@@ -121,7 +121,7 @@ function authsubscribe(){
             success: function (ress) {
               if (ress.confirm) {  
                 wx.requestSubscribeMessage({   // 调起消息订阅界面
-                  tmplIds: ['FAapMIqVsN3El4ONaIeHha1B0LHuYkJE4yCzLnCvMvk'],
+                  tmplIds: ['zTwgHBPnajISzZh8OrD-jrdB7n2uuKJeotCYnoPcAX8'],
                   success (res) { 
                     console.log('订阅消息 成功 ',res);
                   },

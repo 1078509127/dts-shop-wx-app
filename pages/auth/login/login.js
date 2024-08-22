@@ -72,11 +72,11 @@ Page({
         canIUseGetUserProfile: true
       })
     }
-    // const privacySettingRes = this.getPrivacySetting();
-    // console.log("privacySettingRes :>> ", privacySettingRes);
-    // this.setData({
-    //   showPop: privacySettingRes.needAuthorization,
-    // });
+    const privacySettingRes = this.getPrivacySetting();
+    console.log("privacySettingRes :>> ", privacySettingRes);
+    this.setData({
+      showPop: privacySettingRes.needAuthorization,
+    });
   },
   
   /**

@@ -10,11 +10,14 @@ Page({
     mobile: '',
     code: '',
     userid:'',
+    onShow:true,
   },
   onLoad: function(options) {
     // 页面初始化 options为页面跳转所带来的参数
     // 页面渲染完成
-
+    this.setData({
+      onShow:app.globalData.isExamine
+    })
   },
   onReady: function() {
 
@@ -83,6 +86,7 @@ Page({
   },
   requestRegister: function() {
      const userInfo =  wx.getStorageSync('userInfo');
+     console.log(userInfo)
     let that = this;
     wx.request({
       url: api.AuthRegister,
@@ -127,8 +131,6 @@ Page({
   },
   startRegister: function() {
     var that = this;
-    debugger
-
     // if (this.data.password.length < 6 || this.data.username.length < 6) {
     //   wx.showModal({
     //     title: '错误信息',
@@ -180,6 +182,8 @@ Page({
     that.requestRegister();
 
   },
+
+
   bindUsernameInput: function(e) {
     if (!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(e.detail.value))) { 
           wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: true });     

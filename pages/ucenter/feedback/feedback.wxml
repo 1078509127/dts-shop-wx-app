@@ -23,13 +23,15 @@
     </view> -->
     <view class="text-count">{{contentLength}}/500</view>
   </view>
-  <view class="fb-mobile">
+  <!-- <view class="fb-mobile">
     <view class="label">手机号码</view>
     <view class="mobile-box">
       <input class="mobile" maxlength="11" type="number" placeholder="方便我们与你联系" bindinput="mobileInput" value="{{mobile}}" />
       <image class="clear-icon" src="/static/images/clear_input.png" wx:if="{{ mobile.length > 0 }}" catchtap="clearMobile"></image>
     </view>
   </view>
-
+  <view class="fb-mobile" style="height: 0;">
+    <view class="label" style="font-size: 25rpx;color: red;">声明: 手机号仅用于反馈信息了解，不做其他用途</view>
+  </view> -->
   <view class="fb-btn" bindtap="submitFeedback" style="background-color: rgb(38, 132, 240);">提交</view>
 </view>

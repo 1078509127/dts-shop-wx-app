@@ -7,10 +7,10 @@
         <text class="introduce">为了适应现代化教育，我们创建了微机室，时代发展到今天，到处有电脑（也是计算机、微机），有微机室是必然的趋势也发挥着不可或缺的作用，使大家跟上时代发展的需要，学会打字、绘画等操作，更快、更直观地了解世界，增强学习兴趣。</text>
          <text class="jsTestSty">以下是微机室实景图片</text>
          <view>
-           <image class="jsSty" src="http://192.168.2.232:8080/storage/4f9wgy3slw7cqb25qlv2.JPG"></image>
+           <image class="jsSty" src="https://9au6009911pe.vicp.fun/storage/4f9wgy3slw7cqb25qlv2.JPG"></image>
           </view>
           <view>
-            <image class="img" src="http://192.168.2.232:8080/storage/4wnnes442w5593jnpybc.JPG"></image>
+            <image class="img" src="https://9au6009911pe.vicp.fun/storage/4wnnes442w5593jnpybc.JPG"></image>
           </view> 
       </button>
     </view>

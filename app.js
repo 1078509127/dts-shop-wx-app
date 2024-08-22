@@ -25,7 +25,17 @@ App({
       this.globalData.hasLogin = false;
     });
   },
+  onLaunch:function(options){
+    const accountInfo = wx.getAccountInfoSync();
+    //accountInfo.miniProgram.envVersion = 'release'; //上线审核的时候就注释掉这段代码，开发时就保留
+    if (accountInfo.miniProgram.envVersion === 'release') {
+      this.globalData.isExamine = false
+    } else {
+      this.globalData.isExamine = true;
+    }
+  },
   globalData: {
-    hasLogin: false
+    hasLogin: false,
+    isExamine: true
   }
 })

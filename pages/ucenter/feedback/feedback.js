@@ -112,22 +112,22 @@ Page({
       return false;
     }
 
-    if (that.data.mobile == '') {
-      util.showErrorToast('请输入手机号码');
-      return false;
-    }
+    // if (that.data.mobile == '') {
+    //   util.showErrorToast('请输入手机号码');
+    //   return false;
+    // }
 
-    if (!check.isValidPhone(this.data.mobile)) {
-      this.setData({
-        mobile: ''
-      });
-      wx.showToast({
-        title: '请输入正确的手机号码',
-        icon: 'none',
-      })
-      //util.showErrorToast('请输入正确的手机号码');
-      return false;
-    }
+    // if (!check.isValidPhone(this.data.mobile)) {
+    //   this.setData({
+    //     mobile: ''
+    //   });
+    //   wx.showToast({
+    //     title: '请输入正确的手机号码',
+    //     icon: 'none',
+    //   })
+    //   //util.showErrorToast('请输入正确的手机号码');
+    //   return false;
+    // }
 
     wx.showLoading({
       title: '提交中...',

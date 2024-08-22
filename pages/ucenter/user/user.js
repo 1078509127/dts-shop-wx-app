@@ -165,5 +165,39 @@ Page({
         });
       }
     })
+  },
+  delete: function(){
+    wx.showModal({
+      title: '',
+      confirmColor: '#b4282d',
+      content: '确定注销？',
+      success: function (res) {
+        if (!res.confirm) {return; }
+        let userInfo = wx.getStorageSync('userInfo');
+        wx.request({
+          url:api.Delete,
+          data:{userId:userInfo.userId}, 
+          method:'POST',
+          header:{'content-type': 'application/x-www-form-urlencoded'},
+          success: function(res) {
+            if (res.data.code == 200) {
+              app.globalData.hasLogin = false;
+              wx.removeStorageSync('token');
+              wx.removeStorageSync('userInfo');
+              wx.reLaunch({
+                url: '/pages/index/index'
+              });
+            }else{
+              wx.showModal({
+                title: res.data.message,
+                icon: 'error',
+                duration: 2000
+              });
+            }
+          },
+          fail(err){ console.log(err) }
+        });
+      }
+    })
   }
 })

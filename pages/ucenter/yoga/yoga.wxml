@@ -4,8 +4,8 @@
         <text class="goods_name">瑜伽室</text>
         <text class="introduce">瑜伽（英文：Yoga，印地语：योग）是一个汉语词汇，最早是从印度梵语“yug”或“yuj”而来，其含意为“一致”、“结合”或“和谐”。瑜伽源于古印度，是古印度六大哲学派别中的一系，探寻“梵我合一”的道理与方法。而现代人所称的瑜伽则主要是一系列的修身养心方法。</text>
          <text class="jsTestSty">以下是瑜伽室实景图片</text>
-        <view><image class="imgSty1" src="http://192.168.2.232:8080/storage/co2khbzaa2nh16l3ypho.JPG"></image></view>
-         <view><image class="imgSty2" src="http://192.168.2.232:8080/storage/rrv55c8k4ou3rsbnzo9c.JPG"></image></view>
+        <view><image class="imgSty1" src="https://9au6009911pe.vicp.fun/storage/co2khbzaa2nh16l3ypho.JPG"></image></view>
+         <view><image class="imgSty2" src="https://9au6009911pe.vicp.fun/storage/rrv55c8k4ou3rsbnzo9c.JPG"></image></view>
 
       </button>
     </view>
