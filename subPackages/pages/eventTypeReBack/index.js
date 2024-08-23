@@ -86,13 +86,95 @@ Page({
     this.WxValidate = new WxValidate.WxValidate(rules,messages);
     console.log("wxV",this.WxValidate)
   },
-  submitForm(e){
+//  submitForm(e){
+//    let formData = e.detail.value;
+//    formData.tableNumber = this.data.tableNumber;
+//    formData.eventType = this.data.eventType;
+//    formData.scene = this.data.scene;
+//    formData.userId = this.data.userinfo.userId;
+//    console.log(formData)
+//    //验证规则 失败报错 成功请求后端
+//    if(!this.WxValidate.checkForm(formData)){
+//      const error = this.WxValidate.errorList[0];
+//      wx.showModal({
+//        title: error.msg,
+//        icon: 'error',
+//        duration: 2000
+//      });
+//    }else{
+//      util.request(api.SaveReserve,formData,'POST').then(function (res) {
+//        if(res.code == 200){
+//          wx.showModal({
+//            title: '成功',
+//            icon: 'success',
+//            duration: 2000
+//          });
+//        }else{
+//          wx.showModal({
+//            title: res.message,
+//            icon: 'error',
+//            duration: 2000
+//          });
+//        }
+//      })
+//    }
+//  },
+submitForm(e){
+
     let formData = e.detail.value;
-    formData.tableNumber = this.data.tableNumber;
+     formData.tableNumber = this.data.tableNumber;
     formData.eventType = this.data.eventType;
     formData.scene = this.data.scene;
     formData.userId = this.data.userinfo.userId;
+
+    formData.disallowance="1"//标识1 驳回
+    formData.sex =this.data.sex;
+    formData.id = wx.getStorageSync("ReserveId");
     console.log(formData)
+    wx.showModal({
+      title: '预约驳回',
+      content: '是否要驳回该条预约？',
+      success: function(res) {
+        if (res.confirm) {
+          console.log('确定驳回');
+          // 在这里执行当用户点击确定时的操作
+          util.request(api.admDisallowance,formData,'POST').then(function (res) {
+
+            if(res.code == 200){
+              wx.showModal({
+                title: '预约驳回',
+                content: '驳回操作成功',
+                icon: 'success',
+                duration: 2000
+              });
+              // wx.switchTab({
+              //   url: "/pages/reserveInfo/reserveInfo",
+              // })
+
+
+            }else{
+              wx.showModal({
+                title: res.message,
+                icon: 'error',
+                duration: 2000
+
+              });
+              if (res.code ==200) {
+                wx.switchTab({
+                  url: "/pages/reserveInfo/reserveInfo",
+                })
+              }
+
+            }
+          })
+
+        } else if (res.cancel) {
+          console.log('取消驳回');
+          // 在这里执行当用户点击取消时的操作
+          // return;
+        }
+      }
+    });
     //验证规则 失败报错 成功请求后端
     if(!this.WxValidate.checkForm(formData)){
       const error = this.WxValidate.errorList[0];
@@ -105,7 +187,7 @@ Page({
       util.request(api.SaveReserve,formData,'POST').then(function (res) {
         if(res.code == 200){
           wx.showModal({
-            title: '成功',
+            content: '成功',
             icon: 'success',
             duration: 2000
           });
