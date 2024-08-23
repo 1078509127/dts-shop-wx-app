@@ -33,6 +33,7 @@ module.exports = {
   AuthUpUser: WxApiRoot + 'auth/upuser',//修改用户信息
 
   //管理端接口
+  admDisallowance: WxApiRoot + 'reserve/admDisallowance', //管理员驳回预约接口
   ManReserve: WxApiRoot + 'manage/list', //预约查询
   selMessage:WxApiRoot + 'manage/getMessage', //留言查看
   dowReserve: WxApiRoot + 'manage/download', //预约导出
