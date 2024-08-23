@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="09851506-715d-4183-8a72-d67b0015c2c0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dts_wx_app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about/about.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about/about.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about/about.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about/about.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/article.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/article.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/article.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/article/article.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/accountLogin/accountLogin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/accountLogin/accountLogin.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/accountLogin/accountLogin.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/accountLogin/accountLogin.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/singleReserve/single.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/singleReserve/single.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/singleReserve/single.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/singleReserve/single.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/address/address.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/address/address.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/address/address.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/address/address.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/addressAdd/addressAdd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/addressAdd/addressAdd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/addressAdd/addressAdd.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/addressAdd/addressAdd.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/collect/collect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/collect/collect.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/collect/collect.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/collect/collect.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/couponList/couponList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/couponList/couponList.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/couponList/couponList.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/couponList/couponList.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/couponSelect/couponSelect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/couponSelect/couponSelect.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/couponSelect/couponSelect.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/couponSelect/couponSelect.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/expressInfo/expressInfo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/expressInfo/expressInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/expressInfo/expressInfo.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/expressInfo/expressInfo.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/footprint/footprint.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/footprint/footprint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/footprint/footprint.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/footprint/footprint.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/main/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/main/index.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/main/index.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/main/index.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/order/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ucenter/order/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/order/order.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ucenter/order/order.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/orderDetail/orderDetail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/orderDetail/orderDetail.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/orderDetail/orderDetail.wxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/ucenter/orderDetail/orderDetail.wxss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/17.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/17.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/26-Blueberry Muffins.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/26-Blueberry Muffins.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/a-2kuanshigongxu.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/a-2kuanshigongxu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/a-2pandiandaochu.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/a-2pandiandaochu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/a-2shouhouzerenweihu.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/a-2shouhouzerenweihu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/a-zujian341.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/a-zujian341.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/a-zujian351.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/a-zujian351.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/address_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/bgimg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/cg.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/cg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/closel.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/closel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/edit-address.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/feedback.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/feedback.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/go.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/group.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/hetongguanli.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/hetongguanli.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/huiqianguanli.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/huiqianguanli.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/huiqianguanli11.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/huiqianguanli11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/ppq.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/ppq.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/xiaoguotuguanli.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/xiaoguotuguanli.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/二维码.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/二维码.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/修改、修改资料.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/修改、修改资料.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/健身房.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/健身房.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/图书馆-copy-copy (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/图书馆-copy-copy (1).png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/扫一扫.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/扫一扫.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/暂无订单.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/暂无订单.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/运动6.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/运动6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/钢笔 修改 (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/钢笔 修改 (1).png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subPackages/pages/reserveInfo/reserveInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/subPackages/pages/reserveInfo/reserveInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/WxValidate.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;1078509127&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/1078509127/dts-shop-wx-app.git&quot;,
+    &quot;accountId&quot;: &quot;0def13b1-31e6-4314-a7d3-21d8df18e648&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="customMavenHome" value="D:\package\maven\apache-maven-3.9.7" />
+        <option name="localRepository" value="D:\package\maven\maven-repository" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+        <option name="userSettingsFile" value="D:\package\maven\apache-maven-3.9.7\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\package\php\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2kouS8MHdpG6uuAKM94BaL4GW7w" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Asus/Desktop/dts-shop-wx-app0821",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="09851506-715d-4183-8a72-d67b0015c2c0" name="Changes" comment="" />
+      <created>1723962247227</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723962247227</updated>
+      <workItem from="1723962248261" duration="1620000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

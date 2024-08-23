@@ -1,0 +1,5 @@
+<view wx:if="{{showComponenet}}" class="recommend_null">
+  <view style="margin: 100% auto;text-align: center;font-size: 40rpx;font-weight: 600;color: rgb(185, 90, 46);">
+    功能正在完善中。。。
+  </view>
+</view>
