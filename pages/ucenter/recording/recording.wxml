@@ -5,10 +5,10 @@
         <text class="introduce">录音棚又叫录音室，它是人们为了创造特定的录音环境声学条件而建造的专用录音场所，是录制电影、歌曲、音乐等的录音场所，录音室的声学特性对于录音制作及其制品的质量起着十分重要的作用。</text>
         <text class="jsTestSty">以下是录音室实景图片</text>
         <view>
-            <image class="jsSty" src="http://192.168.2.232:8080/storage/z19pr076vkbr6xeyv2o2.JPG"></image>
+            <image class="jsSty" src="https://9au6009911pe.vicp.fun/storage/z19pr076vkbr6xeyv2o2.JPG"></image>
         </view>
          <view>
-            <image class="img" src="http://192.168.2.232:8080/storage/hb3qxs3kls4zrtr2o8nf.JPG"></image>
+            <image class="img" src="https://9au6009911pe.vicp.fun/storage/hb3qxs3kls4zrtr2o8nf.JPG"></image>
          </view>
          <!-- <view>
             <image class="img" src="../../../static/images/【录音室】2.JPG"></image>

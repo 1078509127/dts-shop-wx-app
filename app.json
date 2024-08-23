@@ -1,9 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/singleReserve/single",
     "pages/ucenter/gymnasiumDetail/gymnasiumDetail",
-    
+    "pages/ucenter/order/order",
     "pages/ucenter/pingpong/pingpong",
     "pages/ucenter/libraryroom/libraryroom",
     "pages/ucenter/microcomPuter/microcomPuter",
@@ -12,26 +11,13 @@
     "pages/ucenter/recording/recording",
     "pages/ucenter/Bakingroom/Bakingroom",
     "pages/ucenter/index/index",
-    "pages/ucenter/main/index",
-    "pages/ucenter/address/address",
-    "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/feedback/feedback",
-    "pages/ucenter/footprint/footprint",
-    "pages/ucenter/order/order",
-    "pages/ucenter/orderDetail/orderDetail",
-    "pages/ucenter/couponList/couponList",
-    "pages/ucenter/couponSelect/couponSelect",
-    "pages/ucenter/collect/collect",
     "pages/ucenter/user/user",
     "pages/ucenter/updateuser/updateuser",
     "pages/auth/login/login",
-    "pages/auth/accountLogin/accountLogin",
     "pages/auth/register/register",
     "pages/auth/reset/reset",
     "pages/logs/logs",
-    "pages/about/about",
-    "pages/ucenter/expressInfo/expressInfo",
-    "pages/article/article",
     "lib/coupon-window/index",
     "lib/home/index"
   ],
@@ -43,10 +29,11 @@
       "pages/eventTypeReBack/index",
       "pages/messageView/messageView",
       "pages/reserveInfo/reserveInfo",
-      "pages/activeDesc/activeDesc",
       "pages/activePush/activePush",
+      "pages/activeDesc/activeDesc",
       "pages/swiperSet/swiperSet",
-      "pages/closeReserve/closeReserve"
+      "pages/closeReserve/closeReserve",
+      "pages/about/about"
     ]
   }],
   "window": {
@@ -83,7 +70,9 @@
     "uploadFile": 10000,
     "downloadFile": 10000
   },
-
+  "usingComponents": {
+    "reviewCompoenent": "/components/onlineCompoenet/onlineCompoenet"
+  },
   "debug": true,
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading" : "requiredComponents",

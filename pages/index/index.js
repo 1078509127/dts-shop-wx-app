@@ -11,7 +11,6 @@ Page({
     hideModal: true, //模态框的状态  true-隐藏  false-显示
     canIUseGetUserProfile: false, // 2.27之前用于向前兼容
     showPop: false,
-    animationData: {}, //
     singleList: [],
     multiList: [],
     newGoods: [],
@@ -27,9 +26,106 @@ Page({
     goodsCount: 0,
     indicatorDots: false,
     window: false,
-    colseCoupon: false
+    colseCoupon: false,
+
+    eventType:"",
+    scene:"",
+    //isOpen:"",
+    optionList: ['所有', '选项1', '选项2'],
+    value: '所有',
+    hideFlag: true, //true-隐藏  false-显示
+    animationData: {}, //
   },
-  onPullDownRefresh:function() {
+  // 点击选项
+  getOption: function (e) {
+    var that = this;
+    that.setData({
+      value: e.currentTarget.dataset.value,
+      hideFlag: true
+    })
+  },
+  //拒绝
+  refuse: function () {
+    var that = this;
+    that.hideModal();
+  },
+  //同意
+  allow: function () {
+   let userInfo = wx.getStorageSync('userInfo');
+    if (!userInfo) {
+      let that = this
+      wx.navigateTo({
+        url: '/pages/auth/login/login',
+      })
+    } else if (!this.data.isOpen) {
+      wx.showModal({
+        title: '目前' + this.data.scene + '已关闭预约',
+        icon: 'error',
+        duration: 2000
+      });
+    } else {
+      this.hideModal();
+      wx.navigateTo({
+        url: '/subPackages/pages/eventType/eventType?eventType='+this.data.eventType+'&scene=' + this.data.scene,
+      })
+    }
+  },
+  // ----------------------------------------------------------------------modal
+  // 显示遮罩层
+  showModal: function () {
+    var that = this;
+    that.setData({
+      hideFlag: false
+    })
+    // 创建动画实例
+    var animation = wx.createAnimation({
+      duration: 400, //动画的持续时间
+      timingFunction: 'ease', //动画的效果 默认值是linear->匀速，ease->动画以低速开始，然后加快，在结束前变慢
+    })
+    this.animation = animation; //将animation变量赋值给当前动画
+    var time1 = setTimeout(function () {
+      that.slideIn(); //调用动画--滑入
+      clearTimeout(time1);
+      time1 = null;
+    }, 100)
+  },
+
+  // 隐藏遮罩层
+  hideModal: function () {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 400, //动画的持续时间 默认400ms
+      timingFunction: 'ease', //动画的效果 默认值是linear
+    })
+    this.animation = animation
+    that.slideDown(); //调用动画--滑出
+    var time1 = setTimeout(function () {
+      that.setData({
+        hideFlag: true
+      })
+      clearTimeout(time1);
+      time1 = null;
+    }, 220) //先执行下滑动画，再隐藏模块
+
+  },
+  //动画 -- 滑入
+  slideIn: function () {
+    this.animation.translateY(0).step() // 在y轴偏移，然后用step()完成一个动画
+    this.setData({
+      //动画实例的export方法导出动画数据传递给组件的animation属性
+      animationData: this.animation.export()
+    })
+  },
+  //动画 -- 滑出
+  slideDown: function () {
+    this.animation.translateY(300).step()
+    this.setData({
+      animationData: this.animation.export(),
+    })
+  },
+// ----------------------------------------------------------------------modal
+
+  onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
     this.getIndexData();
     this.getArticle();
@@ -50,6 +146,13 @@ Page({
   },
   //跳转个人
   selectSingle: function (e) {
+    // var that = this
+    // that.showModal();
+    // that.setData({
+    //   eventType: '个人预约',
+    //   scene : this.data.singleList[e.detail.value].name,
+    //   isOpen:this.data.singleList[e.detail.value].isOpen
+    // })
     let userInfo = wx.getStorageSync('userInfo');
     if (!userInfo) {
       let that = this
@@ -70,8 +173,16 @@ Page({
   },
   //跳转团队
   selectMulti: function (e) {
+    // var that = this
+    // that.showModal();
+    // that.setData({
+    //   eventType: '团队预约',
+    //   scene : this.data.singleList[e.detail.value].name,
+    //   isOpen:this.data.singleList[e.detail.value].isOpen
+    // })
     let userInfo = wx.getStorageSync('userInfo');
     if (!userInfo) {
+      let that = this
       wx.navigateTo({
         url: '/pages/auth/login/login',
       })
@@ -134,16 +245,16 @@ Page({
     util.request(api.IndexUrl).then(function (res) {
       if (res.errno === 0) {
         that.setData({
-          newGoods: res.data.newGoodsList,
-          hotGoods: res.data.hotGoodsList,
-          topics: res.data.topicList,
-          brands: res.data.brandList,
-          floorGoods: res.data.floorGoodsList,
+          // newGoods: res.data.newGoodsList,
+          // hotGoods: res.data.hotGoodsList,
+          // topics: res.data.topicList,
+          // brands: res.data.brandList,
+          // floorGoods: res.data.floorGoodsList,
           banner: res.data.banner,
-          articles: res.data.articles,
-          groupons: res.data.grouponList,
-          channel: res.data.channel,
-          coupon: res.data.couponList
+          // articles: res.data.articles,
+          // groupons: res.data.grouponList,
+          // channel: res.data.channel,
+          // coupon: res.data.couponList
         });
       }
     });

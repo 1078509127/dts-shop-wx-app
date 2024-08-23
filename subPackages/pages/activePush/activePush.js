@@ -15,7 +15,8 @@ Page({
     provider:"",
     site:"",
     organ:"",
-    content:""
+    content:"",
+    onShow:true,
   },
   bindTheme:function(e){
     this.setData({
@@ -79,7 +80,8 @@ Page({
     //   util.showErrorToast('请输入详情');
     //   return false;
     // }
-    util.request(api.activePush,
+    util.request(
+      api.activePush,
        {theme:this.data.theme,
          time:this.data.time,
          provider:this.data.provider,
@@ -106,12 +108,27 @@ Page({
         // }
     })
   },
- 
+  /**检测 */
+  checked:function(e){
+    if (e.detail.value != '') {
+      util.request(api.MsgSecCheck,{content:e.detail.value},'GET').then(res => {
+        if (!res) {
+          wx.showToast({
+            title: '含有敏感词汇,请重新输入',
+            icon: 'none'
+          })
+          return false;
+        }
+      });
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      onShow:app.globalData.isExamine
+    })
   },
 
   /**

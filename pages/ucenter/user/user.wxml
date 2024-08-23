@@ -49,6 +49,7 @@
       <image class="img" src="{{userSharedUrl}}" bindlongpress="saveShare" style="width:600rpx;height:600rpx;"></image>
     </view>
     <button class='modifyBnt' bindtap="exitLogin" style="background-color: rgb(38, 132, 240);">退 出</button>
+    <button class='modifyBnt' bindtap="delete" style="background-color: #a3a3a3;margin-top: 10rpx;">注 销</button>
   </view>
 </form>
 

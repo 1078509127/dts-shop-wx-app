@@ -4,7 +4,7 @@
   background-color: white;
   margin: auto;
   overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 .container::-webkit-scrollbar {
   display: none;
@@ -17,7 +17,7 @@
 
 .form-group label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 5rpx;
 }
 
 .form-group input,picker,
@@ -67,9 +67,9 @@
 }
 
 .sign-setting-border{
-  margin-left: 2%;
-  width:22%;
-  float: left;
+  width:18%;
+  /* float: left; */
+  /* display: inline-block; */
   height: 30px;
   line-height: 30px;
   border-radius: 20px;
@@ -78,7 +78,6 @@
   font-size: 14px;
   text-align: center;
   font-family: -apple-system;
-  margin-bottom:15px;
   border:1px solid #DBDBDB;
 }
 

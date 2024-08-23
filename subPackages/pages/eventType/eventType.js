@@ -2,7 +2,7 @@
 const util = require('../../../utils/util.js');
 const api = require('../../../config/api.js');
 const user = require('../../../utils/user.js');
-const WxValidate = require('../../../utils/WxValidate.js');
+const WxValidate = require('../../utils/WxValidate.js');
 // const { raycast } = require('XrFrame/physics/raycast');
 
 //获取应用实例
@@ -53,6 +53,7 @@ Page({
         number: "5号桌"
       },
     ],
+    onShow:true,
   },
 
   initValidate() {
@@ -495,6 +496,7 @@ Page({
   onLoad(options) {
     var that = this;
     that.setData({
+      onShow:app.globalData.isExamine,
       eventType: options.eventType,
       scene: options.scene,
       userinfo: wx.getStorageSync('userInfo')

@@ -1,4 +1,14 @@
-<form bindsubmit="formSubmit">
+<view wx:if="{{onShow}}">
+  <view class='personal-data'>
+    <view class='list'>
+    <view class='item acea-row row-between-wrapper'>
+          <view>昵称</view>
+          <view class='input'><input type='text'  name='nickname'  bindinput="bindUsernameInput" ></input></view>
+        </view>
+  </view>
+  </view>
+</view>
+<form wx:else bindsubmit="formSubmit">
   <view class='personal-data'>
     <view class='list'>
         
@@ -20,9 +30,9 @@
           </view> 
         </view>
     </view>
-    <view wx:if="{{userSharedUrl && userSharedUrl!=''}}" style="text-align:center;background-color:#fff;">
-      <view>代理专属推广二维码（长按保存到相册）</view>
-      <image class="img" src="{{userSharedUrl}}" bindlongpress="saveShare" style="width:600rpx;height:600rpx;"></image>
+    <view style="width: 100%;height: 100%;background-color: rgb(255, 255, 255);padding:5%">
+      <view style="font-size: 25rpx;color: red;">郑重声明：</view>
+      <view style="font-size: 25rpx;color: red;">1、小程序获取用户名、姓名、手机号等信息仅用于预约信息查询，不做其他用途。</view>
     </view>
     <button class='modifyBnt' bindtap="requestRegister" style="background-color: rgb(38, 132, 240);">修改</button>
   </view>

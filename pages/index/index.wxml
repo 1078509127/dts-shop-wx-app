@@ -1,51 +1,59 @@
-<!--index.wxml-->
-
 <view class="container">
-<!-- <view style="width: 100%;height: 300rpx; background: -webkit-linear-gradient(top,#85c43f,white); position: absolute;"></view> -->
- <view style="height: 80%;"> 
-    <text class="logoText" >职   工   文   体   中   心</text>
-    <text  class="programSty">小   程   序</text>
-   <image class="logoBgimg" src="/static/images/bgimg.jpg"></image>
+  <view style="height: 80%;">
+    <!-- <text class="logoText" >职   工   文   体   中   心</text>
+    <text  class="programSty">小   程   序</text> 
+   <image class="logoBgimg" src="/static/images/bgimg1.jpg"></image>-->
+    <image class="logoBgimg" src="https://www.zgwtpxzx.online/images/bgimg1.jpg"></image>
   </view>
-<!-- 轮播图 -->
+  <!-- 轮播图 -->
   <swiper class="banner" indicator-dots="true" autoplay="true">
-    <swiper-item wx:for="{{banner}}" wx:key="id" >
-      <image src="{{item.url}}"background-size="100%" background-position="center" style=""></image>
+    <swiper-item wx:for="{{banner}}" wx:key="id">
+      <image src="{{item.url}}" background-size="100%" background-position="center"></image>
       <!-- background-size="contain" -->
     </swiper-item>
   </swiper>
-  
+
   <view class="lineSty"></view>
   <view class='news acea-row row-between-wrapper' style="background-color: #f7f8f6;margin: 20rpx 10rpx 20rpx 10rpx;height: 290rpx;">
-       <view class='pictrue' style=" border-radius: 10px; border: 1px solid rgb(223, 213, 213);box-shadow: 10px 10px 10px rgba(151, 140, 140, 0.5);">
-        <image class="AnnouImgSty"src='/static/images/notice.png'style="height:40rpx;width:40rpx;float:left;margin-top:9px;margin-left:10px">
-         </image>
-         <view style="width: 100%;height: 10px;"> 
-           <text class="AnnounTitle">公告内容</text>
-          </view>
-         <view class="AnnouncementLine"></view>
-         <view style=""  class="AnnouViewSty">
-         <rich-text class="textSty" nodes="{{ArticleDetail}}"></rich-text>
-         <!-- {{ArticleDetail}} -->
-        </view>
-       </view> 
+    <view class='pictrue' style=" border-radius: 10px; border: 1px solid rgb(223, 213, 213);box-shadow: 10px 10px 10px rgba(151, 140, 140, 0.5);">
+      <image class="AnnouImgSty" src='/static/images/notice.png' style="height:40rpx;width:40rpx;float:left;margin-top:9px;margin-left:10px">
+      </image>
+      <view style="width: 100%;height: 10px;">
+        <text class="AnnounTitle">公告内容</text>
+      </view>
+      <view class="AnnouncementLine"></view>
+      <view style="" class="AnnouViewSty">
+        <rich-text class="textSty" nodes="{{ArticleDetail}}"></rich-text>
+        <!-- {{ArticleDetail}} -->
+      </view>
+    </view>
   </view>
   <!-- 个体、团队 -->
-   <view class="desc" style="height: 200rpx;">
-    <picker class="btn" mode="selector" value="{{index}}"  range-key="name" range="{{singleList}}" bindchange='selectSingle' >
-    <button type="primary" style="background-color: rgb(38, 132, 240)">个人预约</button>
+  <view class="desc" style="height: 200rpx;">
+    <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{singleList}}" bindchange='selectSingle'>
+      <button type="primary" style="background-color: rgb(38, 132, 240)">个人预约</button>
     </picker>
-    <!-- <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{multiList}}" bindchange='selectMulti'>
-       <button  type="primary" style="background-color: rgb(38, 132, 240);">团队预约</button> 
-    </picker> -->
-  </view> 
+    <picker class="btn" mode="selector" value="{{index}}" range-key="name" range="{{multiList}}" bindchange='selectMulti'>
+      <button type="primary" style="background-color: rgb(38, 132, 240);">团队预约</button>
+    </picker>
+  </view>
 
- 
+  <!-- <view class="wrap">
 
-  <!-- <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile">微信直接登录</button>
-  <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin">微信直接登录</button> -->
-
-     
+    <view class="modal modal-bottom-dialog" hidden="{{hideFlag}}">
+      <view class="modal-cancel" bindtap="hideModal"></view>
+      <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+        <view class='Mselect' style="margin: 20rpx 10rpx 100rpx 10rpx;">
+          <text>在您预约时，我们将使用您的姓名、手机号等信息进行<text style="color: #808faf;">预约信息查询</text>，不做其他用途</text>
+        </view>
+        <view></view>
+        <view class='Mcancel' style="display: flex;justify-content: space-around;">
+          <button class="n-cancel" bindtap='refuse'>拒绝</button>
+          <button class="y-cancel" bindtap='allow'>允许</button>
+        </view>
+      </view>
+    </view>
+  </view> -->
 </view>
-<coupon-window window='{{window}}' couponList="{{coupon}}" bind:onColse="onColse"></coupon-window>
 
+<coupon-window window='{{window}}' couponList="{{coupon}}" bind:onColse="onColse"></coupon-window>

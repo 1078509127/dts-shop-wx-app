@@ -1,6 +1,7 @@
 <view class='user'>
   <view class="half-circle-container" style="height: 400rpx;">
-    <image class="" src="/static/images/bgimg.jpg" style="width: 100%;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;height: 550rpx;"></image>
+    <!-- <image class="" src="/static/images/bgimg.jpg" style="width: 100%;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;height: 550rpx;"></image> -->
+    <image class="" src="https://www.zgwtpxzx.online/images/bgimg.jpg" style="width: 100%;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;height: 550rpx;"></image>
     <view class='picTxt acea-row row-between-wrapper' bindtap="goLogin" style="position: absolute;top: 220rpx;left: 20rpx;">
       <view class='pictrue'>
         <image src='https://pic.qqans.com/up/2024-6/17183257325107618.jpg' style="height: 70px;width: 70px;border-radius: 50%;margin: 60rpx 60rpx;"></image>
@@ -8,7 +9,7 @@
       </view>
       <view class='text'>
         <view class='acea-row row-middle'>
-          <view class='name line1' style="color: white;font-size: 45rpx;">用户：{{userInfo.nickName || '未登录'}}</view>
+          <view class='name line1' style="color: white;font-size: 45rpx;">用户：{{userInfo.nickName||'未登录'}}</view>
           <!-- <text class='iconfont icon-shezhi' style="margin: 200rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text> -->
         </view>
         <text class='iconfont icon-shezhi' style="position:absolute;top: 100rpx; left: 630rpx;color: white;font-size: 55rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text>

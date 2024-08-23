@@ -16,18 +16,19 @@ Page({
     hasLogin: false,
     userSharedUrl: '',
 
-
     username: '',
     mobile: '',
     userid:'',
-
+    onShow:true,
   },
 
   /**
       * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      onShow:app.globalData.isExamine
+    })
   },
   onShow: function () {
     let that = this;

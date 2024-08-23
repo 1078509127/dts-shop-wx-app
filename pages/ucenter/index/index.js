@@ -188,6 +188,7 @@ Page({
     }
 
   },
+  //扫描二维码
   scanBtn: function () {
     const userInfo = wx.getStorageSync('userInfo');
     if (!this.data.hasLogin) {
@@ -254,18 +255,6 @@ Page({
         userInfo: userInfo,
         hasLogin: true
       });
-
-      //   let that = this;
-      //   util.request(api.UserIndex).then(function (res) {
-      //     if (res.errno === 0) {
-      //       that.setData({
-      //         order: res.data.order,
-      //         totalAmount: res.data.totalAmount,
-      //         remainAmount: res.data.remainAmount,
-      //         couponCount: res.data.couponCount
-      //       });
-      //     }
-      //   });
     }
   },
   //模态框确定绑定
@@ -367,11 +356,6 @@ Page({
   // =================================后台管理=================================//
 
   managerBtn: function (e) {
-    // if (!app.globalData.hasLogin) {
-    //   wx.navigateTo({
-    //     url: "/pages/auth/accountLogin/accountLogin"
-    //   });
-    // }
     var that = this;
     that.setData({
       name: e.currentTarget.dataset.name
@@ -429,10 +413,10 @@ Page({
       fail: function (res) {}
     })
   },
-
+  //生成二维码
   QRcode: function (e) {
     wx.downloadFile({
-      url: api.QRcode + "?scene=" + e,
+      url: 'https://9au6009911pe.vicp.fun/wx/manage/QRcode' + "?scene=" + e,
       success: function (ress) {
         wx.getSetting({
           success: function (res) {

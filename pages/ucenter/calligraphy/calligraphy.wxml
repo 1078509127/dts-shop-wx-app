@@ -6,13 +6,13 @@
         <text class="introduce">书法，‌作为一种独特的艺术形式，‌是中国文化的重要组成部分。‌它不仅仅是一种文字的书写，‌更是一种艺术的表达和审美的享受。‌每一幅书法作品都蕴含着作者的情感和思想，‌给人以无限的遐想和想象空间。‌在练习书法的过程中，‌需要不断钻研古人的书法作品，‌汲取精华，‌努力提高自己的书法水平。‌</text>
          <text class="jsTestSty">以下是书法室实景图片</text>
           <view>
-            <image class="jsSty" src="http://192.168.2.232:8080/storage/dacsueianvkqjya7dhs8.jpg"></image>
+            <image class="jsSty" src="https://9au6009911pe.vicp.fun/storage/dacsueianvkqjya7dhs8.jpg"></image>
           </view>
            <view>
-            <image class="img" src="http://192.168.2.232:8080/storage/9sre26y08y28tut25o20.jpg"></image>
+            <image class="img" src="https://9au6009911pe.vicp.fun/storage/9sre26y08y28tut25o20.jpg"></image>
           </view>
           <view>
-            <image class="img" src="http://192.168.2.232:8080/storage/h4k6hfa8v5ehs2zq3e5q.jpg"></image>
+            <image class="img" src="https://9au6009911pe.vicp.fun/storage/h4k6hfa8v5ehs2zq3e5q.jpg"></image>
           </view> 
       </button>
     </view>

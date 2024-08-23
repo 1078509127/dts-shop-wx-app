@@ -241,6 +241,55 @@
   line-height: 32rpx;
 }
 
+
+.arrow{
+  display:inline-block;
+  border:6px solid transparent;
+  border-top-color:#000;
+  margin-left:8px;
+  position:relative;
+  top:6rpx;
+}
+/* ---------------------------- */
+/*模态框*/
+.modal{position:fixed; top:0; right:0; bottom:0; left:0; z-index:1000;}
+.modal-cancel{position:absolute; z-index:2000; top:0; right:0; bottom: 0; left:0; background:rgba(0,0,0,0.3);}
+.bottom-dialog-body{width:100%; position:absolute; z-index:3000; bottom:0; left:0;background:#dfdede;}
+/*动画前初始位置*/
+.bottom-positon{-webkit-transform:translateY(100%);transform:translateY(100%);}
+ 
+ 
+/* 底部弹出框 */
+.n-cancel{
+  background-color: #f2f2f2;
+  width: 30%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: black;
+}
+.y-cancel{
+  background-color: #07c160;
+  width: 30%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #ffffff;
+}
+
+.Mselect{
+  margin-bottom: 20rpx;
+}
+.Mselect view{
+  padding: 26rpx 0;
+  background: #fff;
+}
+.Mselect view:not(:last-of-type){
+  border-bottom: 1px solid #dfdede;
+}
+.Mcancel{
+  background: #fff;
+  padding: 26rpx 0;
+}
+
 .a-coupon .b .content {
   margin-left: 40rpx;
   display: flex;
@@ -681,7 +730,7 @@ margin-left:10rpx;color:#fff;}
 /*模态框*/
 .modals{position:fixed; z-index: 999; top:0; left: 0; right:0; bottom: 0;}
 .modals-cancel{position:absolute; z-index:1000; top:0; left: 0; right:0; bottom: 0; background-color: rgba(0,0,0,.5);}
-.bottom-dialog-body{position:absolute; z-index:10001; bottom:0; left:0; right:0; padding:30rpx; height:300rpx; background-color: #fff;}
+.bottom-dialog-body{position:absolute; z-index:10001; bottom:0; left:0; right:0; padding:30rpx; height:370rpx; background-color: #fff; border-top-left-radius: 10rpx;  border-top-right-radius: 10rpx;}
 /*动画前初始位置*/
 .bottom-pos{-webkit-transform:translateY(100%);transform:translateY(100%);}
 

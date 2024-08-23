@@ -17,12 +17,12 @@ Page({
   //查询数据
   list: function () {
     util.request(api.activeList, null, 'GET').then(res => {
-      for (var i = 0; i < res.length; i++) {
-        if (res[i].name != '乒乓球馆') {
-          res.splice(i, 1)
-          i--;
-        }
-      }
+      // for (var i = 0; i < res.length; i++) {
+      //   if (res[i].name != '乒乓球馆') {
+      //     res.splice(i, 1)
+      //     i--;
+      //   }
+      // }
       this.setData({
         setList: res
       })
