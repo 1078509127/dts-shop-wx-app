@@ -17,6 +17,7 @@ Page({
 
   //取消按钮点击事件
   cancel_click:function(e){
+    
     var that = this
     let datas = e.currentTarget.dataset.item
     datas.userId = this.data.userinfo.userId;
@@ -37,9 +38,10 @@ Page({
   },
  //点击所有订单查询
  ReserveSel:function(){
+   debugger
    var that = this;
   this.data.userinfo = wx.getStorageSync('userInfo');
-  util.request(api.SelReserve,{userId:this.data.userinfo.userId,eventType:this.data.eventType},'GET').then(function (res) {
+  util.request(api.SelReserve,{userId:that.data.userinfo.userId,eventType:that.data.eventType},'GET').then(function (res) {
       for (var i = 0; i < res.data.length; i++) {
         res.data[i].startTime = res.data[i].date + " " + res.data[i].startTime
         res.data[i].endTime = res.data[i].date + " " + res.data[i].endTime

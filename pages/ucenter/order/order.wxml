@@ -80,9 +80,17 @@
         <text class="goods_name" wx:if="{{item.eventType == '个人预约'}}">结束时间：{{item.endTime}}</text>
         
       </view>
+      <view wx:if="{{item.disallowance ==='1'}}">
+        <button class = "btn_goods" style="background-color: red;pointer-events: none;"data-item="{{item}}" bindtap="cancel_click">
+          <view class = "buy" >已驳回</view>
+      </button>
+    </view>
+    <view wx:else="">
       <button class = "btn_goods" data-item="{{item}}" bindtap="cancel_click">
           <view class = "buy">取消预约</view>
+          <!-- <view class = "buy" wx:else="{{item.disallowance =="1"}}">已驳回</view> -->
       </button>
+    </view>
     </view>
   </block>
 </scroll-view>

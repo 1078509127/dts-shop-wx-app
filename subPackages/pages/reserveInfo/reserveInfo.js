@@ -51,7 +51,11 @@ Page({
 
   //查看详细信息
   cancel_click: function (e) {
+    debugger
     console.log(123,e)
+    
+    
+    wx.setStorageSync("ReserveId", e.target.dataset.item.id); 
     wx.navigateTo({
       url: '/subPackages/pages/eventTypeReBack/index?form=' + JSON.stringify(e.currentTarget.dataset.item),
     })
