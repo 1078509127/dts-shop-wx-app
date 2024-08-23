@@ -1,5 +1,5 @@
-<view wx:if="{{onShow}}">
-  <view class="container">
+   <view wx:if="{{onShow}}">
+   <view class="container">
   <form bindsubmit="submitForms">
     <view class="form-group">
       <label>昵称：</label>
@@ -56,10 +56,10 @@
     </view>
     <button type="primary" form-type="submit" style="height: 80rpx;width: 94%;line-height: 80rpx;margin: auto;margin-bottom: 20rpx;background-color: rgb(38, 132, 240);">预约</button>
   </form>
-</view>
-</view>
-<wxs src="../eventType/util.wxs" module="util" />
-<view wx:else class="container">
+</view> 
+</view>   
+ <wxs src="../eventType/util.wxs" module="util" /> 
+ <view wx:else class="container">
   <form bindsubmit="submitForm">
     <view class="form-group">
       <label>昵称：</label>
@@ -135,6 +135,7 @@
       <textarea class="area" name="remark" value="{{remark}}" placeholder="请输入活动内容描述"></textarea>
     </view>
     <view  style="font-size: 25rpx;color: red;text-align: center;margin: 5rpx;">声明: 姓名、手机号等信息仅用于预约信息查询，不做其他用途</view>
+    <text style="font-size: 25rpx;color: red;" decode="{{true}}">&ensp;&ensp;声明2: 具体时间以管理员电话联系为准</text>
     <button type="primary" form-type="submit" style="height: 80rpx;width: 94%;line-height: 80rpx;margin: auto;margin-bottom: 20rpx;background-color: rgb(38, 132, 240);">预约</button>
   </form>
-</view>
+ </view>

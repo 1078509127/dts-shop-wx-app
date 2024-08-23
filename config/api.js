@@ -1,8 +1,8 @@
 // 以下是业务服务器API地址
  // 本机开发API地址
-//var WxApiRoot = 'http://192.168.2.232:8080/wx/';
-var WxApiRoot = 'https://www.zgwtpxzx.online/';
-//var WxApiRoot = 'https://9au6009911pe.vicp.fun/wx/';
+var WxApiRoot = 'http://localhost:8080/wx/';
+//var WxApiRoot = 'https://www.zgwtpxzx.online/';
+// var WxApiRoot = 'https://9au6009911pe.vicp.fun/wx/';
 
 
 module.exports = {
@@ -32,6 +32,7 @@ module.exports = {
   AuthUpUser: WxApiRoot + 'auth/upuser',//修改用户信息
 
   //管理端接口
+  admDisallowance: WxApiRoot + 'reserve/admDisallowance', //管理员驳回预约接口
   ManReserve: WxApiRoot + 'manage/list', //预约查询
   selMessage:WxApiRoot + 'manage/getMessage', //留言查看
   dowReserve: WxApiRoot + 'manage/download', //预约导出

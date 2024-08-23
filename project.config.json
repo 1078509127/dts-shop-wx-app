@@ -18,12 +18,11 @@
       "outputPath": ""
     },
     "ignoreUploadUnusedFiles": true,
-    "packNpmRelationList": []
+    "packNpmRelationList": [],
+    "coverView": false,
+    "showShadowRootInWxmlPanel": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.16.0",
-  "appid": "wxfca6a2518f958a6d",
-  "projectname": "dts-shop",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
@@ -73,12 +72,13 @@
       ]
     }
   },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
   "packOptions": {
     "ignore": [],
     "include": []
   },
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
-  }
+  "appid": "wxfca6a2518f958a6d"
 }

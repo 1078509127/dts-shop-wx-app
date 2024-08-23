@@ -86,7 +86,6 @@ Page({
   },
   requestRegister: function() {
      const userInfo =  wx.getStorageSync('userInfo');
-     console.log(userInfo)
     let that = this;
     wx.request({
       url: api.AuthRegister,
@@ -103,7 +102,9 @@ Page({
       success: function(res) {
         if (res.data.errno == 0) {
           app.globalData.hasLogin = true;
-          wx.setStorageSync('userInfo', res.data.data.userInfo);
+          userInfo.nickName = res.data.data.userInfo.nickName
+          userInfo.register = res.data.data.userInfo.register
+          wx.setStorageSync('userInfo', userInfo);
           if (res.data.data.reIssucces ==1) {//注册成功
           wx.switchTab({
             url: '/pages/ucenter/index/index'

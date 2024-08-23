@@ -74,7 +74,7 @@
       </view>
     </view>
 
-    <view class='myService' wx:if="{{userInfo && userInfo.roleIds}}">
+     <view class='myService' wx:if="{{userInfo && userInfo.roleIds}}"> 
     <view style="display: flex;border-bottom:1px dashed #ddd;">
       <view class='title acea-row row-middle jhx_f4'>后台管理</view>
       <view style="height:88rpx;line-height: 88rpx;font-size:28rpx;color:#666;font-weight: bold;margin-left: auto;margin-right: 50rpx;color: black;">管理员</view>
@@ -87,7 +87,7 @@
           <view class='jhx_f2'>{{item.name}}</view>
         </view>
       </view>
-    </view>
+     </view>
 
     <!-- <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile">微信直接登录</button>
      <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin">微信直接登录</button> -->
