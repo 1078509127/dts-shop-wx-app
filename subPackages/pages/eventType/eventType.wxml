@@ -1,5 +1,5 @@
-   <view wx:if="{{onShow}}">
-   <view class="container">
+<view wx:if="{{onShow}}">
+  <view class="container">
   <form bindsubmit="submitForms">
     <view class="form-group">
       <label>昵称：</label>
@@ -56,13 +56,13 @@
     </view>
     <button type="primary" form-type="submit" style="height: 80rpx;width: 94%;line-height: 80rpx;margin: auto;margin-bottom: 20rpx;background-color: rgb(38, 132, 240);">预约</button>
   </form>
-</view> 
-</view>   
- <wxs src="../eventType/util.wxs" module="util" /> 
- <view wx:else class="container">
+</view>
+</view>
+<wxs src="../eventType/util.wxs" module="util" />
+<view wx:else class="container">
   <form bindsubmit="submitForm">
     <view class="form-group">
-      <label>昵称：</label>
+      <label>姓名：</label>
       <input type="text" name="userName" value="{{userName}}"  placeholder="请输入中文/英文名字" wx:if="{{eventType === '个人预约'}}"/>
       <input type="text" name="userName" value="{{userName}}" placeholder="请输入昵称" wx:else/>
     </view>
@@ -84,7 +84,7 @@
     </view>
     <view class="form-group" wx:if="{{eventType === '个人预约'}}">
       <label>电子会员卡号：</label>
-      <input type="number" name="memberCard" value="{{memberCard}}" placeholder="请输入会员卡号" />
+      <input type="number" name="memberCard"  bindinput ="bindCard" value="{{memberCard}}" placeholder="请输入会员卡号" />
     </view>
     <view class="form-group" >
       <label>预约时间：</label>
@@ -134,8 +134,12 @@
       <label>活动内容描述：</label>
       <textarea class="area" name="remark" value="{{remark}}" placeholder="请输入活动内容描述"></textarea>
     </view>
-    <view  style="font-size: 25rpx;color: red;text-align: center;margin: 5rpx;">声明: 姓名、手机号等信息仅用于预约信息查询，不做其他用途</view>
-    <text style="font-size: 25rpx;color: red;" decode="{{true}}">&ensp;&ensp;声明2: 具体时间以管理员电话联系为准</text>
+
+
+    <view wx:if="{{eventType === '个人预约'}}"  style="font-size: 25rpx;color: red;text-align: center;margin: 5rpx;">声明: 姓名、手机号等信息仅用于预约信息查询，不做其他用途</view>
+     <view wx:else style="font-size: 25rpx;color: red;text-align: center;margin: 5rpx;">声明: 姓名、手机号等信息仅用于预约信息查询，不做其他用途</view> 
+    <view wx:if="{{eventType === '个人预约'}}"  style="font-size: 25rpx;color: red;margin:5rpx 5rpx 0rpx 8rpx;">请如实填写的姓名、电话、单位及电子会员卡号，工作人员将进行现场核对，信息核对不一致谢绝入场。</view>
+    
     <button type="primary" form-type="submit" style="height: 80rpx;width: 94%;line-height: 80rpx;margin: auto;margin-bottom: 20rpx;background-color: rgb(38, 132, 240);">预约</button>
   </form>
- </view>
+</view>

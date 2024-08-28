@@ -3,6 +3,7 @@ const util = require('../../../utils/util.js');
 const api = require('../../../config/api.js');
 const user = require('../../../utils/user.js');
 const WxValidate = require('../../utils/WxValidate.js');
+//  const { timePanelSharedProps } = require('element-plus/es/components/time-picker/src/props/shared');
 // const { raycast } = require('XrFrame/physics/raycast');
 
 //获取应用实例
@@ -147,6 +148,16 @@ Page({
     console.log("formData>>>>>", formData)
     //验证规则 失败报错 成功请求后端
     if(this.data.eventType == '个人预约'){
+      // 会员卡号判断
+      if(formData.memberCard.length>16|| formData.memberCard.length<16){
+       
+          wx.showToast({
+            title: '请输入16位会员卡号',
+            icon: 'none'
+          })
+          return
+        }
+        
       const validate = this.validateTime(this.data.startTime, this.data.endTime);
       if (validate != null) {
         wx.showModal({title: validate,icon: 'error',duration: 2000 });
@@ -163,15 +174,18 @@ Page({
       // 活动人数数字check
       
       if (/[\u3400-\u4dbf\u4e00-\u9fff]+/g.test(formData.activeNumber)== true) {
-      // if(isNaN(parseInt(formData.activeNumber))){
-        
           wx.showModal({
             title: '活动人数请输入数字',
             icon: 'error',
             duration: 2000,
           })
           return;
-        //}
+      }else{
+        // 预约活动人数flag ==flase 超出标准预约人数
+       var activeNumflag =  this.activeNum(formData.activeNumber)
+      if(activeNumflag == false){
+        return;
+      }
       }
       
       util.request(api.TeamReserve, formData, 'POST').then(function (res) {
@@ -293,56 +307,88 @@ Page({
       sex: that.data.sexList[e.detail.value]
     })
   },
+// 会员卡号的16位
+  bindCard:function(e){
+    let that = this;
+  
+    console.log(that.data.memberCard)
+    console.log(e.detail.value)
+    // if(e.detail.value.length<16 ||e.detail.value.length>16){
+    //     setTimeout(() => {
+    //     wx.showToast({
+    //       title: '请输入16位会员卡号',
+    //       icon: 'none'
+    //     })
+    //     return
+    //   }, 1000);
+    //   return
+    //   }
+      if(e.detail.value.length == 16){
+         this.setData({
+            memberCard:e.detail.value
+        })
+      }
+  
+  },
   //输入活动预约人数check
-  NumCheck: function (type, rsNum, MaxNum) {
+ NumCheck: function (type, rsNum, MaxNum) {
     if (!rsNum) {
-      setTimeout(() => {
         wx.showToast({
           title: '只能输入数字' + type + '最多预约' + MaxNum + '人',
           icon: 'none'
         })
-        return
-      }, 1000);
+      return;
 
     } else {
-      if (Number(rsNum.input) > MaxNum) {
-        setTimeout(() => {
+      if (Number(rsNum) > MaxNum) {
+        // setTimeout(() => {
           wx.showToast({
             title: '只能输入数字' + type + '最多预约' + MaxNum + '人',
             icon: 'none'
           })
-          return
-        }, 1000);
+        // }, 1000);
+        return false;
       }
     }
 
   },
   //活动人数
-  activeNum: function (e) {
+   activeNum: function (e) {
+    
     var type = this.data.scene //活动室类型
     var regNum = new RegExp('[0-9]', 'g');
-    var rsNum = regNum.exec(e.detail.value);
+    if(typeof e === 'string'){
+      var rsNum = regNum.exec(e);
+    }else{
+      var rsNum = regNum.exec(e.detail.value);
+    }
     switch (type) {
       case '微机室':
-        this.NumCheck(type, rsNum, 30)
+        var activeNumflag =   this.NumCheck(type, rsNum.input, 30)
+        return activeNumflag;
         break;
       case '瑜伽室':
-        this.NumCheck(type, rsNum, 15)
+        var activeNumflag = this.NumCheck(type, rsNum.input, 15)
+        return activeNumflag;
         break;
       case '书法室':
-        this.NumCheck(type, rsNum, 20)
+        var activeNumflag =  this.NumCheck(type, rsNum.input, 20)
+        return activeNumflag;
         break;
       case '录音教室':
-        this.NumCheck(type, rsNum, 15)
+        var activeNumflag =  this.NumCheck(type, rsNum.input, 15)
+        return activeNumflag;
         break;
       case '烘培室':
-        this.NumCheck(type, rsNum, 30)
+       var activeNumflag = this.NumCheck(type, rsNum.input, 30)
+       return activeNumflag;
         break;
       default:
 
     }
 
   },
+
   bindDate: function (e) {
     if (this.data.eventType == '个人预约') {
       const weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
@@ -360,9 +406,9 @@ Page({
         url: api.IsFull,
         method: 'GET',
         data: {
+          scene: this.data.scene,
           userId: this.data.userinfo.userId,
           eventType: this.data.eventType,
-          scene: this.data.scene,
           date: e.detail.value
         },
         success: function (res) {

@@ -2,7 +2,7 @@
   <view style="height: 80%;">
     <!-- <text class="logoText" >职   工   文   体   中   心</text>
     <text  class="programSty">小   程   序</text> 
-   <image class="logoBgimg" src="/static/images/bgimg1.jpg"></image>-->
+   <image class="logoBgimg" src="https://www.zgwtpxzx.online/images/bgimg1.jpg"></image>-->
     <image class="logoBgimg" src="https://www.zgwtpxzx.online/images/bgimg1.jpg"></image>
   </view>
   <!-- 轮播图 -->

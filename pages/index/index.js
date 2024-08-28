@@ -146,16 +146,8 @@ Page({
   },
   //跳转个人
   selectSingle: function (e) {
-    // var that = this
-    // that.showModal();
-    // that.setData({
-    //   eventType: '个人预约',
-    //   scene : this.data.singleList[e.detail.value].name,
-    //   isOpen:this.data.singleList[e.detail.value].isOpen
-    // })
     let userInfo = wx.getStorageSync('userInfo');
-    if (!userInfo) {
-      let that = this
+    if (!userInfo || Object.keys(userInfo).length == 0 || userInfo.userId == undefined) {
       wx.navigateTo({
         url: '/pages/auth/login/login',
       })
@@ -173,16 +165,8 @@ Page({
   },
   //跳转团队
   selectMulti: function (e) {
-    // var that = this
-    // that.showModal();
-    // that.setData({
-    //   eventType: '团队预约',
-    //   scene : this.data.singleList[e.detail.value].name,
-    //   isOpen:this.data.singleList[e.detail.value].isOpen
-    // })
     let userInfo = wx.getStorageSync('userInfo');
-    if (!userInfo) {
-      let that = this
+    if (!userInfo || Object.keys(userInfo).length == 0 || userInfo.userId == undefined) {
       wx.navigateTo({
         url: '/pages/auth/login/login',
       })

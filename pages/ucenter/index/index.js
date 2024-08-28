@@ -159,23 +159,18 @@ Page({
    * 页面跳转
    */
   goPages: function (e) {
-    console.log(1);
-    if (this.data.hasLogin) {
+    let userInfo = wx.getStorageSync('userInfo');
+    if (this.data.hasLogin && Object.keys(userInfo).length != 0 && userInfo.userId != undefined) {
       wx.navigateTo({
         url: e.currentTarget.dataset.url
       });
     } else {
       let that = this
-      that.setData({
-        hideModal: false
-      })
-      wx.navigateTo({
-        url: "/pages/auth/login/login"
-      });
+      that.setData({ hideModal: false })
+      wx.navigateTo({ url: "/pages/auth/login/login" });
     };
   },
   upUser: function () {
-    const userInfo = wx.getStorageSync('userInfo');
     if (!this.data.hasLogin) {
       wx.navigateTo({
         url: "/pages/auth/login/login"
@@ -184,14 +179,12 @@ Page({
       wx.navigateTo({
         url: "/pages/ucenter/updateuser/updateuser",
       });
-
     }
-
   },
   //扫描二维码
   scanBtn: function () {
     const userInfo = wx.getStorageSync('userInfo');
-    if (!this.data.hasLogin) {
+    if (!this.data.hasLogin || Object.keys(userInfo).length == 0 || userInfo.userId == undefined) {
       wx.navigateTo({
         url: "/pages/auth/login/login"
       });
@@ -311,7 +304,8 @@ Page({
   },
   goOrder(e) {
     let eventType = e.currentTarget.dataset.eventtype;
-    if (this.data.hasLogin) {
+    let userInfo = wx.getStorageSync('userInfo');
+    if (this.data.hasLogin && Object.keys(userInfo).length != 0 && userInfo.userId != undefined) {
       try {
         wx.setStorageSync('tab', '0');
       } catch (e) {}
@@ -356,6 +350,12 @@ Page({
   // =================================后台管理=================================//
 
   managerBtn: function (e) {
+    let userInfo = wx.getStorageSync('userInfo');
+    if(!userInfo || Object.keys(userInfo).length == 0 || userInfo.userId == undefined){
+      wx.navigateTo({
+        url: "/pages/auth/login/login"
+      });
+    }
     var that = this;
     that.setData({
       name: e.currentTarget.dataset.name
@@ -416,7 +416,7 @@ Page({
   //生成二维码
   QRcode: function (e) {
     wx.downloadFile({
-      url: 'https://9au6009911pe.vicp.fun/wx/manage/QRcode' + "?scene=" + e,
+      url: 'https://www.zgwtpxzx.online/wx/manage/QRcode' + "?scene=" + e,
       success: function (ress) {
         wx.getSetting({
           success: function (res) {

@@ -13,7 +13,8 @@ Page({
     mobile: '',
     hasPicture: false,
     picUrls: [],
-    files: []
+    files: [],
+    onShow:true,
   },
   chooseImage: function(e) {
     if (this.data.files.length >= 5) {
@@ -112,22 +113,22 @@ Page({
       return false;
     }
 
-    // if (that.data.mobile == '') {
-    //   util.showErrorToast('请输入手机号码');
-    //   return false;
-    // }
+    if (that.data.mobile == '') {
+      util.showErrorToast('请输入手机号码');
+      return false;
+    }
 
-    // if (!check.isValidPhone(this.data.mobile)) {
-    //   this.setData({
-    //     mobile: ''
-    //   });
-    //   wx.showToast({
-    //     title: '请输入正确的手机号码',
-    //     icon: 'none',
-    //   })
-    //   //util.showErrorToast('请输入正确的手机号码');
-    //   return false;
-    // }
+    if (!check.isValidPhone(this.data.mobile)) {
+      this.setData({
+        mobile: ''
+      });
+      wx.showToast({
+        title: '请输入正确的手机号码',
+        icon: 'none',
+      })
+      //util.showErrorToast('请输入正确的手机号码');
+      return false;
+    }
 
     wx.showLoading({
       title: '提交中...',
@@ -170,7 +171,9 @@ Page({
     });
   },
   onLoad: function(options) {
-
+    this.setData({
+      onShow:app.globalData.isExamine
+    })
   },
   onReady: function() {
 

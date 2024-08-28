@@ -12,10 +12,13 @@ Page({
         wx.getUserProfile({
           desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
           success: (res) => {
+            
             wx.showLoading({
               title: "登录中...",
               mask: true
             });
+            wx.removeStorageSync('token');
+            wx.removeStorageSync('userInfo');
             user.checkLogin().catch(() => {
               user.loginByWeixin(res.userInfo).then(res => {
                 user.authsubscribe();
@@ -72,11 +75,11 @@ Page({
         canIUseGetUserProfile: true
       })
     }
-    const privacySettingRes = this.getPrivacySetting();
-    console.log("privacySettingRes :>> ", privacySettingRes);
-    this.setData({
-      showPop: privacySettingRes.needAuthorization,
-    });
+    // const privacySettingRes = this.getPrivacySetting();
+    // console.log("privacySettingRes :>> ", privacySettingRes);
+    // this.setData({
+    //   showPop: privacySettingRes.needAuthorization,
+    // });
   },
   
   /**

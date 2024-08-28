@@ -34,6 +34,7 @@ Page({
     let that = this;
     //获取用户的登录信息
     let userInfo = wx.getStorageSync('userInfo');
+
     this.setData({
       userInfo: userInfo,
       hasLogin: true
@@ -170,9 +171,13 @@ Page({
     })
   },
 
-
   requestRegister: function(wxCode) {
     const userInfo =  wx.getStorageSync('userInfo');
+    if (!userInfo || Object.keys(userInfo).length == 0 || userInfo.userId == undefined) {
+      wx.navigateTo({
+        url: '/pages/auth/login/login',
+      })
+    }
     if (username1=="") {
       username1=userInfo.nickName
     }

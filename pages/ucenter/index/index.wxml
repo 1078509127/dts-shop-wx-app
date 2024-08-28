@@ -1,6 +1,5 @@
 <view class='user'>
   <view class="half-circle-container" style="height: 400rpx;">
-    <!-- <image class="" src="/static/images/bgimg.jpg" style="width: 100%;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;height: 550rpx;"></image> -->
     <image class="" src="https://www.zgwtpxzx.online/images/bgimg.jpg" style="width: 100%;border-bottom-left-radius: 20%;border-bottom-right-radius: 20%;height: 550rpx;"></image>
     <view class='picTxt acea-row row-between-wrapper' bindtap="goLogin" style="position: absolute;top: 220rpx;left: 20rpx;">
       <view class='pictrue'>
@@ -9,14 +8,12 @@
       </view>
       <view class='text'>
         <view class='acea-row row-middle'>
-          <view class='name line1' style="color: white;font-size: 45rpx;">用户：{{userInfo.nickName||'未登录'}}</view>
+          <view class='name line1' style="color: white;font-size: 45rpx;max-width: 350rpx;">用户：{{userInfo.nickName||'未登录'}}</view>
           <!-- <text class='iconfont icon-shezhi' style="margin: 200rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text> -->
         </view>
         <text class='iconfont icon-shezhi' style="position:absolute;top: 100rpx; left: 630rpx;color: white;font-size: 55rpx;" bindtap='goPages' data-url='/pages/ucenter/user/user'></text>
       </view>
-
     </view>
-
   </view>
 
   <view class='wrapper'>
@@ -74,11 +71,11 @@
       </view>
     </view>
 
-     <view class='myService' wx:if="{{userInfo && userInfo.roleIds}}"> 
-    <view style="display: flex;border-bottom:1px dashed #ddd;">
-      <view class='title acea-row row-middle jhx_f4'>后台管理</view>
-      <view style="height:88rpx;line-height: 88rpx;font-size:28rpx;color:#666;font-weight: bold;margin-left: auto;margin-right: 50rpx;color: black;">管理员</view>
-    </view>
+    <view class='myService' wx:if="{{userInfo && userInfo.roleIds}}">
+      <view style="display: flex;border-bottom:1px dashed #ddd;">
+        <view class='title acea-row row-middle jhx_f4'>后台管理</view>
+        <view style="height:88rpx;line-height: 88rpx;font-size:28rpx;color:#666;font-weight: bold;margin-left: auto;margin-right: 50rpx;color: black;">管理员</view>
+      </view>
       <view class='serviceList acea-row row-middle'>
         <view class='item' wx:for="{{managerList}}" wx:key="index" bindtap='managerBtn' data-name="{{item.name}}">
           <view class='pictrue'>
@@ -87,7 +84,7 @@
           <view class='jhx_f2'>{{item.name}}</view>
         </view>
       </view>
-     </view>
+    </view>
 
     <!-- <button wx:if="{{canIUseGetUserProfile}}" type="primary" class="wx-login-btn" bindtap="getUserProfile">微信直接登录</button>
      <button wx:else open-type="getUserInfo" type="primary" class="wx-login-btn" bindgetuserinfo="wxLogin">微信直接登录</button> -->

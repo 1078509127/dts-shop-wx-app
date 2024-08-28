@@ -1,9 +1,9 @@
-<!-- <view wx:if="{{onShow}}">
+<view wx:if="{{onShow}}">
   <view style="margin: 100% auto;text-align: center;font-size: 40rpx;font-weight: 600;color: rgb(185, 90, 46);">
     功能正在完善中。。。
   </view>
 </view>
-<view wx:else="" class="container"> -->
+<view wx:else="" class="container">
   <form bindsubmit="submitForm">
     <view class="form-group">
       <label>姓名：</label>
@@ -49,7 +49,7 @@
       <label>桌号：</label>
       <view style="display:flex;justify-content: space-around;margin-right: 20rpx;">
         <view class="sign-setting-border {{idx==item.number?'selected':''}}" name="tableNumber" wx:for="{{tableList}}" wx:key="id"  data-number="{{item.number}}">{{item.number}}</view>
-      </view>  
+      </view>
     </view>
     <view class="form-group" wx:if="{{eventType === '团队预约'}}">
       <label>活动人数：</label>
@@ -57,11 +57,12 @@
     </view>
     <view class="form-group" wx:if="{{eventType === '团队预约'}}">
       <label>活动内容描述：</label>
-      <textarea class="area"  style="height: 100rpx;" disabled="{{flag}}" name="remark" value="{{form.remark}}" placeholder="请输入备注" auto-focus="true"></textarea>
+      <textarea class="area" disabled="{{flag}}" name="remark" value="{{form.remark}}" placeholder="请输入备注" auto-focus="true"></textarea>
+    <view  style="font-size: 25rpx;color: red;text-align: center;margin: 5rpx;">声明: 姓名、手机号等信息仅用于预约信息查询，不做其他用途</view>
+
+        <view  wx:if="{{eventType === '团队预约'}}">
+        <button type="primary" form-type="submit" name="disallowance" style="height: 80rpx;width: 94%;line-height: 80rpx;margin: auto;margin-bottom: 20rpx;background-color: rgb(240, 51, 38);">驳回预约</button>
     </view>
     <view  style="font-size: 25rpx;color: red;text-align: center;margin: 5rpx;">声明: 姓名、手机号等信息仅用于预约信息查询，不做其他用途</view>
-    <view  wx:if="{{eventType === '团队预约'}}">
-    <button type="primary" form-type="submit" name="disallowance" style="height: 80rpx;width: 94%;line-height: 80rpx;margin: auto;margin-bottom: 20rpx;background-color: rgb(240, 51, 38);">驳回预约</button>
-    </view>
   </form>
-<!-- </view> -->
+</view>

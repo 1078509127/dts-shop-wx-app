@@ -59,7 +59,7 @@ Page({
         // that.setData({ imgs: that.data.imgs })
         for (var i = 0; i < tempFilePaths.length; i++) {
           wx.uploadFile({
-            url: 'https://9au6009911pe.vicp.fun/wx/manage/create',
+            url: api.creSwiper,
             filePath: tempFilePaths[i],
             name: "file",
             header: {
@@ -85,14 +85,13 @@ Page({
                 icon: "none",
                 duration: 2000
               })
-              console.log(err,api.creSwiper)
             },
             complete: function (result) {console.log(result.errMsg) }
           })
         }
       },
       fail: (res) => {
-        console.log(res,api.creSwiper)
+        console.log(res)
        }
     })
   },
