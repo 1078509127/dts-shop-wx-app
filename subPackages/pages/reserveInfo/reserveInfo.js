@@ -16,7 +16,7 @@ Page({
       field: e.detail.value
     })
   },
-  //查询
+  //预约查询
   selectBtn: function () {
     var that = this;
     util.request(api.ManReserve, { name: this.data.field }, "GET").then(res => {

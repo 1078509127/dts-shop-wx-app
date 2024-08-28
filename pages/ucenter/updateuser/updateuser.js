@@ -189,7 +189,7 @@ Page({
        return; 
       }
       if (!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(username1))) { 
-        wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: true });     
+        wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: 'none' });     
         return; 
       }
     wx.showModal({
@@ -217,12 +217,14 @@ Page({
      success: function(res) {
        if (res.data.errno == 0) {
          app.globalData.hasLogin = true;
-         wx.setStorageSync('userInfo', res.data.data.userInfo);
+        var userInfo= wx.getStorageSync('userInfo')
+        userInfo.phone=res.data.data.userInfo.phone
+        userInfo.nickName = res.data.data.userInfo.nickName
+        wx.setStorageSync('userInfo',userInfo)
+        
          wx.setStorageSync('register',true);
         //  wx.navigateTo({
         //     url: '/pages/ucenter/index/index'
-      
-
         //   });
         wx.navigateBack({
           //delta: 1 // 返回的页面数，如果是1表示返回上一级页面
@@ -254,13 +256,13 @@ Page({
   bindUsernameInput: function(e) {
     
     if (!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(e.detail.value))) { 
-          wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: true });     
+          wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: 'error' });     
           return; 
         }else{
     //判断英文
     if(/^[A-Za-z]+$/.test(e.detail.value)){
         if(e.detail.value.length>10){
-          wx.showToast({ title: '最多10个英文字符', duration: 2000, icon: true }); 
+          wx.showToast({ title: '最多10个英文字符', duration: 2000, icon: 'error' }); 
           username1 = e.detail.value.slice(0, 10)
         }else{
           //不大于长度10不截取
@@ -269,7 +271,7 @@ Page({
     }
     //判断中文
     if(/^[\u4e00-\u9fa5]+$/.test(e.detail.value)){
-      wx.showToast({ title: '最多五个中文字符', duration: 2000, icon: true }); 
+      wx.showToast({ title: '最多五个中文字符', duration: 2000, icon: 'error' }); 
       if(e.detail.value.length>5){
         username1 = e.detail.value.slice(0, 5)
       }else{
