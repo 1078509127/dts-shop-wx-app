@@ -247,45 +247,40 @@ Page({
 
 
 
-
-
-
-
-
 //用户名字监听
-  bindUsernameInput: function(e) {
+bindUsernameInput: function(e) {
     
-    if (!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(e.detail.value))) { 
-          wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: 'error' });     
-          return; 
-        }else{
-    //判断英文
-    if(/^[A-Za-z]+$/.test(e.detail.value)){
-        if(e.detail.value.length>10){
-          wx.showToast({ title: '最多10个英文字符', duration: 2000, icon: 'error' }); 
-          username1 = e.detail.value.slice(0, 10)
-        }else{
-          //不大于长度10不截取
-          username1 = e.detail.value
-        }
-    }
-    //判断中文
-    if(/^[\u4e00-\u9fa5]+$/.test(e.detail.value)){
-      wx.showToast({ title: '最多五个中文字符', duration: 2000, icon: 'error' }); 
-      if(e.detail.value.length>5){
-        username1 = e.detail.value.slice(0, 5)
+  if (!(/^[\u4E00-\u9FA5A-Za-z]+$/.test(e.detail.value))) { 
+        wx.showToast({ title: '请输入中文/英文名字', duration: 2000, icon: 'error' });     
+        return; 
+      }else{
+  //判断英文
+  if(/^[A-Za-z]+$/.test(e.detail.value)){
+      if(e.detail.value.length>10){
+        wx.showToast({ title: '最多10个英文字符', duration: 2000, icon: 'error' }); 
+        username1 = e.detail.value.slice(0, 10)
       }else{
         //不大于长度10不截取
         username1 = e.detail.value
       }
   }
+  //判断中文
+  if(/^[\u4e00-\u9fa5]+$/.test(e.detail.value)){
+    wx.showToast({ title: '最多五个中文字符', duration: 2000, icon: 'error' }); 
+    if(e.detail.value.length>5){
+      username1 = e.detail.value.slice(0, 5)
+    }else{
+      //不大于长度10不截取
+      username1 = e.detail.value
+    }
+}
 
-    
-    this.setData({
-      username: e.detail.value
-    });
-  }      
-  },
+  
+  this.setData({
+    username: e.detail.value
+  });
+}      
+},
   
 })
  
